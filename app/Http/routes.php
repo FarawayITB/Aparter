@@ -31,6 +31,9 @@ Route::controllers([
 ]);
 
 Route::get('parkir/daftar', 'ParkirController@create');
+
 Route::get('terminal/cek', 'TerminalviewController@cek');
+
+Route::get('terminal/lahan', 'TerminalviewController@lahan');
 
 Route::post('parkir/save', 'ParkirController@store');

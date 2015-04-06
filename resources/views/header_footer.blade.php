@@ -40,7 +40,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				        <span class="icon-bar"></span>
 				        <span class="icon-bar"></span>
 				      </button>
-				      <a class="navbar-brand" href="index.html"><img src="{{ asset('/images/logo.png') }}" alt="" class="img-responsive"/> </a>
+				      <a class="navbar-brand" href="{{ url('/index') }}"><img src="{{ asset('/images/logo.png') }}" alt="" class="img-responsive"/> </a>
 				    </div>
 				    <!-- Collect the nav links, forms, and other content for toggling -->
 				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
