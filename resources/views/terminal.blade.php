@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 @extends('header_footer2')
 
 @section('content2')
