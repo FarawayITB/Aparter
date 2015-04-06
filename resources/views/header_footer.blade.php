@@ -76,8 +76,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="row slider text-center">
 					<div class="col-md-8">
 							<div class="col-md-10 slider_text">
-								<h2>Lorem Ipsum is simply dummy text of the printing and  industry.</h2>
-								<h3>simple text place here</h3>
+								<h2>Butuh tempat parkir?</h2>
+								<h3>Cari dengan Aparter!</h3>
 							</div>
 						</div>
 						<div class="col-md-4">

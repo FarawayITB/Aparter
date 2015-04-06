@@ -4,8 +4,12 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use App\Parkir;
 
 use View;
+use Session;
+use Redirect;
 
 class ParkirController extends Controller {
 
@@ -37,32 +41,19 @@ class ParkirController extends Controller {
 	 */
 	public function store()
 	{
-		// validate
-		// read more on validation at http://laravel.com/docs/validation
-		$rules = array(
-				'full_name'  => 'required',
-				'email'      => 'required|email',
-				'message'    => 'required'
-		);
-		$validator = Validator::make(Input::all(), $rules);
+		// store
+		$parkir             = new Parkir;
+		$parkir->id_pemilik  = Input::get('id_pemilik');
+		$parkir->alamat      = Input::get('alamat');
+		$parkir->lokasi      = Input::get('lokasi');
+		$parkir->status      = Input::get('status');
+		$parkir->luas        = Input::get('luas');
+		$parkir->tarif       = Input::get('tarif');
+		$parkir->save();
 
-		// process the login
-		if ($validator->fails()) {
-			return Redirect::to('contact/create')
-							->withErrors($validator)
-							->withInput(Input::except('password'));
-		} else {
-			// store
-			$contact             = new Contact;
-			$contact->full_name  = Input::get('full_name');
-			$contact->email      = Input::get('email');
-			$contact->message    = Input::get('message');
-			$contact->save();
-
-			// redirect
-			Session::flash('message', 'Input data sukses!');
-			return Redirect::to('contact');
-		}
+		// redirect
+		Session::flash('message', 'Input data sukses!');
+		return Redirect::to('parkir/daftar');
 	}
 
 	/**

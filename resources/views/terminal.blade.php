@@ -13,7 +13,8 @@
 					<a rel="group" title="" href="{{ asset('images/ser_pic5.jpg')}}"><img src="{{ asset('images/ser_pic5.jpg')}}" alt=""class="img-responsive"/></a>
 				</div>
 				<a href="single-page.html">{{ $terminal->nama }}</a>
-				<p class="para">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
+				<p class="para">{{ $terminal->alamat }}</p>
+				<p class="para"> Jumlah Lahan Kosong : {{ $terminal->jumlah_lahan }}</p>
 			</div>
 			@endforeach
 		</div>
