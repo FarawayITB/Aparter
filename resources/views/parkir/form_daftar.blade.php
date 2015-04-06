@@ -2,19 +2,19 @@
 
 @section('content')
 	<div class="main"><!-- start main -->
-		<div class="container main">
-			@if (count($errors) > 0)
-				<div class="alert alert-danger">
-					<strong>Whoops!</strong> There were some problems with your input.<br><br>
-					<ul>
-						@foreach ($errors->all() as $error)
-							<li>{{ $error }}</li>
-						@endforeach
-					</ul>
+		<div class="container">
+			<div class="row">
+			<div class="col-xs-5">
+			</div>
+			<div class="col-xs-3">
+				<div class="page-header"> 
+					<h1>Pendaftaran Lahan Parkir</h1> 
 				</div>
-			@endif
-			<h2>Pendaftaran Lahan Parkir</h2>
-			
+			</div>
+			<div class="col-xs-4">
+			</div>
+		</div>
+		<div class="row">
 			<form class="form-horizontal" role="form" method="POST" action="{{ url('/parkir/save') }}">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -29,42 +29,42 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-md-4 control-label">No. KTP</label>
+					<label class="col-md-4 control-label"><h4>No. KTP</h4></label>
 					<div class="col-md-6">
 						<input type="text" class="form-control" name="id_pemilik">
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label class="col-md-4 control-label">Alamat</label>
+					<label class="col-md-4 control-label"><h4>Alamat</h4></label>
 					<div class="col-md-6">
 						<input type="text" class="form-control" name="alamat">
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label class="col-md-4 control-label">Lokasi</label>
+					<label class="col-md-4 control-label"><h4>Lokasi</h4></label>
 					<div class="col-md-6">
 						<input type="text" class="form-control" name="lokasi">
 					</div>
 				</div>
 				
 				<div class="form-group">
-					<label class="col-md-4 control-label">Status</label>
+					<label class="col-md-4 control-label"><h4>Status</h4></label>
 					<div class="col-md-6">
 						<input type="text" class="form-control" name="status">
 					</div>
 				</div>
 				
 				<div id="inputan-1" class="form-group toHide" >
-					<label class="col-md-4 control-label">Luas</label>
+					<label class="col-md-4 control-label"><h4>Luas</h4></label>
 					<div class="col-md-6">
 						<input type="text" class="form-control" name="luas">
 					</div>
 				</div>
 				
 				<div id="inputan-2" class="form-group toHide" >
-					<label class="col-md-4 control-label">Tarif</label>
+					<label class="col-md-4 control-label"><h4>Tarif</h4></label>
 					<div class="col-md-6">
 						<input type="text" class="form-control" name="tarif">
 					</div>
