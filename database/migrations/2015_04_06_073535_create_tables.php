@@ -29,6 +29,49 @@ class CreateTables extends Migration {
 			$table->string('nama');
 		});
 		
+		
+		Schema::create('jenis_kendaraan', function(Blueprint $table)
+		{
+			$table->increments('id');
+			$table->string('jenis_kendaraan');
+		});
+		
+		Schema::create('pembayaran', function(Blueprint $table)
+		{
+			$table->increments('id');
+			$table->integer('id_tempat');
+			$table->text('alamat');
+			$table->string('lokasi');
+			$table->integer('status');
+			$table->integer('integer');
+		});
+		
+		
+		Schema::create('terminal', function(Blueprint $table)
+		{
+			$table->increments('id');
+			$table->string('nama');
+			$table->text('alamat');
+			$table->string('lokasi');
+			$table->integer('jumlah_lahan');
+		});
+		
+		
+		Schema::create('lahan', function(Blueprint $table)
+		{
+			$table->increments('id');
+			
+			$table->integer('id_terminal')->unsigned();
+			$table->foreign('id_terminal')
+				  ->references('id')->on('terminal')
+				  ->onDelete('cascade');
+				  
+			$table->integer('id_pemilik')->index();
+			$table->string('status');
+			$table->float('luas');
+			$table->integer('harga');
+		});
+		
 		Schema::create('parkir_kecamatan', function(Blueprint $table)
 		{
 			$table->integer('id_parkir')->unsigned();
@@ -40,12 +83,6 @@ class CreateTables extends Migration {
 			$table->foreign('id_kecamatan')
 				  ->references('id')->on('kecamatan')
 				  ->onDelete('cascade');
-		});
-		
-		Schema::create('jenis_kendaraan', function(Blueprint $table)
-		{
-			$table->increments('id');
-			$table->string('jenis_kendaraan');
 		});
 		
 		Schema::create('parkir_jenis_kendaraan', function(Blueprint $table)
@@ -60,17 +97,6 @@ class CreateTables extends Migration {
 				  ->references('id')->on('jenis_kendaraan')
 				  ->onDelete('cascade');
 		});
-		
-		Schema::create('pembayaran', function(Blueprint $table)
-		{
-			$table->increments('id');
-			$table->integer('id_tempat');
-			$table->text('alamat');
-			$table->string('lokasi');
-			$table->integer('status');
-			$table->integer('integer');
-		});
-		
 		Schema::create('parkir_pembayaran', function(Blueprint $table)
 		{
 			$table->integer('id_parkir')->unsigned();
@@ -83,16 +109,6 @@ class CreateTables extends Migration {
 				  ->references('id')->on('pembayaran')
 				  ->onDelete('cascade');
 		});
-		
-		Schema::create('terminal', function(Blueprint $table)
-		{
-			$table->increments('id');
-			$table->string('nama');
-			$table->text('alamat');
-			$table->string('lokasi');
-			$table->integer('jumlah_lahan');
-		});
-		
 		Schema::create('terminal_pembayaran', function(Blueprint $table)
 		{
 			$table->integer('id_terminal')->unsigned();
@@ -105,22 +121,6 @@ class CreateTables extends Migration {
 				  ->references('id')->on('pembayaran')
 				  ->onDelete('cascade');
 		});
-		
-		Schema::create('lahan', function(Blueprint $table)
-		{
-			$table->increments('id');
-			
-			$table->integer('id_terminal');
-			$table->foreign('id_terminal')
-				  ->references('id')->on('terminal')
-				  ->onDelete('cascade');
-				  
-			$table->integer('id_pemilik')->index();
-			$table->string('status');
-			$table->float('luas');
-			$table->integer('harga');
-		});
-		
 		
 		Schema::create('terminal_lahan', function(Blueprint $table)
 		{
