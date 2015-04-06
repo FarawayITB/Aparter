@@ -54,7 +54,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> User <b class="caret"></b> 
 							</a> 
 							<ul class="dropdown-menu"> 
-								<li><a href="#">Pembayaran</a></li> 
+								<li><a href="{{ url('/user/pembayaran') }}">Pembayaran</a></li> 
 								<li><a href="#">Pemberitahuan</a></li> 
 								<li><a href="#">Pendaftaran</a></li> 
 								<li><a href="#">Edit Data</a></li> 

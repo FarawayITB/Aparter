@@ -21,6 +21,10 @@ Route::get('/terminal', 'SiteController@terminal');
 
 Route::get('/tentang', 'SiteController@tentang');
 
+Route::get('user/pembayaran', 'UserController@pembayaran');
+
+Route::post('user/status', 'Pembayaran@add');
+
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
