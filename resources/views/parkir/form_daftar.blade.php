@@ -13,11 +13,21 @@
 					</ul>
 				</div>
 			@endif
-			<h2>Pendaftaran Parkir</h2>
+			<h2>Pendaftaran Lahan Parkir</h2>
 			
 			<form class="form-horizontal" role="form" method="POST" action="{{ url('/parkir/save') }}">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
+				<div class="form-group">
+					<label class="col-md-4 control-label">&nbsp; </label>
+					<div class="col-md-6">
+						<input type="radio" name="jenis_parkir" value="pribadi">
+						<label for= "payment1">Lahan Pribadi</label>
+						&nbsp; &nbsp; &nbsp; 
+						<input type="radio" name="jenis_parkir" value="rekomendasi">
+						<label for= "payment2">Rekomendasi Perparkiran</label>
+					</div>
+				</div>
 				<div class="form-group">
 					<label class="col-md-4 control-label">No. KTP</label>
 					<div class="col-md-6">
