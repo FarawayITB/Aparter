@@ -5,6 +5,9 @@ use View;
 class TerminalviewController extends Controller {
     public function home()
     {
-        return View::make('terminalview');
+        return View::make('terminal');
+	}
+	public function cek(){
+		return view('terminal');
 	}
 }

@@ -50,7 +50,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				        <li><a href="feature.html">features</a></li>
 				        <li><a href="blog.html">blog</a></li>
 				        <li><a href="about.html">about</a></li>
-				        <li><a href="contact.html">contact</a></li>
+				        <li><a href="{{ url('/terminal/cek') }}">Terminal</a></li>
 				      </ul>
 				      <form class="navbar-form navbar-right" role="search">
 				        <div class="form-group my_search">

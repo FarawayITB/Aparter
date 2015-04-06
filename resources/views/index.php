@@ -26,7 +26,7 @@ elseif ($page_name=='about.html') {
 	include $browser_t.'/about.html';
 	}
 elseif ($page_name=='contact.html') {
-	include $browser_t.'/contact.html';
+	include $browser_t.'/Terminalview';
 	}
 elseif ($page_name=='single-page.html') {
 	include $browser_t.'/single-page.html';
