@@ -20,7 +20,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<!--  webfonts  -->
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
 		<!-- // webfonts  -->
-		<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="{{ asset('/css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
 		<!-- start plugins -->
 		<script type="text/javascript" src="{{ asset('/js/jquery.min.js') }}"></script>
 		<script type="text/javascript" src="{{ asset('/js/bootstrap.js') }}"></script>
