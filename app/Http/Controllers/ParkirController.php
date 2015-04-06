@@ -41,40 +41,19 @@ class ParkirController extends Controller {
 	 */
 	public function store()
 	{
-		/*
-		// validate
-		// read more on validation at http://laravel.com/docs/validation
-		$rules = array(
-				'id_pemilik'	=> 'required',
-				'alamat'		=> 'required',
-				'lokasi'		=> 'required',
-				'status'		=> 'required',
-				'luas'			=> 'required',
-				'tarif'			=> 'required'
-		);
-		$validator = Validator::make(Input::all(), $rules);
+		// store
+		$parkir             = new Parkir;
+		$parkir->id_pemilik  = Input::get('id_pemilik');
+		$parkir->alamat      = Input::get('alamat');
+		$parkir->lokasi      = Input::get('lokasi');
+		$parkir->status      = Input::get('status');
+		$parkir->luas        = Input::get('luas');
+		$parkir->tarif       = Input::get('tarif');
+		$parkir->save();
 
-		// process the login
-		if ($validator->fails()) {
-			return Redirect::to('parkir/daftar')
-							->withErrors($validator)
-							->withInput();
-		} else {
-		*/
-			// store
-			$parkir             = new Parkir;
-			$parkir->id_pemilik  = Input::get('id_pemilik');
-			$parkir->alamat      = Input::get('alamat');
-			$parkir->lokasi      = Input::get('lokasi');
-			$parkir->status      = Input::get('status');
-			$parkir->luas        = Input::get('luas');
-			$parkir->tarif       = Input::get('tarif');
-			$parkir->save();
-
-			// redirect
-			Session::flash('message', 'Input data sukses!');
-			return Redirect::to('parkir/daftar');
-		//}
+		// redirect
+		Session::flash('message', 'Input data sukses!');
+		return Redirect::to('parkir/daftar');
 	}
 
 	/**
