@@ -37,7 +37,32 @@ class ParkirController extends Controller {
 	 */
 	public function store()
 	{
-		//
+		// validate
+		// read more on validation at http://laravel.com/docs/validation
+		$rules = array(
+				'full_name'  => 'required',
+				'email'      => 'required|email',
+				'message'    => 'required'
+		);
+		$validator = Validator::make(Input::all(), $rules);
+
+		// process the login
+		if ($validator->fails()) {
+			return Redirect::to('contact/create')
+							->withErrors($validator)
+							->withInput(Input::except('password'));
+		} else {
+			// store
+			$contact             = new Contact;
+			$contact->full_name  = Input::get('full_name');
+			$contact->email      = Input::get('email');
+			$contact->message    = Input::get('message');
+			$contact->save();
+
+			// redirect
+			Session::flash('message', 'Input data sukses!');
+			return Redirect::to('contact');
+		}
 	}
 
 	/**

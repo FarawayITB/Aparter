@@ -2,7 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Parkir extends Model {
+class terminal extends Model {
 
+	protected $table = 'terminal';
 
 }
