@@ -8,8 +8,15 @@ class TerminalviewController extends Controller {
     {
         return View::make('terminal');
 	}
-	public function cek(){
+	
+	public function cek()
+	{
 		$allTerminal = terminal::all();
 		return view('terminal',  ["allTerminal" => $allTerminal]);
+	}
+
+	public function lahan()
+	{
+		return View::make('lahan');
 	}
 }

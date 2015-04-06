@@ -15,7 +15,7 @@
 		</div>
 		<div class="row">
 			
-			<form class="form-horizontal" role="form" method="post" action="/user/status">  
+			<form class="form-horizontal" role="form" enctype='multipart/form-data' method="post" action="/user/status">  
 				<div class="form-group"> 
 					<label for="no-ktp" class="col-sm-2 control-label"><h4>No KTP</h4></label> 
 					<div class="col-sm-10"> 
@@ -44,11 +44,7 @@
 
 				<div class="form-group"> 
 					<label for="unggah" class="col-sm-2 control-label"><h4>Bukti Pembayaran</h4></label> 
-					<div class="col-sm-3"> 
-						<input type="text" class="form-control" id="unggah" name="unggah" placeholder="Browse File"> 
-					</div> 
-					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> Browse 
-					</button> 
+					<input type="file" id="unggah" name="unggah">
 				</div> 
 
 				<div class="form-group"> 

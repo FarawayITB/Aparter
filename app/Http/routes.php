@@ -34,4 +34,6 @@ Route::get('/notifikasi', 'SiteController@notifikasi');
 //Route::get('notifikasi/test', 'NotifikasiviewController@test');
 Route::get('parkir/daftar', 'ParkirController@create');
 
+Route::get('terminal/lahan', 'TerminalviewController@lahan');
+
 Route::post('parkir/save', 'ParkirController@store');
