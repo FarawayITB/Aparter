@@ -22,4 +22,9 @@ class SiteController extends Controller {
 	{
 		return View::make('tentang');
 	}
+
+	public function notifikasi()
+	{
+		return View::make('notifikasi');
+	}
 }

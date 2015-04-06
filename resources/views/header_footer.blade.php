@@ -41,7 +41,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				        <span class="icon-bar"></span>
 				        <span class="icon-bar"></span>
 				      </button>
-				      <a class="navbar-brand" href="index.html"><img src="{{ asset('/images/logo.png') }}" alt="" class="img-responsive"/> </a>
+				      <a class="navbar-brand" href="{{ url('/index') }}"><img src="{{ asset('/images/logo.png') }}" alt="" class="img-responsive"/> </a>
 				    </div>
 				    <!-- Collect the nav links, forms, and other content for toggling -->
 				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -56,7 +56,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							</a> 
 							<ul class="dropdown-menu"> 
 								<li><a href="{{ url('/user/pembayaran') }}">Pembayaran</a></li> 
-								<li><a href="#">Pemberitahuan</a></li> 
+								<li><a href="{{ url('/notifikasi') }}">Pemberitahuan</a></li> 
 								<li><a href="#">Pendaftaran</a></li> 
 								<li><a href="#">Edit Data</a></li> 
 								<li><a href="#">Lahan</a></li> 
