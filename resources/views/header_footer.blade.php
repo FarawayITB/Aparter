@@ -20,13 +20,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<!--  webfonts  -->
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
 		<!-- // webfonts  -->
-		<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="{{ asset('/css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
 		<!-- start plugins -->
-		<script type="text/javascript" src="{{ asset('/js/jquery.min.js') }}"></script>
-		<script type="text/javascript" src="{{ asset('/js/bootstrap.js') }}"></script>
-		<script type="text/javascript" src="{{ asset('/js/bootstrap.min.js') }}"></script>
+		<script src="{{ asset('/js/jquery.min.js') }}"></script>
+		<script src="{{ asset('/js/bootstrap.min.js') }}"></script>
 	</head>
-	
+
 	<body>
 		<div class="header_bg"><!-- start header -->
 			<div class="container">
@@ -46,11 +45,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				    <!-- Collect the nav links, forms, and other content for toggling -->
 				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				      <ul class="menu nav navbar-nav ">
-				        <li class="active"><a href="index.html">home</a></li>
-				        <li><a href="feature.html">features</a></li>
-				        <li><a href="{{ url('/notifikasi/test') }}">Notifikasi</a></li>
-				        <li><a href="about.html">about</a></li>
-				        <li><a href="{{ url('/terminal/cek') }}">Terminal</a></li>
+				        <li class="active"><a href="parkir">Parkir</a></li>
+				        <li><a href="terminal">Terminal</a></li>
+				        {{-- <li><a href="{{ url('/terminal') }}">Terminal</a></li> --}}
+				        <li><a href="tentang">Tentang</a></li>
+				        {{-- logged in user --}}
+				        <li class="dropdown"> 
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> User <b class="caret"></b> 
+							</a> 
+							<ul class="dropdown-menu"> 
+								<li><a href="{{ url('/user/pembayaran') }}">Pembayaran</a></li> 
+								<li><a href="{{ url('/notifikasi') }}">Pemberitahuan</a></li> 
+								<li><a href="#">Pendaftaran</a></li> 
+								<li><a href="#">Edit Data</a></li> 
+								<li><a href="#">Lahan</a></li> 
+								<li><a href="#">Keluar</a></li> 
+							</ul> 
+						</li> 
 				      </ul>
 				      <form class="navbar-form navbar-right" role="search">
 				        <div class="form-group my_search">
@@ -65,8 +76,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="row slider text-center">
 					<div class="col-md-8">
 							<div class="col-md-10 slider_text">
-								<h2>Lorem Ipsum is simply dummy text of the printing and  industry.</h2>
-								<h3>simple text place here</h3>
+								<h2>Butuh tempat parkir?</h2>
+								<h3>Cari dengan Aparter!</h3>
 							</div>
 						</div>
 						<div class="col-md-4">

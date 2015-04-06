@@ -23,6 +23,15 @@ class CreateTables extends Migration {
 			$table->integer('tarif');
 		});
 		
+		Schema::create('rekomendasi_parkir', function(Blueprint $table)
+		{
+			$table->increments('id');
+			$table->integer('id_pemilik')->index();
+			$table->text('alamat');
+			$table->string('lokasi');
+			$table->string('status');
+		});
+		
 		Schema::create('kecamatan', function(Blueprint $table)
 		{
 			$table->increments('id');
@@ -40,10 +49,8 @@ class CreateTables extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('id_tempat');
-			$table->text('alamat');
-			$table->string('lokasi');
-			$table->integer('status');
-			$table->integer('integer');
+			$table->text('gambar');
+			$table->string('periode');
 		});
 		
 		
@@ -77,6 +84,19 @@ class CreateTables extends Migration {
 			$table->integer('id_parkir')->unsigned();
 			$table->foreign('id_parkir')
 				  ->references('id')->on('parkir')
+				  ->onDelete('cascade');
+				  
+			$table->integer('id_kecamatan')->unsigned();
+			$table->foreign('id_kecamatan')
+				  ->references('id')->on('kecamatan')
+				  ->onDelete('cascade');
+		});
+		
+		Schema::create('rekomendasi_parkir_kecamatan', function(Blueprint $table)
+		{
+			$table->integer('id_rekomendasi_parkir')->unsigned();
+			$table->foreign('id_rekomendasi_parkir')
+				  ->references('id')->on('rekomendasi_parkir')
 				  ->onDelete('cascade');
 				  
 			$table->integer('id_kecamatan')->unsigned();

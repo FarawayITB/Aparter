@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use View;
+use \App\terminal;
 
 class TerminalviewController extends Controller {
     public function home()
@@ -8,6 +9,7 @@ class TerminalviewController extends Controller {
         return View::make('terminal');
 	}
 	public function cek(){
-		return view('terminal');
+		$allTerminal = terminal::all();
+		return view('terminal',  ["allTerminal" => $allTerminal]);
 	}
 }
