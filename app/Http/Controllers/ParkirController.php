@@ -43,12 +43,23 @@ class ParkirController extends Controller {
 	{
 		// store
 		$parkir             = new Parkir;
-		$parkir->id_pemilik  = Input::get('id_pemilik');
-		$parkir->alamat      = Input::get('alamat');
-		$parkir->lokasi      = Input::get('lokasi');
-		$parkir->status      = Input::get('status');
-		$parkir->luas        = Input::get('luas');
-		$parkir->tarif       = Input::get('tarif');
+		if(Input::get('jenis_daftar') == 1)	// lahan pribadi
+		{
+			$parkir->id_pemilik  = Input::get('id_pemilik');
+			$parkir->alamat      = Input::get('alamat');
+			$parkir->lokasi      = Input::get('lokasi');
+			$parkir->status      = Input::get('status');
+			$parkir->luas        = Input::get('luas');
+			$parkir->tarif       = Input::get('tarif');
+		}
+		else	// rekomendasi
+		{
+			$parkir->id_pemilik  = Input::get('id_pemilik');
+			$parkir->alamat      = Input::get('alamat');
+			$parkir->lokasi      = Input::get('lokasi');
+			$parkir->status      = Input::get('status');
+			$parkir->luas        = Input::get('luas');
+		}
 		$parkir->save();
 
 		// redirect

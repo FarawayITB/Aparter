@@ -21,10 +21,10 @@
 				<div class="form-group">
 					<label class="col-md-4 control-label">&nbsp; </label>
 					<div class="col-md-6">
-						<input type="radio" name="jenis_parkir" value="pribadi">
+						<input type="radio" name="jenis_daftar" value=1>
 						<label for= "payment1">Lahan Pribadi</label>
 						&nbsp; &nbsp; &nbsp; 
-						<input type="radio" name="jenis_parkir" value="rekomendasi">
+						<input type="radio" name="jenis_daftar" value=2>
 						<label for= "payment2">Rekomendasi Perparkiran</label>
 					</div>
 				</div>
