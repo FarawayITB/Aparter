@@ -7,4 +7,19 @@ class SiteController extends Controller {
     {
         return View::make('index');
 	}
+
+	public function parkir()
+	{
+		return View::make('parkir');
+	}
+
+	public function terminal()
+	{
+		return View::make('terminal');
+	}
+
+	public function tentang()
+	{
+		return View::make('tentang');
+	}
 }

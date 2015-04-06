@@ -13,7 +13,13 @@
 
 Route::get('/', 'SiteController@home');
 
-Route::get('home', 'HomeController@index');
+Route::get('/index', 'SiteController@home');
+
+Route::get('/parkir', 'SiteController@parkir');
+
+Route::get('/terminal', 'SiteController@terminal');
+
+Route::get('/tentang', 'SiteController@tentang');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
@@ -24,5 +30,3 @@ Route::get('parkir/daftar', 'ParkirController@create');
 Route::get('terminal/cek', 'TerminalviewController@cek');
 
 Route::post('parkir/save', 'ParkirController@store');
-
-
