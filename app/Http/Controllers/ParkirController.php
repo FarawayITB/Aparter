@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Parkir;
+use App\RekomendasiParkir;
 
 use View;
 use Session;
@@ -42,7 +43,8 @@ class ParkirController extends Controller {
 	public function store()
 	{
 		// store
-		$parkir             = new Parkir;
+		$parkir				= new Parkir;
+		$rekomendasiParkir	= new RekomendasiParkir;
 		if(Input::get('jenis_daftar') == 1)	// lahan pribadi
 		{
 			$parkir->id_pemilik  = Input::get('id_pemilik');
@@ -51,16 +53,16 @@ class ParkirController extends Controller {
 			$parkir->status      = Input::get('status');
 			$parkir->luas        = Input::get('luas');
 			$parkir->tarif       = Input::get('tarif');
+			$parkir->save();
 		}
 		else	// rekomendasi
 		{
-			$parkir->id_pemilik  = Input::get('id_pemilik');
-			$parkir->alamat      = Input::get('alamat');
-			$parkir->lokasi      = Input::get('lokasi');
-			$parkir->status      = Input::get('status');
-			$parkir->luas        = Input::get('luas');
+			$rekomendasiParkir->id_pemilik  = Input::get('id_pemilik');
+			$rekomendasiParkir->alamat      = Input::get('alamat');
+			$rekomendasiParkir->lokasi      = Input::get('lokasi');
+			$rekomendasiParkir->status      = Input::get('status');
+			$rekomendasiParkir->save();
 		}
-		$parkir->save();
 
 		// redirect
 		Session::flash('message', 'Input data sukses!');

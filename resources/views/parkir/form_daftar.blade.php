@@ -21,10 +21,10 @@
 				<div class="form-group">
 					<label class="col-md-4 control-label">&nbsp; </label>
 					<div class="col-md-6">
-						<input type="radio" name="jenis_daftar" value=1>
+						<input id="op-1" type="radio" name="jenis_daftar" value=1 checked="checked">
 						<label for= "payment1">Lahan Pribadi</label>
 						&nbsp; &nbsp; &nbsp; 
-						<input type="radio" name="jenis_daftar" value=2>
+						<input id="op-2" type="radio" name="jenis_daftar" value=2>
 						<label for= "payment2">Rekomendasi Perparkiran</label>
 					</div>
 				</div>
@@ -56,14 +56,14 @@
 					</div>
 				</div>
 				
-				<div class="form-group">
+				<div id="inputan-1" class="form-group toHide" >
 					<label class="col-md-4 control-label">Luas</label>
 					<div class="col-md-6">
 						<input type="text" class="form-control" name="luas">
 					</div>
 				</div>
 				
-				<div class="form-group">
+				<div id="inputan-2" class="form-group toHide" >
 					<label class="col-md-4 control-label">Tarif</label>
 					<div class="col-md-6">
 						<input type="text" class="form-control" name="tarif">

@@ -24,6 +24,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<!-- start plugins -->
 		<script src="{{ asset('/js/jquery.min.js') }}"></script>
 		<script src="{{ asset('/js/bootstrap.min.js') }}"></script>
+		<script src="{{ asset('/js/jenis_pendaftaran.js') }}"></script>
 	</head>
 
 	<body>
