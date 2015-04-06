@@ -5,13 +5,21 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Input;
+use Redirect;
+use DB;
 
 class Pembayaran extends Controller {
 
 	public function add()
 	{
-		echo Input::get('no-ktp');
-		return 'asdadas';
+		DB::table('pembayaran')->insert([
+			'id' => Input::get('no-ktp'),
+			'id_tempat' => '123,123',
+			'gambar' => Input::file('unggah')->move("D:\\upload\\",Input::get('no-ktp')."_April.png"),
+			'periode' => '1,2,3,4,5'
+		]);
+		
+		return Redirect::action('SiteController@home');
 	}
 
 }
