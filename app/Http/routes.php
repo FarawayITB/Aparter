@@ -19,7 +19,7 @@ Route::get('/parkir', 'SiteController@parkir');
 
 Route::get('/terminal', 'SiteController@terminal');
 
-Route::get('/tentang', 'SiteController@terminal');
+Route::get('/tentang', 'SiteController@tentang');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
