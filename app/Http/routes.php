@@ -21,3 +21,5 @@ Route::controllers([
 ]);
 
 Route::get('terminal/cek', 'TerminalviewController@cek');
+
+Route::get('notifikasi/test', 'NotifikasiviewController@test');

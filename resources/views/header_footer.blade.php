@@ -48,7 +48,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				      <ul class="menu nav navbar-nav ">
 				        <li class="active"><a href="index.html">home</a></li>
 				        <li><a href="feature.html">features</a></li>
-				        <li><a href="blog.html">blog</a></li>
+				        <li><a href="{{ url('/notifikasi/test') }}">Notifikasi</a></li>
 				        <li><a href="about.html">about</a></li>
 				        <li><a href="{{ url('/terminal/cek') }}">Terminal</a></li>
 				      </ul>
