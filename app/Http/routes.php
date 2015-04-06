@@ -25,3 +25,8 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+Route::get('parkir', 'ParkirController@create');
+Route::get('terminal/cek', 'TerminalviewController@cek');
+
+Route::post('parkir/save', 'ParkirController@store');
