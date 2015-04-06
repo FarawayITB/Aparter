@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Pagination\Paginator;
 use App\Parkir;
 use App\RekomendasiParkir;
 
@@ -21,7 +22,9 @@ class ParkirController extends Controller {
 	 */
 	public function index()
 	{
-		daftarParkir();
+		$listParkir = Parkir::paginate(1);
+		return View::make('parkir.view_all_data')
+					->with('parkir', $listParkir);
 	}
 
 	/**

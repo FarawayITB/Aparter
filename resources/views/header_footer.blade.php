@@ -46,7 +46,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				    <!-- Collect the nav links, forms, and other content for toggling -->
 				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				      <ul class="menu nav navbar-nav ">
-				        <li class="active"><a href="parkir">Parkir</a></li>
+				        <li class="active"><a href="{{ url('/parkir') }}">Parkir</a></li>
 				        <li><a href="terminal">Terminal</a></li>
 				        {{-- <li><a href="{{ url('/terminal') }}">Terminal</a></li> --}}
 				        <li><a href="tentang">Tentang</a></li>

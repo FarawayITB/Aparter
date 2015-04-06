@@ -15,7 +15,7 @@ Route::get('/', 'SiteController@home');
 
 Route::get('/index', 'SiteController@home');
 
-Route::get('/parkir', 'SiteController@parkir');
+Route::get('/parkir', 'ParkirController@index');
 
 Route::get('/terminal', 'SiteController@terminal');
 
