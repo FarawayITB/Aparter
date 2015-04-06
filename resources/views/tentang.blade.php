@@ -2,6 +2,6 @@
 
 @section('content')
 	<p>
-		Hallo parkir
+		Hallo tentang
 	</p>
 @endsection
