@@ -9,7 +9,11 @@
     </iframe>
     <form method="post">
       <select name="kecamatan">
-        <option>opsi 1</option>
+      	<option>Antapani</option>
+      	<option>Bandung Wetan</option>
+      	<option>Buahbatu</option>
+        <option>Cicendo</option>
+        <option>Coblong</option>
       </select>
       <button type="submit" class="btn btn-primary">
         Ubah
