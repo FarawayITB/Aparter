@@ -20,7 +20,7 @@
 			<div class="col-xs-8">
 			<table class="table table-condensed">
 				<thead>
-					<tr>
+					<tr style="font-size:16px">
 						<th>No. KTP</th>
 						<th>Alamat</th>
 						<th>Lokasi</th>
@@ -31,7 +31,7 @@
 				</thead>
 				<tbody>
 					<?php foreach ($parkir as $par): ?>
-						<tr>
+						<tr style="font-size:14px">
 							<td><?php echo $par->id_pemilik ?></td>
 							<td><?php echo $par->alamat ?></td>
 							<td><?php echo $par->lokasi ?></td>
