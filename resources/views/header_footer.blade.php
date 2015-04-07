@@ -47,7 +47,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				      <ul class="menu nav navbar-nav ">
 				        <li class="active"><a href="{{ url('/parkir') }}">Parkir</a></li>
-				        <li><a href="terminal">Terminal</a></li>
+				        <li><a href="{{ url('/terminal') }}">Terminal</a></li>
 				        {{-- <li><a href="{{ url('/terminal') }}">Terminal</a></li> --}}
 				        <li><a href="tentang">Tentang</a></li>
 				        {{-- logged in user --}}

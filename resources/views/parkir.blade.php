@@ -9,19 +9,44 @@
     </iframe>
     <form method="post">
       <select name="kecamatan">
-        <option>opsi 1</option>
+      	<option>Antapani</option>
+      	<option>Bandung Wetan</option>
+      	<option>Buahbatu</option>
+        <option>Cicendo</option>
+        <option>Coblong</option>
       </select>
       <button type="submit" class="btn btn-primary">
         Ubah
       </button>
     </form>
   </div>
-  <div class="col-md-4">
-  	<h2>Lorem Ipsum ini harusnya diisi detil parkir.</h2>
-	<h3>rehat dulu bro</h3>
-	<h2>Lorem Ipsum ini harusnya diisi detil parkir.</h2>
-	<h3>rehat dulu bro</h3>
-	<h2>Lorem Ipsum ini harusnya diisi detil parkir.</h2>
-	<h3>rehat dulu bro</h3>
-  </div>
+  <form>
+	<div class="thumbnail">
+		<div class="caption">
+		<input type="radio" name="parkir" value="itb">
+			<h3>Parkir ITB</h3>
+			<dl>
+				<p>Jl. Ganesha No.10 | motor dan mobil | Rp 2.000 per hari</p>
+			</dl>
+		</div>
+	</div>
+	<div class="thumbnail">
+		<div class="caption">
+		<input type="radio" name="parkir" value="itb">
+			<h3>Parkir Kebun Binatang</h3>
+			<dl>
+				<p>Jl. Tamansari No.10 | motor dan mobil | Rp 2.000 per hari</p>
+			</dl>
+		</div>
+	</div>
+	<div class="thumbnail">
+		<div class="caption">
+		<input type="radio" name="parkir" value="itb">
+			<h3>Parkir Baltos</h3>
+			<dl>
+				<p>Jl. Tamansari No.1 | motor dan mobil | Rp 2.000 per hari</p>
+			</dl>
+		</div>
+	</div>
+  </form>
 @endsection

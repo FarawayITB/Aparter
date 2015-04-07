@@ -19,6 +19,9 @@ Route::get('/parkir', 'ParkirController@index');
 
 Route::get('/terminal', 'TerminalviewController@cek');
 
+Route::get('/parkir/cari', 'SiteController@parkir');
+
+
 Route::get('/tentang', 'SiteController@tentang');
 
 Route::get('user/pembayaran', 'UserController@pembayaran');
