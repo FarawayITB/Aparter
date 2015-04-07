@@ -39,10 +39,22 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				  <ul class="menu nav navbar-nav col-md-offset-3">
-					<li><a href="about.html">Parkir</a></li>
-					<li class="active"><a href="{{ url('/terminal/cek') }}">Terminal</a></li>
-					<li><a href="blog.html">Tentang</a></li>
-					<li><a href="blog.html">User</a></li>
+					<li><a href="{{ url('/parkir') }}">Parkir</a></li>
+					<li class="active"><a href="{{ url('/terminal') }}">Terminal</a></li>
+					<li><a href="{{ url('/tentang') }}">Tentang</a></li>
+				  	<li class="dropdown"> 
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> User <b class="caret"></b> 
+						</a> 
+						<ul class="dropdown-menu"> 
+							<li><a href="http://localhost/Aparter/public/user/pembayaran">Pembayaran</a></li> 
+							<li><a href="http://localhost/Aparter/public/notifikasi">Pemberitahuan</a></li> 
+							<li><a href="#">Pendaftaran</a></li> 
+							<li><a href="#">Edit Data</a></li> 
+							<li><a href="#">Lahan</a></li> 
+							<li><a href="#">Keluar</a></li> 
+						</ul> 
+					</li> 
+
 				  </ul>
 				</div><!-- /.navbar-collapse -->
 			  </div><!-- /.container-fluid -->

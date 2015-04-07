@@ -17,7 +17,7 @@ Route::get('/index', 'SiteController@home');
 
 Route::get('/parkir', 'ParkirController@index');
 
-Route::get('/terminal', 'SiteController@terminal');
+Route::get('/terminal', 'TerminalviewController@cek');
 
 Route::get('/tentang', 'SiteController@tentang');
 
