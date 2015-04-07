@@ -13,7 +13,12 @@
 			<div class="col-xs-4">
 			</div>
 		</div>
-		<div class="row">
+		
+<h3>Lahan parkir di Jl. Siliwangi</h3>
+<p>Pendaftaran lahan parkir di Jl. Siliwangi sedang diproses.</p>
+
+<h3>Lahan parkir di Jl. Sumatra</h3>
+<p>Pendaftaran lahan parkir di Jl. Sumatra telah selesai diproses.</p>
 
 
 @endsection
