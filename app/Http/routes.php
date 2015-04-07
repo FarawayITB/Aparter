@@ -17,6 +17,8 @@ Route::get('/index', 'SiteController@home');
 
 Route::get('/parkir', 'ParkirController@index');
 
+Route::get('/parkir/cari', 'SiteController@parkir');
+
 Route::get('/terminal', 'SiteController@terminal');
 
 Route::get('/tentang', 'SiteController@tentang');
