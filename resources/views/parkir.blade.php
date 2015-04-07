@@ -16,7 +16,7 @@
         <option>Coblong</option>
       </select>
       <button type="submit" class="btn btn-primary">
-        Ubah
+        Tampilkan
       </button>
     </form>
   </div>
