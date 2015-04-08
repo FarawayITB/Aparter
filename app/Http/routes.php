@@ -33,8 +33,8 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
-Route::get('/notifikasi', 'SiteController@notifikasi');
-//Route::get('notifikasi/test', 'NotifikasiviewController@test');
+Route::get('/notifikasi', 'NotifikasiviewController@test');
+
 Route::get('parkir/daftar', 'ParkirController@create');
 
 Route::get('terminal/lahan', 'TerminalviewController@lahan');

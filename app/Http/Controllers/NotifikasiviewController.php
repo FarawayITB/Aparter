@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use View;
+use \App\parkir;
 
 class NotifikasiviewController extends Controller {
     public function home()
@@ -8,6 +9,7 @@ class NotifikasiviewController extends Controller {
         return View::make('notifikasi');
 	}
 	public function test(){
-		return view('notifikasi');
+		$allParkir = Parkir::all();
+		return view('notifikasi',  ["allParkir" => $allParkir]);
 	}
 }
