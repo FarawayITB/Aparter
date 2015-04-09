@@ -25,6 +25,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<script src="{{ asset('/js/jquery.min.js') }}"></script>
 		<script src="{{ asset('/js/bootstrap.min.js') }}"></script>
 		<script src="{{ asset('/js/jenis_pendaftaran.js') }}"></script>
+		<script src="{{ asset('/js/hoverakun.js') }}"></script>
+		<script src="{{ asset('/js/dropdownselect.js') }}"></script>
+		<script src="{{ asset('/js/maps.js') }}"></script>
+		{{-- // <script src="{{ asset('/js/getLatLng.js') }}"></script> --}}
+		<script src="https://maps.googleapis.com/maps/api/js"></script>
 	</head>
 
 	<body>
@@ -41,52 +46,53 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				        <span class="icon-bar"></span>
 				        <span class="icon-bar"></span>
 				      </button>
-				      <a class="navbar-brand" href="{{ url('/index') }}"><img src="{{ asset('/images/logo.png') }}" alt="" class="img-responsive"/> </a>
+				      <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('/images/logo.png') }}" alt="" class="img-responsive"/> </a>
 				    </div>
 				    <!-- Collect the nav links, forms, and other content for toggling -->
 				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				      <ul class="menu nav navbar-nav ">
+				      <ul class="menu nav navbar-nav">
 				        <li class="active"><a href="{{ url('/parkir') }}">Parkir</a></li>
 				        <li><a href="{{ url('/terminal') }}">Terminal</a></li>
-				        {{-- <li><a href="{{ url('/terminal') }}">Terminal</a></li> --}}
 				        <li><a href="tentang">Tentang</a></li>
-				        {{-- logged in user --}}
 				        <li class="dropdown"> 
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> User <b class="caret"></b> 
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Akun <b class="caret"></b> 
 							</a> 
 							<ul class="dropdown-menu"> 
 								<li><a href="{{ url('/user/pembayaran') }}">Pembayaran</a></li> 
 								<li><a href="{{ url('/notifikasi') }}">Pemberitahuan</a></li> 
-								<li><a href="#">Pendaftaran</a></li> 
+								<li><a href="{{ url('/parkir/daftar') }}">Pendaftaran</a></li> 
 								<li><a href="#">Edit Data</a></li> 
-								<li><a href="#">Lahan</a></li> 
+								<li><a href="{{ url('/terminal/lahan') }}">Lahan</a></li> 
 								<li><a href="#">Keluar</a></li> 
 							</ul> 
 						</li> 
 				      </ul>
-				      <form class="navbar-form navbar-right" role="search">
-				        <div class="form-group my_search">
-				          <input type="text" class="form-control" placeholder="Search">
-				        </div>
-				        <button type="submit" class="btn btn-default">Search</button>
-				      </form>
+				      <h4 class="text-right">Selamat datang, {{"Nama"}}</h4>
+				      <h4 class="text-right">{{"NIK"}}</h4>
 				    </div><!-- /.navbar-collapse -->
 				  </div><!-- /.container-fluid -->
 				</nav>
 				</div>
 				<div class="row slider text-center">
-					<div class="col-md-8">
-							<div class="col-md-10 slider_text">
-								<h3>Butuh lahan? Butuh tempat parkir?</h3>
-								<h2>Cari dengan Aparter!</h2>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="slider_img">
-								<img src="{{ asset('/images/pic1.png') }}" alt="" class="img-responsive"/>
-							</div>
+					<div class="col-md-5">
+						<div class="col-md-10 slider_text">
+							<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
+							<form class="navbar-form navbar-right" role="search">
+						        <div class="form-group my_search">
+						          <input type="text" class="form-control" placeholder="Cari Parkiran">
+						        </div>
+						        <button type="submit" class="btn btn-default">Search</button>
+						      </form>
 						</div>
 					</div>
+					<div class="col-md-2">
+					</div>
+					<div class="col-md-5">
+						<div class="slider_img">
+							<img src="{{ asset('/images/pic1.png') }}" alt="" class="img-responsive"/>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 

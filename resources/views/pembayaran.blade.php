@@ -16,39 +16,45 @@
 		<div class="row">
 			
 			<form class="form-horizontal" role="form" enctype='multipart/form-data' method="post" action="/user/status">  
+				<div class="form-group">
+					<label for="no-ktp" class="col-md-4 control-label"><h4>No. KTP</h4></label>
+					<div class="col-md-6">
+						<input type="text" class="form-control" name="no-ktp">
+					</div>
+				</div>
+
 				<div class="form-group"> 
-					<label for="no-ktp" class="col-sm-2 control-label"><h4>No KTP</h4></label> 
-					<div class="col-sm-10"> 
-						<input type="text" class="form-control" id="no-ktp" name="no-ktp" placeholder="Masukan NIK Anda"> 
+					<label for="idtempat" class="col-md-4 control-label"><h4>ID tempat</h4></label> 
+					<div class="col-md-6"> 
+						<div class="input-group">                                            
+				            <input type="text" id="idtempat" name="idtempat" class="form-control"></input>
+				            <div class="input-group-btn">
+				                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+				                    <span class="caret"></span>
+				                </button>
+				                <ul id="daftarid" class="dropdown-menu">
+				                    <li><a>12345</a></li>
+				                    <li><a>67890</a></li>
+				                    <li><a>10293</a></li>
+				                </ul>
+				            </div>
+				        </div>
 					</div> 
+					<div class="col-md-2">
+					</div>
 				</div> 
 
 				<div class="form-group"> 
-					<label for="id-tempat" class="col-sm-2 control-label"><h4>ID tempat</h4></label> 
-					
-					<div class="col-sm-10"> 
-						<div class="input-group"> 
-							<div class="input-group-btn"> 
-								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> 213526 
-									<span class="caret"></span> 
-								</button> 
-								<ul class="dropdown-menu"> 
-									<li><a href="#">1123123</a></li> 
-									<li><a href="#">2435235</a></li> 
-									<li><a href="#">6342152</a></li> 
-								</ul> 
-							</div>
-						</div>
-					</div> 
+					<label for="unggah" class="col-md-4 control-label"><h4>Bukti Pembayaran</h4></label> 
+					<div class="col-md-6">
+						<input type="file" id="unggah" name="unggah" class="form-control">
+					</div>
+					<div class="col-md-2">
+					</div>
 				</div> 
 
 				<div class="form-group"> 
-					<label for="unggah" class="col-sm-2 control-label"><h4>Bukti Pembayaran</h4></label> 
-					<input type="file" id="unggah" name="unggah">
-				</div> 
-
-				<div class="form-group"> 
-					<div class="col-sm-offset-2 col-sm-10"> 
+					<div class="col-sm-offset-5 col-sm-10"> 
 						<button type="submit" class="btn btn-default">Selesai</button> 
 					</div> 
 				</div> 

@@ -14,7 +14,7 @@ class Pembayaran extends Controller {
 	{
 		DB::table('pembayaran')->insert([
 			'id' => Input::get('no-ktp'),
-			'id_tempat' => '213526',
+			'id_tempat' => Input::get('idtempat'),
 			'gambar' => Input::file('unggah')->move("D:\\upload\\",Input::get('no-ktp')."_April.png"),
 			'periode' => '1,2,3,4,5'
 		]);

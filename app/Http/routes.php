@@ -40,3 +40,5 @@ Route::get('parkir/daftar', 'ParkirController@create');
 Route::get('terminal/lahan', 'TerminalviewController@lahan');
 
 Route::post('parkir/save', 'ParkirController@store');
+
+Route::get('/tes','SiteController@tes');
