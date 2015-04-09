@@ -1,6 +1,6 @@
-@extends('header_footer2')
+@extends('header_footer')
 
-@section('content2')
+@section('content')
 <div class="main"><!-- start main -->
 <div class="container">
 	<div class="features"><!-- start feature -->
