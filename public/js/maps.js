@@ -54,11 +54,12 @@ $(document).ready(function () {
 				myCenter = results[0].geometry.location;
 				initialize();
 		    } else {
-		      	alert('Lokasi tidak ditemukan! Pastikan anda tidak salah ketik. Kesalahan: ' + status);
+		      	alert('Lokasi tidak ditemukan! Pastikan anda tidak salah ketik. Status: ' + status);
 		    }
 	  	});
 	}    
 
+	// if searchbox variable defined
 	if(getUrlParameter("searchbox")){
 		geocoder = new google.maps.Geocoder();
 		var mapProp = {
