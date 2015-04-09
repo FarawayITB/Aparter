@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Creation a industrial bootstrap Website Template | Home :: w3layouts</title>
+		<title>Aparter - Pemkot Bandung</title>
 		<!-- Bootstrap -->
 		<link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
 		<link href="{{ asset('/css/bootstrap.css') }}" rel="stylesheet">
@@ -77,8 +77,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="row slider text-center">
 					<div class="col-md-8">
 							<div class="col-md-10 slider_text">
-								<h2>Butuh tempat parkir?</h2>
-								<h3>Cari dengan Aparter!</h3>
+								<h3>Butuh lahan? Butuh tempat parkir?</h3>
+								<h2>Cari dengan Aparter!</h2>
 							</div>
 						</div>
 						<div class="col-md-4">

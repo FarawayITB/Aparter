@@ -20,5 +20,9 @@
 <h3>Lahan parkir di Jl. Sumatra</h3>
 <p>Pendaftaran lahan parkir di Jl. Sumatra telah selesai diproses.</p>
 
+@foreach ($allParkir as $parkir)		
+<h3>Lahan parkir di {{$parkir->lokasi}}</h3>
+<p>Status pendaftaran lahan parkir di {{$parkir->alamat}},{{$parkir->lokasi}} : {{$parkir->status}}.</p>
+@endforeach
 
 @endsection
