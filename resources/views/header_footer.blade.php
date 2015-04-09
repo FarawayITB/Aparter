@@ -29,7 +29,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<script src="{{ asset('/js/dropdownselect.js') }}"></script>
 		<script src="{{ asset('/js/maps.js') }}"></script>
 		{{-- // <script src="{{ asset('/js/getLatLng.js') }}"></script> --}}
-		<script src="https://maps.googleapis.com/maps/api/js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?&libraries=places"></script>
 	</head>
 
 	<body>
@@ -51,7 +51,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				    <!-- Collect the nav links, forms, and other content for toggling -->
 				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				      <ul class="menu nav navbar-nav">
-				        <li class="active"><a href="{{ url('/parkir') }}">Parkir</a></li>
+				        <li><a href="{{ url('/parkir') }}">Parkir</a></li>
 				        <li><a href="{{ url('/terminal') }}">Terminal</a></li>
 				        <li><a href="tentang">Tentang</a></li>
 				        <li class="dropdown"> 
@@ -77,12 +77,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<div class="col-md-5">
 						<div class="col-md-10 slider_text">
 							<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
-							<form class="navbar-form navbar-right" role="search">
+							<form class="navbar-form navbar-right" role="search" action="{{ url('/parkir/cari') }}">
 						        <div class="form-group my_search">
-						          <input type="text" class="form-control" placeholder="Cari Parkiran">
+						        	<input type="text" class="form-control" id="searchbox" name="searchbox" placeholder="Parkiran di Kecamatan">
 						        </div>
 						        <button type="submit" class="btn btn-default">Search</button>
-						      </form>
+					      	</form>
 						</div>
 					</div>
 					<div class="col-md-2">

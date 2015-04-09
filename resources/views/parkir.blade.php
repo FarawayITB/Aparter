@@ -1,52 +1,52 @@
 @extends('header_footer')
 
 @section('content')
-  <div class="col-md-8">
-    <iframe 
-      width="780px"
-      height="400px"
-      src="https://www.google.com/maps/embed/v1/search?q=Bandung,+West+Java+Indonesia&key=AIzaSyAHzKdE2kvxD0JhunmDQU2SsXvjSiz9v2c">
-    </iframe>
-    <form method="post">
-      <select name="kecamatan">
-      	<option>Antapani</option>
-      	<option>Bandung Wetan</option>
-      	<option>Buahbatu</option>
-        <option>Cicendo</option>
-        <option>Coblong</option>
-      </select>
-      <button type="submit" class="btn btn-primary">
-        Tampilkan
-      </button>
-    </form>
-  </div>
-  <form>
-	<div class="thumbnail">
-		<div class="caption">
-		<input type="radio" name="parkir" value="itb">
-			<h3>Parkir ITB</h3>
-			<dl>
-				<p>Jl. Ganesha No.10 | motor dan mobil | Rp 2.000 per hari</p>
-			</dl>
+	<form class="form-horizontal" role="form"> 
+		<div class="form-group">
+			<div class="col-md-1">
+			</div>
+			<div class="col-md-10">
+				<br><br>
+				<div id="googleMap" style="width:640;height:400px;"></div>
+			</div>
+			<div class="col-md-1">
+			</div>
+		</div>
+	</form>
+
+	<form class="form-horizontal" role="form">
+	</form>
+
+	<div class="container infoparkir">
+		<div class="row">
+			<div class="col-md-6" id="1">
+				<h3><a>Parkir ITB</a></h3>
+				<dl>
+					<p>Jl. Ganesha No.10 | motor dan mobil | Rp 2.000 per hari</p>
+				</dl>
+				<input type="hidden" id="lat1" value="-6.893075">
+				<input type="hidden" id="long1" value="107.609116">
+			</div>
+			<div class="col-md-6" id="2">
+				<h3><a>Parkir Baltos</a></h3>
+				<dl>
+					<p>Jl. Tamansari No.1 | motor dan mobil | Rp 2.000 per hari</p>
+				</dl>
+				<input type="hidden" id="lat2" value="-6.898996">
+				<input type="hidden" id="long2" value="107.608264">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6" id="3">
+				<h3><a>Parkir Braga Music</a></h3>
+				<dl>
+					<p>Jl. Purnawarman No.1 | motor dan mobil | Rp 2.000 per hari</p>
+				</dl>
+				<input type="hidden" id="lat3" value="-6.914762">
+				<input type="hidden" id="long3" value="107.609832">
+			</div>
+			<div class="col-md-6" id="id4">
+			</div>
 		</div>
 	</div>
-	<div class="thumbnail">
-		<div class="caption">
-		<input type="radio" name="parkir" value="itb">
-			<h3>Parkir Kebun Binatang</h3>
-			<dl>
-				<p>Jl. Tamansari No.10 | motor dan mobil | Rp 2.000 per hari</p>
-			</dl>
-		</div>
-	</div>
-	<div class="thumbnail">
-		<div class="caption">
-		<input type="radio" name="parkir" value="itb">
-			<h3>Parkir Baltos</h3>
-			<dl>
-				<p>Jl. Tamansari No.1 | motor dan mobil | Rp 2.000 per hari</p>
-			</dl>
-		</div>
-	</div>
-  </form>
 @endsection
