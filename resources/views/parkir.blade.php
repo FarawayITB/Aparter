@@ -20,7 +20,7 @@
 	<div class="container infoparkir">
 		<div class="row">
 			<div class="col-md-6" id="1">
-				<h3><a>Parkir ITB</a></h3>
+				<h3><a href="javascript:;">Parkir ITB</a></h3>
 				<dl>
 					<p>Jl. Ganesha No.10 | motor dan mobil | Rp 2.000 per hari</p>
 				</dl>
@@ -28,7 +28,7 @@
 				<input type="hidden" id="long1" value="107.609116">
 			</div>
 			<div class="col-md-6" id="2">
-				<h3><a>Parkir Baltos</a></h3>
+				<h3><a href="javascript:;">Parkir Baltos</a></h3>
 				<dl>
 					<p>Jl. Tamansari No.1 | motor dan mobil | Rp 2.000 per hari</p>
 				</dl>
@@ -38,7 +38,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-6" id="3">
-				<h3><a>Parkir Braga Music</a></h3>
+				<h3><a href="javascript:;">Parkir Braga Music</a></h3>
 				<dl>
 					<p>Jl. Purnawarman No.1 | motor dan mobil | Rp 2.000 per hari</p>
 				</dl>

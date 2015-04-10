@@ -10,7 +10,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<title>Aparter - Pemkot Bandung</title>
 		<!-- Bootstrap -->
 		<link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
-		<link href="{{ asset('/css/bootstrap.css') }}" rel="stylesheet">
+		{{-- <link href="{{ asset('/css/bootstrap.css') }}" rel="stylesheet"> --}}
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 		 <!--[if lt IE 9]>
@@ -23,6 +23,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<link href="{{ asset('/css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
 		<!-- start plugins -->
 		<script src="{{ asset('/js/jquery.min.js') }}"></script>
+		{{-- // <script src="{{ asset('/js/bootstrap.js') }}"></script> --}}
 		<script src="{{ asset('/js/bootstrap.min.js') }}"></script>
 		<script src="{{ asset('/js/jenis_pendaftaran.js') }}"></script>
 		<script src="{{ asset('/js/hoverakun.js') }}"></script>
@@ -167,4 +168,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	</div>
 </div>
 	</body>
+
+
 </html>
