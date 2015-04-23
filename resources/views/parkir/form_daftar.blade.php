@@ -31,42 +31,35 @@
 				<div class="form-group">
 					<label class="col-md-4 control-label"><h4>No. KTP</h4></label>
 					<div class="col-md-6">
-						<input type="text" class="form-control" name="id_pemilik">
+						<input type="text" class="form-control" name="id_pemilik" placeholder="Masukan No KTP Anda">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label class="col-md-4 control-label"><h4>Alamat</h4></label>
 					<div class="col-md-6">
-						<input type="text" class="form-control" name="alamat">
+						<input type="text" class="form-control" name="alamat" placeholder="Alamat lahan parkir yang ingin didaftarkan">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label class="col-md-4 control-label"><h4>Lokasi</h4></label>
 					<div class="col-md-6">
-						<input type="text" class="form-control" name="lokasi">
-					</div>
-				</div>
-				
-				<div class="form-group">
-					<label class="col-md-4 control-label"><h4>Status</h4></label>
-					<div class="col-md-6">
-						<input type="text" class="form-control" name="status">
+						<input type="text" class="form-control" name="lokasi" placeholder="Kota tempat tinggal saat ini">
 					</div>
 				</div>
 				
 				<div id="inputan-1" class="form-group toHide" >
 					<label class="col-md-4 control-label"><h4>Luas</h4></label>
 					<div class="col-md-6">
-						<input type="text" class="form-control" name="luas">
+						<input type="text" class="form-control" name="luas" placeholder="Dalam meter persegi">
 					</div>
 				</div>
 				
 				<div id="inputan-2" class="form-group toHide" >
 					<label class="col-md-4 control-label"><h4>Tarif</h4></label>
 					<div class="col-md-6">
-						<input type="text" class="form-control" name="tarif">
+						<input type="text" class="form-control" name="tarif" placeholder="Tarif yang anda inginkan untuk sekali parkir per jam">
 					</div>
 				</div>
 

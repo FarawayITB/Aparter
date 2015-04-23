@@ -53,7 +53,7 @@ class ParkirController extends Controller {
 			$parkir->id_pemilik  = Input::get('id_pemilik');
 			$parkir->alamat      = Input::get('alamat');
 			$parkir->lokasi      = Input::get('lokasi');
-			$parkir->status      = Input::get('status');
+			$parkir->status      = "Registrasi";
 			$parkir->luas        = Input::get('luas');
 			$parkir->tarif       = Input::get('tarif');
 			$parkir->save();
