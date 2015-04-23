@@ -13,8 +13,10 @@ class DatabaseSeeder extends Seeder {
 	public function run()
 	{
 		Model::unguard();
-
-		// $this->call('UserTableSeeder');
+		$this->call('KecamatanSeeder');
+		$this->call('JenisKendaraanSeeder');
+		$this->command->info('Kecamatan table seeded!');
+		$this->command->info('Jenis Kendaraan table seeded!');
 	}
 
 }

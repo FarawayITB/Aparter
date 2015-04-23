@@ -19,30 +19,33 @@
 				<div class="form-group">
 					<label for="no-ktp" class="col-md-4 control-label"><h4>No. KTP</h4></label>
 					<div class="col-md-6">
-						<input type="text" class="form-control" name="no-ktp">
+						<input type="text" class="form-control" name="no-ktp" value="{{$id_ktp}}"></option>
 					</div>
 				</div>
 
 				<div class="form-group"> 
-					<label for="idtempat" class="col-md-4 control-label"><h4>ID tempat</h4></label> 
-					<div class="col-md-6"> 
-						<div class="input-group">                                            
-				            <input type="text" id="idtempat" name="idtempat" class="form-control"></input>
-				            <div class="input-group-btn">
-				                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-				                    <span class="caret"></span>
-				                </button>
-				                <ul id="daftarid" class="dropdown-menu">
-				                    <li><a>12345</a></li>
-				                    <li><a>67890</a></li>
-				                    <li><a>10293</a></li>
-				                </ul>
-				            </div>
-				        </div>
-					</div> 
-					<div class="col-md-2">
+					<label for="idtempat_parkir" class="col-md-4 control-label"><h4>ID tempat parkir</h4></label> 
+					<div class="col-md-6">
+						<select class="form-control" name="idtempat_parkir">
+							<option>Tidak ada</option>
+							@foreach ($parkirs as $parkir)
+								<option>Parkiran id: {{$parkir->id_parkir}} di {{$parkir->alamat}}</option>
+							@endforeach
+						</select> 
 					</div>
-				</div> 
+				</div>
+
+				<div class="form-group"> 
+					<label for="idtempat_lahan" class="col-md-4 control-label"><h4>ID tempat lahan</h4></label> 
+					<div class="col-md-6">
+						<select class="form-control" name="idtempat_lahan">
+							<option>Tidak ada</option>
+							@foreach ($lahans as $lahan)
+								<option>Lahan id: {{$lahan->id_lahan}} di Terminal: {{$lahan->nama}}</option>
+							@endforeach
+						</select> 
+					</div>
+				</div>  
 
 				<div class="form-group"> 
 					<label for="unggah" class="col-md-4 control-label"><h4>Bukti Pembayaran</h4></label> 

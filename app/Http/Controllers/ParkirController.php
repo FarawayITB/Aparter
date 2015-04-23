@@ -9,6 +9,7 @@ use Illuminate\Pagination\Paginator;
 use App\Parkir;
 use App\RekomendasiParkir;
 
+use DB;
 use View;
 use Session;
 use Redirect;
@@ -35,7 +36,14 @@ class ParkirController extends Controller {
 	 */
 	public function create()
 	{
-		return View::make('parkir.form_daftar');
+		$kecamatan = DB::table('kecamatan')
+						->select('nama_kecamatan')
+						->get();
+
+		$jenis = DB::table('jenis_kendaraan')
+						->select('jenis_kendaraan_parkir')
+						->get();
+		return View::make('parkir.form_daftar')->with('kecamatans', $kecamatan)->with('jeniss', $jenis);
 	}
 
 	/**
@@ -50,12 +58,14 @@ class ParkirController extends Controller {
 		$rekomendasiParkir	= new RekomendasiParkir;
 		if(Input::get('jenis_daftar') == 1)	// lahan pribadi
 		{
-			$parkir->id_pemilik  = Input::get('id_pemilik');
-			$parkir->alamat      = Input::get('alamat');
-			$parkir->lokasi      = Input::get('lokasi');
-			$parkir->status      = "Registrasi";
-			$parkir->luas        = Input::get('luas');
-			$parkir->tarif       = Input::get('tarif');
+			$parkir->id_pemilik  		= Input::get('id_pemilik');
+			$parkir->alamat      		= Input::get('alamat');
+			$parkir->lokasi     		= Input::get('lokasi_lat').",".Input::get('lokasi_lng');
+			$parkir->status      		= "Registrasi";
+			$parkir->luas       		= Input::get('luas');
+			$parkir->tarif       		= Input::get('tarif');
+			$parkir->id_kecamatan 		= DB::table('kecamatan')->where('nama_kecamatan','=', Input::get('kecamatan'))->select('id_kecamatan')->first()->id_kecamatan;
+			$parkir->id_jenis_kendaraan = DB::table('jenis_kendaraan')->where('jenis_kendaraan_parkir','=', Input::get('jenis'))->select('id_jenis_kendaraan')->first()->id_jenis_kendaraan;
 			$parkir->save();
 		}
 		else	// rekomendasi

@@ -12,11 +12,11 @@ class Pembayaran extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('pembayaran', function(Blueprint $table)
+		Schema::table('pembayaran',function($table)
 		{
-			$table->dropColumn(['alamat', 'lokasi', 'status','integer']);
-			$table->string('gambar');
-			$table->string('periode');
+			$table->dropColumn('periode');
+			$table->dropColumn('gambar');
+			$table->string('pembayaran_terakhir');
 		});
 	}
 
@@ -27,6 +27,11 @@ class Pembayaran extends Migration {
 	 */
 	public function down()
 	{
+		Schema::drop('parkir');
+		Schema::drop('terminal');
+		Schema::drop('kecamatan');
+		Schema::drop('jenis_kendaraan');
+		Schema::drop('lahan');
 		Schema::drop('pembayaran');
 	}
 

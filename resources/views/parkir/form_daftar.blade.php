@@ -42,10 +42,37 @@
 					</div>
 				</div>
 
-				<div class="form-group">
-					<label class="col-md-4 control-label"><h4>Lokasi</h4></label>
+				<div class="form-group"> 
+					<label class="col-md-4 control-label"><h4>Kecamatan</h4></label> 
 					<div class="col-md-6">
-						<input type="text" class="form-control" name="lokasi" placeholder="Kota tempat tinggal saat ini">
+						<select class="form-control" name="kecamatan">
+							@foreach ($kecamatans as $kecamatan)
+								<option>{{$kecamatan->nama_kecamatan}}</option>
+							@endforeach
+						</select> 
+					</div>
+				</div>
+
+				<div class="form-group"> 
+					<label class="col-md-4 control-label"><h4>Jenis Parkir</h4></label> 
+					<div class="col-md-6">
+						<select class="form-control" name="jenis">
+							@foreach ($jeniss as $jenis)
+								<option>{{$jenis->jenis_kendaraan_parkir}}</option>
+							@endforeach
+						</select> 
+					</div>
+				</div> 
+
+				<div class="form-group">
+					<label class="col-md-4 control-label"><h4>Lokasi Lat Lng</h4></label>
+					<div class="col-md-6">
+						<div class="col-md-6">
+							<input type="text" class="form-control" name="lokasi_lat" placeholder="(Optional) Latitude Google Maps">	
+						</div>
+						<div class="col-md-6">
+							<input type="text" class="form-control" name="lokasi_lng" placeholder="(Optional) Langitude Google Maps">	
+						</div>
 					</div>
 				</div>
 				
