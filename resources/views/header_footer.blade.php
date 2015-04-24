@@ -63,7 +63,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<li><a href="{{ url('/notifikasi') }}">Pemberitahuan</a></li> 
 								<li><a href="{{ url('/parkir/daftar') }}">Pendaftaran</a></li> 
 								<li><a href="#">Edit Data</a></li> 
-								<li><a href="{{ url('/terminal/lahan') }}">Lahan</a></li> 
+								<li><a href="{{ url('/user/lahan') }}">Lahan</a></li> 
 								<li><a href="#">Keluar</a></li> 
 							</ul> 
 						</li> 

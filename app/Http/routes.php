@@ -40,4 +40,4 @@ Route::get('terminal/lahan', 'TerminalviewController@lahan');
 
 Route::post('parkir/save', 'ParkirController@store');
 
-Route::get('/tes','SiteController@tes');
+Route::get('/user/lahan','TerminalviewController@lahan_saya');
