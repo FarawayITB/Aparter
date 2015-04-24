@@ -2,7 +2,10 @@
 
 use DB;
 use View;
-use \App\terminal;
+use Input;
+use Carbon\Carbon;
+use \App\Terminal;
+use \App\Lahan;
 
 class TerminalviewController extends Controller {
     public function home()
@@ -30,6 +33,44 @@ class TerminalviewController extends Controller {
 				->where('id_pemilik', '=', '3273060611940005') // dari cookies
 				->get();
 				
-		return View::make('lahan_saya')->with('lahans', $lahan);
+		return View::make('lahan_saya')->with('lahans', $lahan)->with('$lahans', $lahan);
+	}
+
+	public function store_lahan_saya()
+	{
+		$id_lahan = Input::get('idlahan');
+		$panjang = Input::get('panjang'.$id_lahan);
+		$lebar = Input::get('lebar'.$id_lahan);
+
+		$user_lahan = Lahan::find($id_lahan);	// get id info from database
+
+		if (Input::hasFile('upload'.$id_lahan))
+		{
+			$ext = Input::file('upload'.$id_lahan)->getClientOriginalExtension();
+
+			echo $ext;
+
+			Input::file('upload'.$id_lahan)->move(storage_path().'\pembayaran','3273060611940005_'.Carbon::now()->month.'.'.$ext);
+
+			$user_lahan->status = 'pembayaran bulanan';
+			$user_lahan->save();
+			
+			// buat notifikasi
+
+		} else{
+
+			$user_lahan->status = 'request perluasan';
+			$user_lahan->save();
+
+			// buat notifikasi
+		}
+
+		
+		$lahan = DB::table('lahan')
+				->join('terminal', 'lahan.id_terminal', '=', 'terminal.id_terminal')
+				->where('id_pemilik', '=', '3273060611940005') // dari cookies
+				->get();
+
+		return View::make('lahan_saya')->with('lahans', $lahan)->with('$lahans', $lahan);
 	}
 }

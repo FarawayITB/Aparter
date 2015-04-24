@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class NullableLahan extends Migration {
+class IdPemilik extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -14,7 +14,12 @@ class NullableLahan extends Migration {
 	{
 		Schema::table('lahan',function($table)
 		{
-			$table->string('id_pemilik')->nullable()->change();
+			$table->string('id_pemilik');
+		});
+
+		Schema::table('pembayaran',function($table)
+		{
+			$table->dropColumn('id_pemilik');
 		});
 	}
 

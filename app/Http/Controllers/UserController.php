@@ -11,10 +11,9 @@ class UserController extends Controller {
     				->get();
 
     	$lahan = DB::table('lahan')
-    				->where('id_pemilik', '=', '32730606110005') // where id_pemilik = id_ktp
+    				->where('id_pemilik', '=', '3273060611940005') // where id_pemilik = id_ktp
     				->join('terminal','lahan.id_terminal','=','terminal.id_terminal')
-    				->select('lahan.id_lahan')
-    				->select('terminal.nama')
+    				->select('lahan.id_lahan','terminal.nama')
     				->get();
 
         return View::make('pembayaran')->with('parkirs', $parkir)->with('lahans', $lahan)->with('id_ktp', '3273060611940005');

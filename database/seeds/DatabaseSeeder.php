@@ -15,8 +15,10 @@ class DatabaseSeeder extends Seeder {
 		Model::unguard();
 		$this->call('KecamatanSeeder');
 		$this->call('JenisKendaraanSeeder');
+		$this->call('TerminalSeeder');
 		$this->command->info('Kecamatan table seeded!');
 		$this->command->info('Jenis Kendaraan table seeded!');
+		$this->command->info('Terminal table seeded!');
 	}
 
 }

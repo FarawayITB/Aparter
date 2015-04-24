@@ -15,13 +15,7 @@
 		</div>
 		<div class="row">
 			
-			<form class="form-horizontal" role="form" enctype='multipart/form-data' method="post" action="/user/status">  
-				<div class="form-group">
-					<label for="no-ktp" class="col-md-4 control-label"><h4>No. KTP</h4></label>
-					<div class="col-md-6">
-						<input type="text" class="form-control" name="no-ktp" value="{{$id_ktp}}"></option>
-					</div>
-				</div>
+			<form class="form-horizontal" role="form" enctype='multipart/form-data' method="post" action="/user/status">
 
 				<div class="form-group"> 
 					<label for="idtempat_parkir" class="col-md-4 control-label"><h4>ID tempat parkir</h4></label> 
