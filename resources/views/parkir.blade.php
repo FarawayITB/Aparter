@@ -19,34 +19,14 @@
 
 	<div class="container infoparkir">
 		<div class="row">
-			<div class="col-md-6" id="1">
-				<h3><a href="javascript:;">Parkir ITB</a></h3>
-				<dl>
-					<p>Jl. Ganesha No.10 | motor dan mobil | Rp 2.000 per hari</p>
-				</dl>
-				<input type="hidden" id="lat1" value="-6.893075">
-				<input type="hidden" id="long1" value="107.609116">
-			</div>
-			<div class="col-md-6" id="2">
-				<h3><a href="javascript:;">Parkir Baltos</a></h3>
-				<dl>
-					<p>Jl. Tamansari No.1 | motor dan mobil | Rp 2.000 per hari</p>
-				</dl>
-				<input type="hidden" id="lat2" value="-6.898996">
-				<input type="hidden" id="long2" value="107.608264">
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-6" id="3">
-				<h3><a href="javascript:;">Parkir Braga Music</a></h3>
-				<dl>
-					<p>Jl. Purnawarman No.1 | motor dan mobil | Rp 2.000 per hari</p>
-				</dl>
-				<input type="hidden" id="lat3" value="-6.914762">
-				<input type="hidden" id="long3" value="107.609832">
-			</div>
-			<div class="col-md-6" id="id4">
-			</div>
+			<?php foreach ($parkir as $par): ?>
+				<div class="col-md-6" id="1">
+					<h3><a href="javascript:;">Parkir <?php echo $par->alamat ?></a></h3>
+					<dl>
+						<p>Rp <?php echo $par->tarif ?> per hari</p>
+					</dl>
+				</div>
+			<?php endforeach ?>
 		</div>
 	</div>
 @endsection

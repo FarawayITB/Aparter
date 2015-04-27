@@ -19,7 +19,7 @@ Route::get('/parkir', 'ParkirController@index');
 
 Route::get('/terminal', 'TerminalviewController@cek');
 
-Route::get('/parkir/cari', 'SiteController@parkir');
+Route::get('/parkir/cari', 'ParkirController@show');
 
 Route::get('/tentang', 'SiteController@tentang');
 
