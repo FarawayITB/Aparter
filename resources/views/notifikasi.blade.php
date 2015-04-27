@@ -14,27 +14,20 @@
 			</div>
 		</div>
 		
-<h3><a href="javascript:;" data-toggle="modal" data-target="#myModal">Lahan parkir di Jl. Siliwangi</a></h3>
-<p>Pendaftaran lahan parkir di Jl. Siliwangi sedang diproses.</p>
 
-<h3><a href="javascript:;" data-toggle="modal" data-target="#myModal2">Lahan parkir di Jl. Sumatra</a></h3>
-<p>Pendaftaran lahan parkir di Jl. Sumatra telah selesai diproses.</p>
-
-@foreach ($allParkir as $parkir)		
-	<h3>Lahan parkir di {{$parkir->lokasi}}</h3>
-	<p>Status pendaftaran lahan parkir di {{$parkir->alamat}},{{$parkir->lokasi}} : {{$parkir->status}}.</p>
-@endforeach
-
+@foreach ($allNotif as $notif)	
+<h3><a href="javascript:;" data-toggle="modal" data-target="#myModal"> {{$notif->subject}} </a></h3>
+<p> {{$notif->body}} </p>	
 <!-- Modal --> 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="notifLabel" aria-hidden="true"> 
 	<div class="modal-dialog"> 
 		<div class="modal-content"> 
 			<div class="modal-header"> 
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times; </button> 
-				<h4 class="modal-title" id="notifLabel">Lahan parkir di Jl.Siliwangi</h4> 
+				<h4 class="modal-title" id="notifLabel"> {{$notif->subject}} </h4> 
 			</div> 
 			<div class="modal-body">
-				<h5>Pendaftaran lahan parkir di Jl. Siliwangi sedang diproses</h5>
+				<h5> {{$notif->body}} </h5>
 			</div> 
 			<div class="modal-footer"> 
 				<button type="button" class="btn btn-default" data-dismiss="modal"> Close </button> 
@@ -42,22 +35,6 @@
 		</div><!-- /.modal-content --> 
 	</div><!-- /.modal -->
 </div>
-
-<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="notifLabel2" aria-hidden="true"> 
-	<div class="modal-dialog"> 
-		<div class="modal-content"> 
-			<div class="modal-header"> 
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times; </button> 
-				<h4 class="modal-title" id="notifLabel2">Lahan parkir di Jl. Sumatra</h4> 
-			</div> 
-			<div class="modal-body">
-				<h5>Pendaftaran lahan parkir di Jl. Sumatra telah selesai diproses.</h5>
-			</div> 
-			<div class="modal-footer"> 
-				<button type="button" class="btn btn-default" data-dismiss="modal"> Close </button> 
-			</div>
-		</div><!-- /.modal-content --> 
-	</div><!-- /.modal -->
-</div>
+@endforeach
 
 @endsection
