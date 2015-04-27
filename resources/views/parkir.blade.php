@@ -23,7 +23,7 @@
 				<div class="col-md-6" id="1">
 					<h3><a href="javascript:;">Parkir <?php echo $par->alamat ?></a></h3>
 					<dl>
-						<p>Rp <?php echo $par->tarif ?> per hari</p>
+						<p>Rp <?php echo $par->tarif ?> per hari | <?php echo $par->status ?></p>
 					</dl>
 				</div>
 			<?php endforeach ?>
