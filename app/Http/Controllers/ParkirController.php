@@ -23,7 +23,7 @@ class ParkirController extends Controller {
 	 */
 	public function index()
 	{
-		$listParkir = Parkir::paginate(1);
+		$listParkir = Parkir::paginate(10);
 		return View::make('parkir.view_all_data')
 					->with('parkir', $listParkir);
 	}
@@ -88,9 +88,11 @@ class ParkirController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show()
 	{
-		//
+		$listParkir = Parkir::all();
+		return View::make('parkir')
+					->with('parkir', $listParkir);
 	}
 
 	/**
