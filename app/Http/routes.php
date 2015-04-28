@@ -15,7 +15,7 @@ Route::get('/', 'SiteController@home');
 
 Route::get('/index', 'SiteController@home');
 
-Route::get('/parkir', 'ParkirController@index');
+Route::get('/parkir', 'ParkirController@show');
 
 Route::get('/terminal', 'TerminalviewController@cek');
 
@@ -36,7 +36,7 @@ Route::get('/notifikasi', 'NotifikasiviewController@test');
 
 Route::get('parkir/daftar', 'ParkirController@create');
 
-Route::get('terminal/lahan', 'TerminalviewController@lahan');
+Route::get('terminal/{id_terminal?}', 'TerminalviewController@lahan');
 
 Route::post('parkir/save', 'ParkirController@store');
 
