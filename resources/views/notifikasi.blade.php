@@ -21,8 +21,25 @@
 <p>Pendaftaran lahan parkir di Jl. Sumatra telah selesai diproses.</p>
 
 @foreach ($allParkir as $parkir)		
-	<h3>Lahan parkir di {{$parkir->lokasi}}</h3>
+	<h3><a href="javascript:;" data-toggle="modal" data-target="#myModal{{$parkir->id}}">Lahan parkir di {{$parkir->alamat}}</a></h3>
 	<p>Status pendaftaran lahan parkir di {{$parkir->alamat}},{{$parkir->lokasi}} : {{$parkir->status}}.</p>
+
+	<div class="modal fade" id="myModal{{$parkir->id}}" tabindex="-1" role="dialog" aria-labelledby="notifLabel{{$parkir->id}}" aria-hidden="true"> 
+		<div class="modal-dialog"> 
+			<div class="modal-content"> 
+				<div class="modal-header"> 
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times; </button> 
+					<h4 class="modal-title" id="notifLabel{{$parkir->id}}">Lahan parkir di {{$parkir->alamat}}</h4> 
+				</div> 
+				<div class="modal-body">
+					<h5>Status pendaftaran lahan parkir di {{$parkir->alamat}},{{$parkir->lokasi}} : {{$parkir->status}}.</h5>
+				</div> 
+				<div class="modal-footer"> 
+					<button type="button" class="btn btn-default" data-dismiss="modal"> Close </button> 
+				</div>
+			</div><!-- /.modal-content --> 
+		</div><!-- /.modal -->
+	</div>
 @endforeach
 
 <!-- Modal --> 
