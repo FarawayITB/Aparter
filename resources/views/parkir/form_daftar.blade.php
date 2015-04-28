@@ -31,7 +31,7 @@
 				<div class="form-group">
 					<label class="col-md-4 control-label"><h4>No. KTP</h4></label>
 					<div class="col-md-6">
-						<input type="text" class="form-control" name="id_pemilik" placeholder="Masukan No KTP Anda">
+						<input type="text" class="form-control" name="id_pemilik" placeholder="Masukan No KTP Anda" value="{{'3273060611940005'}}">	<!-- dari cookies -->
 					</div>
 				</div>
 
@@ -86,7 +86,7 @@
 				<div id="inputan-2" class="form-group toHide" >
 					<label class="col-md-4 control-label"><h4>Tarif</h4></label>
 					<div class="col-md-6">
-						<input type="text" class="form-control" name="tarif" placeholder="Tarif yang anda inginkan untuk sekali parkir per jam">
+						<input type="text" class="form-control" name="tarif" placeholder="Tarif yang anda inginkan untuk sekali parkir per hari">
 					</div>
 				</div>
 

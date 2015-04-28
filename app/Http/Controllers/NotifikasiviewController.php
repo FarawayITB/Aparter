@@ -1,7 +1,11 @@
 <?php namespace App\Http\Controllers;
 
 use View;
-use \App\parkir;
+use \App\Notification;
+
+use Carbon\Carbon;
+use Input;
+use Redirect;
 
 class NotifikasiviewController extends Controller {
     public function home()
@@ -9,7 +13,9 @@ class NotifikasiviewController extends Controller {
         return View::make('notifikasi');
 	}
 	public function test(){
-		$allParkir = Parkir::all();
-		return view('notifikasi',  ["allParkir" => $allParkir]);
+		$allNotif = Notification::all();
+		return view('notifikasi',  ["allNotif" => $allNotif]);
 	}
+	
+
 }
