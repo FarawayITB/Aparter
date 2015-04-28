@@ -1,12 +1,19 @@
 <?php namespace App;
 
+use DB;
 use Illuminate\Database\Eloquent\Model;
 
 class Notification extends Model
 {
-	protected $fillable = ['type', 'subject', 'body', 'object_id', 'object_type', 'sent_at'];
+	protected $table = 'notifications';
+	protected $primaryKey = 'id';
+	public $timestamps = false;
 
-	public function getDates() {
-		return ['created_at', 'updated_at', 'sent_at'];
+	public static function addNotif($body,$id_ktp,$subject) {
+		DB::table('notifications')->insert([
+			'body' => $body,
+			'id_ktp' => $id_ktp,
+			'subject' => $subject
+			]);
 	}
 }

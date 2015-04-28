@@ -16,10 +16,10 @@
 		
 
 @foreach ($allNotif as $notif)	
-<h3><a href="javascript:;" data-toggle="modal" data-target="#myModal"> {{$notif->subject}} </a></h3>
+<h3><a href="javascript:;" data-toggle="modal" data-target="#myModal{{$notif->id}}"> {{$notif->subject}} </a></h3>
 <p> {{$notif->body}} </p>	
 <!-- Modal --> 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="notifLabel" aria-hidden="true"> 
+<div class="modal fade" id="myModal{{$notif->id}}" tabindex="-1" role="dialog" aria-labelledby="notifLabel" aria-hidden="true"> 
 	<div class="modal-dialog"> 
 		<div class="modal-content"> 
 			<div class="modal-header"> 

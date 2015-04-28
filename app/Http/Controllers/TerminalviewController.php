@@ -58,12 +58,21 @@ class TerminalviewController extends Controller {
 			
 			// buat notifikasi
 
+			$subject = "Pembayaran Bulanan Lahan ID ".$id_lahan;
+			$id_ktp = Input::get('id_pemilik');
+			$body = "Pendaftaran sewa lahan dengan ID ".$id_lahan." sudah diterima.";
+			Notification::addNotif($body,$id_ktp,$subject);
+
 		} else{
 
 			$user_lahan->status = 'request perluasan';
 			$user_lahan->save();
 
 			// buat notifikasi
+			$subject = "Permintaan Perluasan Lahan ID ".$id_lahan;
+			$id_ktp = Input::get('id_pemilik');
+			$body = "Permintaan perluasan lahan dengan ID ".$id_lahan." sudah diterima.";
+			Notification::addNotif($body,$id_ktp,$subject);
 		}
 
 		

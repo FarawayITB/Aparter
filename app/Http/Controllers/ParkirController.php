@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Pagination\Paginator;
 use App\Parkir;
 use App\RekomendasiParkir;
+use App\Notification;
 
 use DB;
 use View;
@@ -43,6 +44,7 @@ class ParkirController extends Controller {
 		$jenis = DB::table('jenis_kendaraan')
 						->select('jenis_kendaraan_parkir')
 						->get();
+
 		return View::make('parkir.form_daftar')->with('kecamatans', $kecamatan)->with('jeniss', $jenis);
 	}
 
@@ -56,6 +58,7 @@ class ParkirController extends Controller {
 		// store
 		$parkir				= new Parkir;
 		$rekomendasiParkir	= new RekomendasiParkir;
+
 		if(Input::get('jenis_daftar') == 1)	// lahan pribadi
 		{
 			$parkir->id_pemilik  		= Input::get('id_pemilik');
@@ -67,6 +70,14 @@ class ParkirController extends Controller {
 			$parkir->id_kecamatan 		= DB::table('kecamatan')->where('nama_kecamatan','=', Input::get('kecamatan'))->select('id_kecamatan')->first()->id_kecamatan;
 			$parkir->id_jenis_kendaraan = DB::table('jenis_kendaraan')->where('jenis_kendaraan_parkir','=', Input::get('jenis'))->select('id_jenis_kendaraan')->first()->id_jenis_kendaraan;
 			$parkir->save();
+
+
+			$alamat = Input::get('alamat');
+			$subject = "Pendaftaran Lahan Parkir Pribadi ".$alamat;
+			$id_ktp = Input::get('id_pemilik');
+			$body = "Pendaftaran lahan parkir pribadi di ".$alamat." sudah diterima.";
+			Notification::addNotif($body,$id_ktp,$subject);
+
 		}
 		else	// rekomendasi
 		{
@@ -75,10 +86,20 @@ class ParkirController extends Controller {
 			$rekomendasiParkir->lokasi      = Input::get('lokasi');
 			$rekomendasiParkir->status      = Input::get('status');
 			$rekomendasiParkir->save();
+
+			$alamat = Input::get('alamat');
+			$subject = "Pendaftaran Rekomendasi Parkir ".$alamat;
+			$id_ktp = Input::get('id_pemilik');
+			$body = "Pendaftaran rekomendasi parkir di ".$alamat." sudah diterima.";
+			Notification::addNotif($body,$id_ktp,$subject);
+
 		}
+
+
 
 		// redirect
 		Session::flash('message', 'Input data sukses!');
+
 		return Redirect::to('parkir/daftar');
 	}
 
