@@ -12,12 +12,12 @@ class IdPemilik extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('lahan',function($table)
+		Schema::table('ppl_aparter_lahan',function($table)
 		{
 			$table->string('id_pemilik');
 		});
 
-		Schema::table('pembayaran',function($table)
+		Schema::table('ppl_aparter_pembayaran',function($table)
 		{
 			$table->dropColumn('id_pemilik');
 		});
@@ -30,12 +30,12 @@ class IdPemilik extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('parkir');
-		Schema::drop('terminal');
-		Schema::drop('kecamatan');
-		Schema::drop('jenis_kendaraan');
-		Schema::drop('lahan');
-		Schema::drop('pembayaran');
+		Schema::drop('ppl_aparter_parkir');
+		Schema::drop('ppl_aparter_terminal');
+		Schema::drop('ppl_aparter_kecamatan');
+		Schema::drop('ppl_aparter_jenis_kendaraan');
+		Schema::drop('ppl_aparter_lahan');
+		Schema::drop('ppl_aparter_pembayaran');
 	}
 
 }

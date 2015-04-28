@@ -12,7 +12,7 @@ class Pembayaran extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('pembayaran',function($table)
+		Schema::table('ppl_aparter_pembayaran',function($table)
 		{
 			$table->dropColumn('periode');
 			$table->dropColumn('gambar');
@@ -27,12 +27,12 @@ class Pembayaran extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('parkir');
-		Schema::drop('terminal');
-		Schema::drop('kecamatan');
-		Schema::drop('jenis_kendaraan');
-		Schema::drop('lahan');
-		Schema::drop('pembayaran');
+		Schema::drop('ppl_aparter_parkir');
+		Schema::drop('ppl_aparter_terminal');
+		Schema::drop('ppl_aparter_kecamatan');
+		Schema::drop('ppl_aparter_jenis_kendaraan');
+		Schema::drop('ppl_aparter_lahan');
+		Schema::drop('ppl_aparter_pembayaran');
 	}
 
 }

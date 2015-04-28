@@ -14,7 +14,7 @@ class DeleteIdPemilik extends Migration {
 	{
 		Schema::table('lahan',function($table)
 		{
-			$table->dropColumn('id_pemilik');
+			$table->dropColumn('ppl_aparter_id_pemilik');
 		});
 	}
 
@@ -25,12 +25,12 @@ class DeleteIdPemilik extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('parkir');
-		Schema::drop('terminal');
-		Schema::drop('kecamatan');
-		Schema::drop('jenis_kendaraan');
-		Schema::drop('lahan');
-		Schema::drop('pembayaran');
+		Schema::drop('ppl_aparter_parkir');
+		Schema::drop('ppl_aparter_terminal');
+		Schema::drop('ppl_aparter_kecamatan');
+		Schema::drop('ppl_aparter_jenis_kendaraan');
+		Schema::drop('ppl_aparter_lahan');
+		Schema::drop('ppl_aparter_pembayaran');
 	}
 
 }

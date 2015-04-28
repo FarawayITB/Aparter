@@ -27,4 +27,8 @@ class SiteController extends Controller {
 	{
 		return View::make('notifikasi');
 	}
+	public function admin()
+	{
+		return View::make('admin');
+	}
 }

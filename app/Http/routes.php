@@ -27,6 +27,8 @@ Route::get('user/pembayaran', 'UserController@pembayaran');
 
 Route::post('user/status', 'Pembayaran@add');
 
+Route::get('/admin', 'SiteController@admin');
+
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
