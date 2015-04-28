@@ -19,11 +19,12 @@ class TerminalviewController extends Controller {
 		return view('terminal',  ["allTerminal" => $allTerminal]);
 	}
 
-	public function lahan()
+	public function lahan($id_terminal)
 	{
-		//fetch dari DB semua lahan, tampilin sesuai contoh
+		$lahan_terminal = Lahan::where('id_terminal', '=', $id_terminal)->get();//fetch dari DB semua lahan, tampilin sesuai contoh
+		$nama_terminal = terminal::where('id_terminal', '=', $id_terminal)->get();
 
-		return View::make('lahan');
+		return View::make('lahan',compact('lahan_terminal', 'nama_terminal'));
 	}
 
 	public function lahan_saya()

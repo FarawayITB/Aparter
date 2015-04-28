@@ -36,7 +36,7 @@ Route::get('/notifikasi', 'NotifikasiviewController@test');
 
 Route::get('parkir/daftar', 'ParkirController@create');
 
-Route::get('terminal/lahan', 'TerminalviewController@lahan');
+Route::get('terminal/{id_terminal?}', 'TerminalviewController@lahan');
 
 Route::post('parkir/save', 'ParkirController@store');
 
