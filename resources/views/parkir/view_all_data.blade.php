@@ -38,11 +38,12 @@
 							<td><?php echo $par->status ?></td>
 							<td><?php echo $par->luas ?></td>
 							<td><?php echo $par->tarif ?></td>
+							<td><a href="parkir/{{ $par->id_parkir }}/edit">Edit</a></td>
 						</tr>
 					<?php endforeach ?>
 				</tbody>
 			</table>
-			<?php echo $parkir->render() ?>
+			<?php //echo $parkir->render() ?>
 			</div>
 			<div class="col-xs-2">
 			</div>

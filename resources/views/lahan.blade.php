@@ -17,7 +17,7 @@
 		<div class="row">
 			<div class="col-sm-6 col-md-3"> 
 				<div class="thumbnail"> 
-					<img src="{{asset('images/lahan1.jpg')}}" alt="Generic placeholder thumbnail"> 
+					<img src="{{asset('images/lahan'.$lahan->id_lahan.'.jpg')}}" alt="Generic placeholder thumbnail"> 
 				</div>
 			</div>
 			<div class="col-sm-6 col-md-3"> 
@@ -26,6 +26,7 @@
 				<h4>Lahan {{$lahan->id_lahan}}</h4>
 				<h4>Luas: {{$lahan->luas}}</h4>
 				<h4>Harga: Rp{{$lahan->harga}}</h4>
+				<h4>Pemilik: {{$lahan->id_pemilik}}</h4>
 			</div> 
 			<div class="col-sm-6 col-md-3"> 
 			</div> 
