@@ -94,6 +94,7 @@
 						<select class="form-control" name="pilihan_aksi">
 							<option>Pilih Aksi</option>
 							<option>Validasi Lahan</option>
+							<option>Validasi Parkir</option>
 							<option>Retribusi Parkir</option>
 							<option></option>
 							<option></option>

@@ -29,9 +29,9 @@ Route::post('user/status', 'Pembayaran@add');
 
 Route::get('/admin', 'SiteController@admin');
 
-Route::get('/admin/parkir', 'SiteController@admin');
+Route::get('/admin/notif', 'AdminController@notif');
 
-Route::get('/admin/addlahan', 'SiteController@admin');
+Route::get('/admin/addlahan', 'AdminController@addLahan');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

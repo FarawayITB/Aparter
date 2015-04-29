@@ -67,7 +67,7 @@
 			</div>
 			<div class="col-xs-3">
 				<div class="page-header"> 
-					<h1>Send Notif</h1> 
+					<h1>Add Lahan</h1> 
 				</div>
 			</div>
 			</div>
@@ -77,28 +77,26 @@
 			<form class="form-horizontal" role="form" enctype='multipart/form-data' method="post" action="/user/status">
 
 				<div class="form-group"> 
-					<div class="col-md-6 col-md-offset-3">
-						<input class="form-control" name="subjek" placeholder="Subjek"/>
-					</div>
-				</div>
-
-				<div class="form-group"> 
-					<div class="col-md-6 col-md-offset-3">
-						<textarea class="form-control" name="isi" placeholder="Isi Notifnya"></textarea>				
-					</div>
-				</div> 
-
-				<div class="form-group"> 
 					<label for="idtempat_lahan" class="col-md-4 control-label"><h4></h4></label> 
 					<div class="col-md-4">
-						<select class="form-control" name="pilihan_aksi">
-							<option>Pilih Aksi</option>
-							<option>Validasi Lahan</option>
-							<option>Retribusi Parkir</option>
+						<select class="form-control" name="pilihan terminal">
 							<option></option>
 							<option></option>
 							<option></option>
 						</select> 
+					</div>
+				</div> 
+
+
+				<div class="form-group"> 
+					<div class="col-md-6 col-md-offset-3">
+						<textarea class="form-control" name="luas" placeholder="luas"></textarea>				
+					</div>
+				</div> 
+
+				<div class="form-group"> 
+					<div class="col-md-6 col-md-offset-3">
+						<textarea class="form-control" name="status" placeholder="status"></textarea>				
 					</div>
 				</div> 
 

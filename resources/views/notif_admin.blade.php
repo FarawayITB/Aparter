@@ -73,7 +73,6 @@
 		</div>
 	</div>
 		
-		
 		<h3><a href="javascript:;" data-toggle="modal" data-target="#myModal{{$notif->id}}"> {{"$notif->subject"}} </a></h3>
 		<p> {{"$notif->body"}} </p>	
 		<!-- Modal --> 
