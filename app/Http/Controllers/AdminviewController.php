@@ -10,13 +10,12 @@ use Redirect;
 class AdminviewController extends Controller {
     public function notif()
     {
-        return View::make('notifikasi');
+       $allNotif = Notification::all();
+		return view('notif_admin',  ["allNotif" => $allNotif]);
 	}
 
 	public function addLahan(){
-		Notification::cekTenggat();
-		$alllahan = lahan::all();
-		return view('notifikasi',  ["allNotif" => $alllahan]);
+		return View::make('add_lahan');
 	}
 	
 

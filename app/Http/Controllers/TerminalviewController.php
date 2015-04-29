@@ -6,6 +6,7 @@ use Input;
 use Carbon\Carbon;
 use \App\Terminal;
 use \App\Lahan;
+use \App\Notification;
 
 class TerminalviewController extends Controller {
     public function home()
@@ -30,7 +31,7 @@ class TerminalviewController extends Controller {
 	public function lahan_saya()
 	{
 		$lahan = DB::table('ppl_aparter_lahan')
-				->join('terminal', 'lahan.id_terminal', '=', 'terminal.id_terminal')
+				->join('ppl_aparter_terminal', 'ppl_aparter_lahan.id_terminal', '=', 'ppl_aparter_terminal.id_terminal')
 				->where('id_pemilik', '=', '3273060611940005') // dari cookies
 				->get();
 				
@@ -76,7 +77,7 @@ class TerminalviewController extends Controller {
 
 		
 		$lahan = DB::table('ppl_aparter_lahan')
-				->join('terminal', 'lahan.id_terminal', '=', 'terminal.id_terminal')
+				->join('ppl_aparter_terminal', 'ppl_aparter_lahan.id_terminal', '=', 'ppl_aparter_terminal.id_terminal')
 				->where('id_pemilik', '=', '3273060611940005') // dari cookies
 				->get();
 

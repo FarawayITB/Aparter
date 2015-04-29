@@ -31,6 +31,7 @@
 				<form class="form-horizontal" role="form" method="POST" enctype="multipart/form-data" action="{{ url('/user/save_lahan') }}"> 
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 					<input type="hidden" name="idlahan" value="{{$lahan->id_lahan}}">
+					<input type="hidden" name="id_pemilik" value="3273060611940005">
 					<div class="modal-dialog"> 
 						<div class="modal-content"> 
 							<div class="modal-header"> 
