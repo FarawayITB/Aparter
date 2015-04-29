@@ -43,3 +43,7 @@ Route::post('parkir/save', 'ParkirController@store');
 Route::get('/user/lahan','TerminalviewController@lahan_saya');
 
 Route::post('/user/save_lahan', 'TerminalviewController@store_lahan_saya');
+
+Route::get('parkir/{id}/edit', 'ParkirController@edit');
+
+Route::post('parkir/{id}/update', 'ParkirController@update');
