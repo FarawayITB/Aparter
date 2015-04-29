@@ -2,66 +2,72 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Creation a industrial bootstrap Website Template | Features :: w3layouts</title>
-<!-- Bootstrap -->
-<link href="web/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
-<link href="web/css/bootstrap.css" rel='stylesheet' type='text/css' />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
-<!-- // webfonts  -->
-<link href="web/css/style.css" rel="stylesheet" type="text/css" media="all" />
-<!-- start plugins -->
-<script type="text/javascript" src="web/js/jquery.min.js"></script>
-<script type="text/javascript" src="web/js/bootstrap.js"></script>
-<script type="text/javascript" src="web/js/bootstrap.min.js"></script>
-<!-- start light_box -->
-<link rel="stylesheet" type="text/css" href="web/css/jquery.fancybox.css" media="screen" />
-<script type="text/javascript" src="web/js/jquery-1.3.2.min.js"></script>
-<script type="text/javascript" src="web/js/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="web/js/jquery.fancybox-1.2.1.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$("div.fancyDemo a").fancybox();
-		});
-	</script>
-</head>
+		<title>Aparter - Pemkot Bandung</title>
+		<!-- Bootstrap -->
+		<link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
+		{{-- <link href="{{ asset('/css/bootstrap.css') }}" rel="stylesheet"> --}}
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		 <!--[if lt IE 9]>
+		     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		<!--  webfonts  -->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+		<!-- // webfonts  -->
+		<link href="{{ asset('/css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
+		<!-- start plugins -->
+		<script src="{{ asset('/js/jquery.min.js') }}"></script>
+		{{-- // <script src="{{ asset('/js/bootstrap.js') }}"></script> --}}
+		<script src="{{ asset('/js/bootstrap.min.js') }}"></script>
+		<script src="{{ asset('/js/jenis_pendaftaran.js') }}"></script>
+		<script src="{{ asset('/js/hoverakun.js') }}"></script>
+		<script src="{{ asset('/js/dropdownselect.js') }}"></script>
+		<script src="{{ asset('/js/maps.js') }}"></script>
+		{{-- // <script src="{{ asset('/js/getLatLng.js') }}"></script> --}}
+		<script src="https://maps.googleapis.com/maps/api/js?&libraries=places"></script>
+	</head>
 <body>
 <div class="header_bg"><!-- start header -->
-	<div class="container">
-		<div class="row header">
-		<nav class="navbar" role="navigation">
-		  <div class="container-fluid">
-		    <!-- Brand and toggle get grouped for better mobile display -->
-		    <div class="navbar-header">
-		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-		        <span class="sr-only">Toggle navigation</span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		      </button>
-		      <a class="navbar-brand" href="index.html"><img src="web/images/logo.png" alt="" class="img-responsive"/> </a>
-		    </div>
-		    <!-- Collect the nav links, forms, and other content for toggling -->
-		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		      <ul class="menu nav navbar-nav ">
-		        <li><a href="index.html">home</a></li>
-		        <li class="active"><a href="feature.html">features</a></li>
-		        <li><a href="blog.html">blog</a></li>
-		        <li><a href="about.html">about</a></li>
-		        <li><a href="contact.html">contact</a></li>
-		      </ul>
-		      <form class="navbar-form navbar-right" role="search">
-		        <div class="form-group my_search">
-		          <input type="text" class="form-control" placeholder="Search">
-		        </div>
-		        <button type="submit" class="btn btn-default">Search</button>
-		      </form>
-		    </div><!-- /.navbar-collapse -->
-		  </div><!-- /.container-fluid -->
-		</nav>
-		</div>
+			<div class="container">
+				<div class="row header">
+				<nav class="navbar" role="navigation">
+				  <div class="container-fluid">
+				    <!-- Brand and toggle get grouped for better mobile display -->
+				    <div class="navbar-header">
+				      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				        <span class="sr-only">Toggle navigation</span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </button>
+				      <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('/images/logo.png') }}" alt="" class="img-responsive"/> </a>
+				    </div>
+				    <!-- Collect the nav links, forms, and other content for toggling -->
+				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				      <ul class="menu nav navbar-nav">
+				        <li><a href="{{ url('/parkir') }}">Parkir</a></li>
+				        <li><a href="{{ url('/terminal') }}">Terminal</a></li>
+				        <li><a href="tentang">Tentang</a></li>
+				        <li class="dropdown"> 
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Akun <b class="caret"></b> 
+							</a> 
+							<ul class="dropdown-menu"> 
+								<li><a href="{{ url('/user/pembayaran') }}">Pembayaran</a></li> 
+								<li><a href="{{ url('/notifikasi') }}">Pemberitahuan</a></li> 
+								<li><a href="{{ url('/parkir/daftar') }}">Pendaftaran</a></li> 
+								<li><a href="#">Edit Data</a></li> 
+								<li><a href="{{ url('/user/lahan') }}">Lahan</a></li> 
+								<li><a href="#">Keluar</a></li> 
+							</ul> 
+						</li> 
+				      </ul>
+				      <h4 class="text-right">Selamat datang, {{"Nama"}}</h4>
+				      <h4 class="text-right">{{"NIK"}}</h4>
+				    </div><!-- /.navbar-collapse -->
+				  </div><!-- /.container-fluid -->
+				</nav>
+				</div>
 		<ol class="breadcrumb">
 		  <li><a href="index.html">Home</a></li>
 		  <li class="active">features</li>
@@ -70,69 +76,47 @@
 </div>
 <div class="main"><!-- start main -->
 <div class="container">
-	<div class="features"><!-- start feature -->
-		<div class="row features_list">
-			<div class="col-md-3 feature">
-				<div class="fancyDemo">
-					<a rel="group" title="" href="web/images/ser_pic1.jpg"><img src="web/images/ser_pic1.jpg" alt=""class="img-responsive"/></a>
-				</div>
-				<p class="para">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
-				<a href="single-page.html"> consectetur lipsum</a>
+		<div class="row">
+			<div class="col-xs-5">
 			</div>
-			<div class="col-md-3 feature">
-				<div class="fancyDemo">
-					<a rel="group" title="" href="web/images/ser_pic2.jpg"><img src="web/images/ser_pic2.jpg" alt=""class="img-responsive"/></a>
+			<div class="col-xs-3">
+				<div class="page-header"> 
+					<h1>Send Notif</h1> 
 				</div>
-				<p class="para">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-				<a href="single-page.html">Lorem Ipsum simply</a>
 			</div>
-			<div class="col-md-3 feature">
-				<div class="fancyDemo">
-					<a rel="group" title="" href="web/images/ser_pic3.jpg"><img src="web/images/ser_pic3.jpg" alt=""class="img-responsive"/></a>
-				</div>
-				<p class="para">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
-				<a href="single-page.html"> consectetur lipsum</a>
-			</div>
-			<div class="col-md-3 feature">
-				<div class="fancyDemo">
-					<a rel="group" title="" href="web/images/ser_pic4.jpg"><img src="web/images/ser_pic4.jpg" alt=""class="img-responsive"/></a>
-				</div>
-				<p class="para">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-				<a href="single-page.html">Lorem Ipsum simply</a>
+			<div class="col-xs-4">
 			</div>
 		</div>
-		<div class="row features_list1"><!-- start feature -->
-			<div class="col-md-3 feature">
-				<div class="fancyDemo">
-					<a rel="group" title="" href="web/images/ser_pic5.jpg"><img src="web/images/ser_pic5.jpg" alt=""class="img-responsive"/></a>
+		<div class="row">
+			
+			<form class="form-horizontal" role="form" enctype='multipart/form-data' method="post" action="/user/status">
+
+				<div class="form-group"> 
+					<label for="idtempat_parkir" class="col-md-4 control-label"><h4>Subjek</h4></label> 
+					<div class="col-md-6">
+						<input class="form-control" name="idtempat_parkir"/>
+							
+					</div>
 				</div>
-				<p class="para">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
-				<a href="single-page.html">Lorem Ipsum simply</a>
-			</div>
-			<div class="col-md-3 feature">
-				<div class="fancyDemo">
-					<a rel="group" title="" href="web/images/ser_pic6.jpg"><img src="web/images/ser_pic6.jpg" alt=""class="img-responsive"/></a>
-				</div>
-				<p class="para">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-				<a href="single-page.html"> consectetur lipsum</a>
-			</div>
-			<div class="col-md-3 feature">
-				<div class="fancyDemo">
-					<a rel="group" title="" href="web/images/ser_pic7.jpg"><img src="web/images/ser_pic7.jpg" alt=""class="img-responsive"/></a>
-				</div>
-				<p class="para">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
-				<a href="single-page.html">Lorem Ipsum simply</a>
-			</div>
-			<div class="col-md-3 feature">
-				<div class="fancyDemo">
-					<a rel="group" title="" href="web/images/ser_pic8.jpg"><img src="web/images/ser_pic8.jpg" alt=""class="img-responsive"/></a>
-				</div>
-				<p class="para">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-				<a href="single-page.html"> consectetur lipsum</a>
-			</div>
+
+				<div class="form-group"> 
+					<label for="idtempat_lahan" class="col-md-4 control-label"><h4>Isi</h4></label> 
+					<div class="col-md-6">
+						<textarea class="form-control" name="idtempat_lahan"></textarea>					
+						
+					</div>
+				</div>  
+
+				<div class="form-group"> 
+					<div class="col-sm-offset-5 col-sm-10"> 
+						<button type="submit" class="btn btn-default">Send</button> 
+					</div> 
+				</div> 
+				<input type="hidden" name="_token" value="{{ csrf_token() }}">
+			</form>
+		
 		</div>
-	</div><!-- end feature -->
-</div>
+	</div>
 </div>
 <div class="footer_bg"><!-- start footre -->
 	<div class="container">
