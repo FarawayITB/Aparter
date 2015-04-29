@@ -16,9 +16,15 @@ class DatabaseSeeder extends Seeder {
 		$this->call('KecamatanSeeder');
 		$this->call('JenisKendaraanSeeder');
 		$this->call('TerminalSeeder');
+		$this->call('LahanSeeder');
+		$this->call('NotificationSeeder');
+		$this->call('ParkirSeeder');
 		$this->command->info('Kecamatan table seeded!');
 		$this->command->info('Jenis Kendaraan table seeded!');
 		$this->command->info('Terminal table seeded!');
+		$this->command->info('Lahan table seeded!');
+		$this->command->info('Notification table seeded!');
+		$this->command->info('Parkir table seeded!');
 	}
 
 }
