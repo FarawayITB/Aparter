@@ -12,8 +12,8 @@ class LahanSeeder extends Seeder {
 
         Lahan::create( [
             'luas' => '30',
-            'id_terminal' => '2345678901',
-            'id_pemilik' => '1234567890',
+            'id_terminal' => '1',
+            'id_pemilik' => '3273060611940005',
             'status' => 'Request perluasan',
             'harga' => '400000',
             'tenggat' => '2015-05-01',
@@ -21,8 +21,8 @@ class LahanSeeder extends Seeder {
 
         Lahan::create( [
             'luas' => '40',
-            'id_terminal' => '3456789012',
-            'id_pemilik' => '2345678901',
+            'id_terminal' => '2',
+            'id_pemilik' => '3273060611940005',
             'status' => 'Request perluasan',
             'harga' => '300000',
             'tenggat' => '2015-05-01',
@@ -30,8 +30,8 @@ class LahanSeeder extends Seeder {
 
         Lahan::create( [
             'luas' => '80',
-            'id_terminal' => '4567890132',
-            'id_pemilik' => '456789032',
+            'id_terminal' => '3',
+            'id_pemilik' => '3273060611940005',
             'status' => 'Request perluasan',
             'harga' => '550000',
             'tenggat' => '2015-05-01',
