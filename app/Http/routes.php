@@ -31,7 +31,7 @@ Route::get('/admin', 'SiteController@admin');
 
 Route::get('/admin/parkir', 'SiteController@admin');
 
-Route::get('/admin/terminal', 'SiteController@admin');
+Route::get('/admin/addlahan', 'SiteController@admin');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

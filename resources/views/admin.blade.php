@@ -41,29 +41,15 @@
 				        <span class="icon-bar"></span>
 				        <span class="icon-bar"></span>
 				      </button>
-				      <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('/images/logo.png') }}" alt="" class="img-responsive"/> </a>
+				      <a class="navbar-brand" href="{{ url('/admin') }}"><img src="{{ asset('/images/logo.png') }}" alt="" class="img-responsive"/> </a>
 				    </div>
 				    <!-- Collect the nav links, forms, and other content for toggling -->
 				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				      <ul class="menu nav navbar-nav">
-				        <li><a href="{{ url('/parkir') }}">Parkir</a></li>
-				        <li><a href="{{ url('/terminal') }}">Terminal</a></li>
-				        <li><a href="tentang">Tentang</a></li>
-				        <li class="dropdown"> 
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Akun <b class="caret"></b> 
-							</a> 
-							<ul class="dropdown-menu"> 
-								<li><a href="{{ url('/user/pembayaran') }}">Pembayaran</a></li> 
-								<li><a href="{{ url('/notifikasi') }}">Pemberitahuan</a></li> 
-								<li><a href="{{ url('/parkir/daftar') }}">Pendaftaran</a></li> 
-								<li><a href="#">Edit Data</a></li> 
-								<li><a href="{{ url('/user/lahan') }}">Lahan</a></li> 
-								<li><a href="#">Keluar</a></li> 
-							</ul> 
-						</li> 
+				        <li><a href="{{ url('/admin/notif') }}">Lihat Notif</a></li>
+				        <li><a href="{{ url('/admin/addlahan') }}">Add Lahan</a></li>
 				      </ul>
-				      <h4 class="text-right">Selamat datang, {{"Nama"}}</h4>
-				      <h4 class="text-right">{{"NIK"}}</h4>
+				      <h4 class="text-right">Selamat datang, {{"Admin"}}</h4>
 				    </div><!-- /.navbar-collapse -->
 				  </div><!-- /.container-fluid -->
 				</nav>
@@ -124,73 +110,6 @@
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 			</form>
 		
-		</div>
-	</div>
-</div>
-<div class="footer_bg"><!-- start footre -->
-	<div class="container">
-		<div class="row  footer">
-			<div class="col-md-3 span1_of_4">
-				<h4>about us</h4>
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry .....</p>
-				<h5>Address</h5>
-				<p class="top">500 Lorem Ipsum Dolor Sit,</p>
-				<p>22-56-2-9 Sit Amet,</p>
-				<p>USA</p>
-				<p>Phone:(00) 222 666 444</p>
-				<p>Fax: (000) 000 00 00 0</p>
-			</div>
-			<div class="col-md-3 span1_of_4">
-				<h4>latest posts</h4>
-				<span><a href="#"> Fusce scelerisque massa vitae </a></span>
-				<p>25 april 2013</p>
-				<span><a href="#">Pellentesque bibendum ante </a></span>
-				<p>15 march 2013</p>
-				<span><a href="#">Maecenas quis ipsum sed magna </a></span>
-				<p>25 april 2013</p>
-			</div>
-			<div class="col-md-3 span1_of_4">
-				<h4>latest comments</h4>
-				<span><a href="#">It is a long established fact that a reader will looking layout.</a></span>
-				<span><a href="#">There are many variations of passages of Lorem Ipsum available words.</a></span>
-				<span><a href="#">It is a long established fact that a reader will looking layout.</a></span>
-			</div>
-			<div class="col-md-3 span1_of_4">
-				<h4>photostream</h4>
-				<ul class="f_nav list-unstyled">
-					<li><a href="#"><img src="web/images/f_pic1.jpg" alt="" class="img-responsive"/></a></li>
-					<li><a href="#"><img src="web/images/f_pic3.jpg" alt="" class="img-responsive"/> </a></li>
-					<li><a href="#"><img src="web/images/f_pic4.jpg" alt="" class="img-responsive"/> </a></li>
-					<li><a href="#"><img src="web/images/f_pic5.jpg" alt="" class="img-responsive"/> </a></li>
-					<li><a href="#"><img src="web/images/f_pic7.jpg" alt="" class="img-responsive"/> </a></li>
-					<li><a href="#"><img src="web/images/f_pic1.jpg" alt="" class="img-responsive"/> </a></li>
-					<li><a href="#"><img src="web/images/f_pic6.jpg" alt="" class="img-responsive"/> </a></li>
-					<li><a href="#"><img src="web/images/f_pic8.jpg" alt="" class="img-responsive"/> </a></li>
-					<li><a href="#"><img src="web/images/f_pic2.jpg" alt="" class="img-responsive"/> </a></li>
-				</ul>
-			</div>
-			<div class="clearfix"></div>
-		</div>
-	</div>
-</div>
-<div class="footer_btm"><!-- start footer_btm -->
-	<div class="container">
-		<div class="row  footer1">
-			<div class="col-md-5">
-				<div class="soc_icons">
-					<ul class="list-unstyled">
-						<li><a class="icon1" href="#"></a></li>
-						<li><a class="icon2" href="#"></a></li>
-						<li><a class="icon3" href="#"></a></li>
-						<li><a class="icon4" href="#"></a></li>
-						<li><a class="icon5" href="#"></a></li>
-						<div class="clearfix"></div>
-					</ul>	
-				</div>
-			</div>
-			<div class="col-md-7 copy">
-				<p class="link text-right"><span>&#169; All rights reserved | Design by&nbsp;<a href="http://w3layouts.com/"> W3Layouts</a></span></p>
-			</div>
 		</div>
 	</div>
 </div>

@@ -46,7 +46,7 @@
 				    <!-- Collect the nav links, forms, and other content for toggling -->
 				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				      <ul class="menu nav navbar-nav">
-				        <li><a href="{{ url('/admin/notif') }}">Lihat Notif</a></li>
+				        <li><a href="{{ url('/admin/parkir') }}">Lihat Notif</a></li>
 				        <li><a href="{{ url('/admin/addlahan') }}">Add Lahan</a></li>
 				      </ul>
 				      <h4 class="text-right">Selamat datang, {{"Admin"}}</h4>
@@ -60,58 +60,39 @@
 		</ol>
 	</div>
 </div>
-<div class="main"><!-- start main -->
 <div class="container">
-		<div class="row">
-			<div class="col-xs-4">
-			</div>
-			<div class="col-xs-3">
-				<div class="page-header"> 
-					<h1>Send Notif</h1> 
-				</div>
-			</div>
+	<div class="row">
+		<div class="col-xs-5">
+		</div>
+		<div class="col-xs-3">
+			<div class="page-header"> 
+				<h1>Pemberitahuan</h1> 
 			</div>
 		</div>
-		<div class="row">
-			
-			<form class="form-horizontal" role="form" enctype='multipart/form-data' method="post" action="/user/status">
-
-				<div class="form-group"> 
-					<div class="col-md-6 col-md-offset-3">
-						<input class="form-control" name="subjek" placeholder="Subjek"/>
-					</div>
-				</div>
-
-				<div class="form-group"> 
-					<div class="col-md-6 col-md-offset-3">
-						<textarea class="form-control" name="isi" placeholder="Isi Notifnya"></textarea>				
-					</div>
-				</div> 
-
-				<div class="form-group"> 
-					<label for="idtempat_lahan" class="col-md-4 control-label"><h4></h4></label> 
-					<div class="col-md-4">
-						<select class="form-control" name="pilihan_aksi">
-							<option>Pilih Aksi</option>
-							<option>Validasi Lahan</option>
-							<option>Retribusi Parkir</option>
-							<option></option>
-							<option></option>
-							<option></option>
-						</select> 
-					</div>
-				</div> 
-
-				<div class="form-group"> 
-					<div class="col-sm-offset-5 col-sm-10"> 
-						<button type="submit" class="btn btn-default">Send</button> 
-					</div> 
-				</div> 
-				<input type="hidden" name="_token" value="{{ csrf_token() }}">
-			</form>
-		
+		<div class="col-xs-4">
 		</div>
 	</div>
-</div>
+		
+		
+		<h3><a href="javascript:;" data-toggle="modal" data-target="#myModal{{$notif->id}}"> {{"$notif->subject"}} </a></h3>
+		<p> {{"$notif->body"}} </p>	
+		<!-- Modal --> 
+		<div class="modal fade" id="myModal{{$notif->id}}" tabindex="-1" role="dialog" aria-labelledby="notifLabel" aria-hidden="true"> 
+			<div class="modal-dialog"> 
+				<div class="modal-content"> 
+					<div class="modal-header"> 
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times; </button> 
+						<h4 class="modal-title" id="notifLabel"> {{"$notif->subject"}} </h4> 
+					</div> 
+					<div class="modal-body">
+						<h5> {{"$notif->body"}} </h5>
+					</div> 
+					<div class="modal-footer"> 
+						<button type="button" class="btn btn-default" data-dismiss="modal"> Close </button> 
+					</div>
+				</div><!-- /.modal-content --> 
+			</div><!-- /.modal -->
+		</div>
 </body>
 </html>
+
