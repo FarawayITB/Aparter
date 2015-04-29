@@ -46,8 +46,8 @@
 				    <!-- Collect the nav links, forms, and other content for toggling -->
 				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				      <ul class="menu nav navbar-nav">
-				        <li><a href="{{ url('/parkir') }}">Parkir</a></li>
-				        <li><a href="{{ url('/terminal') }}">Terminal</a></li>
+				        <li><a href="{{ url('/admin/parkir') }}">Lihat Parkir</a></li>
+				        <li><a href="{{ url('/admin/addlahan') }}">Add Lahan</a></li>
 				        <li><a href="tentang">Tentang</a></li>
 				        <li class="dropdown"> 
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Akun <b class="caret"></b> 
