@@ -14,7 +14,7 @@ class NotificationSeeder extends Seeder {
             'id_ktp' => '3273060611940005',
             'subject' => 'Pendaftaran Lahan Parkir Pribadi Jl. Bebek 42',
             'body' => 'Pendaftaran Lahan Parkir Pribadi Jl. Bebek 42 sudah diterima.',
-            'is_read' => '0'
+            'is_read' => '0',
             'is_admin' => '0',
         ] );
 
@@ -22,7 +22,7 @@ class NotificationSeeder extends Seeder {
             'id_ktp' => '3273060611940005',
             'subject' => 'Pendaftaran Rekomendasi Parkir Jl. Ayam Blok F1',
             'body' => 'Pendaftaran Rekomendasi Parkir Jl. Ayam Blok F1 sudah diterima.',
-            'is_read' => '0'
+            'is_read' => '0',
             'is_admin' => '0',
         ] );
 
@@ -30,7 +30,7 @@ class NotificationSeeder extends Seeder {
             'id_ktp' => '3273060611940005',
             'subject' => 'Tenggat Waktu Lahan Terminal Dago',
             'body' => 'Batas pembayaran lahan di Terminal Dago akan mencapai waktu tenggat.',
-            'is_read' => '0'
+            'is_read' => '0',
             'is_admin' => '0',
         ] );
     }

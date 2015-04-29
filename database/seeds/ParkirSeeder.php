@@ -13,36 +13,36 @@ class ParkirSeeder extends Seeder {
         Parkir::create( [
             'id_pemilik' => '3273060611940005',
             'id_kecamatan' => '1',
-            'id_jenis kendaraan' => '1',
-            'alamat' => 'Jl. Bebek 42'
+            'id_jenis_kendaraan' => '1',
+            'alamat' => 'Jl. Bebek 42',
             'lokasi' => '',
-            'status' => 'Registrasi'
+            'status' => 'Registrasi',
             'luas' => '100',
-            'tarif' => '2000'
+            'tarif' => '2000',
             'tenggat' => '2015-05-01',
         ] );
 
         Parkir::create( [
             'id_pemilik' => '3273060611940005',
             'id_kecamatan' => '1',
-            'id_jenis kendaraan' => '1',
-            'alamat' => 'Jl. Ganesha 10'
+            'id_jenis_kendaraan' => '1',
+            'alamat' => 'Jl. Ganesha 10',
             'lokasi' => '',
-            'status' => 'Registrasi'
+            'status' => 'Registrasi',
             'luas' => '50',
-            'tarif' => '1000'
+            'tarif' => '1000',
             'tenggat' => '2015-05-07',
         ] );
 
         Parkir::create( [
             'id_pemilik' => '3273060611940005',
             'id_kecamatan' => '1',
-            'id_jenis kendaraan' => '1',
-            'alamat' => 'Jl. Kanayakan 14'
+            'id_jenis_kendaraan' => '1',
+            'alamat' => 'Jl. Kanayakan 14',
             'lokasi' => '',
-            'status' => 'Registrasi'
+            'status' => 'Registrasi',
             'luas' => '85',
-            'tarif' => '1000'
+            'tarif' => '1000',
             'tenggat' => '2015-05-02',
         ] );
     }
