@@ -26,13 +26,12 @@ class Pembayaran extends Controller {
 			$idtempat_lahan = NULL;
 		}
 
-		DB::table('pembayaran')->insert([
+		DB::table('ppl_aparter_pembayaran')->insert([
 			'id_tempat_parkir' => $idtempat_parkir,
 			'id_tempat_lahan' => $idtempat_lahan,
 			'pembayaran_terakhir' => Carbon::now()->month." ".Carbon::now()->year,
 		]);
 		
-		$ext = Input::file('unggah')->getClientOriginalExtension();
 
 		if ($idtempat_parkir!=NULL){
 			$var = "parkir"."_".$idtempat_parkir;
@@ -40,8 +39,12 @@ class Pembayaran extends Controller {
 			$var = "lahan"."_".$idtempat_lahan;
 		}
 
-		Input::file('unggah')->move(storage_path().'\pembayaran','3273060611940005_'.Carbon::now()->month.'_'.$var.'.'.$ext); // dari cookies
-		
+		if (Input::hasFile('unggah'))
+		{
+			$ext = Input::file('unggah')->getClientOriginalExtension();
+			Input::file('unggah')->move(storage_path().'\pembayaran','3273060611940005_'.Carbon::now()->month.'_'.$var.'.'.$ext); // dari cookies
+		}
+
 		return Redirect::action('SiteController@home');
 	}
 

@@ -15,7 +15,7 @@ Route::get('/', 'SiteController@home');
 
 Route::get('/index', 'SiteController@home');
 
-Route::get('/parkir', 'ParkirController@index');
+Route::get('/parkir', 'ParkirController@show');
 
 Route::get('/terminal', 'TerminalviewController@cek');
 
@@ -27,6 +27,12 @@ Route::get('user/pembayaran', 'UserController@pembayaran');
 
 Route::post('user/status', 'Pembayaran@add');
 
+Route::get('/admin', 'SiteController@admin');
+
+Route::get('/admin/notif', 'AdminController@notif');
+
+Route::get('/admin/addlahan', 'AdminController@addLahan');
+
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
@@ -36,7 +42,7 @@ Route::get('/notifikasi', 'NotifikasiviewController@test');
 
 Route::get('parkir/daftar', 'ParkirController@create');
 
-Route::get('terminal/lahan', 'TerminalviewController@lahan');
+Route::get('terminal/{id_terminal?}', 'TerminalviewController@lahan');
 
 Route::post('parkir/save', 'ParkirController@store');
 

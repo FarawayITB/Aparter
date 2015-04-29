@@ -19,16 +19,17 @@ class TerminalviewController extends Controller {
 		return view('terminal',  ["allTerminal" => $allTerminal]);
 	}
 
-	public function lahan()
+	public function lahan($id_terminal)
 	{
-		//fetch dari DB semua lahan, tampilin sesuai contoh
+		$lahan_terminal = Lahan::where('id_terminal', '=', $id_terminal)->get();//fetch dari DB semua lahan, tampilin sesuai contoh
+		$nama_terminal = terminal::where('id_terminal', '=', $id_terminal)->get();
 
-		return View::make('lahan');
+		return View::make('lahan',compact('lahan_terminal', 'nama_terminal'));
 	}
 
 	public function lahan_saya()
 	{
-		$lahan = DB::table('lahan')
+		$lahan = DB::table('ppl_aparter_lahan')
 				->join('terminal', 'lahan.id_terminal', '=', 'terminal.id_terminal')
 				->where('id_pemilik', '=', '3273060611940005') // dari cookies
 				->get();
@@ -41,32 +42,40 @@ class TerminalviewController extends Controller {
 		$id_lahan = Input::get('idlahan');
 		$panjang = Input::get('panjang'.$id_lahan);
 		$lebar = Input::get('lebar'.$id_lahan);
+		$luas = $panjang*$lebar;
 
 		$user_lahan = Lahan::find($id_lahan);	// get id info from database
 
 		if (Input::hasFile('upload'.$id_lahan))
 		{
 			$ext = Input::file('upload'.$id_lahan)->getClientOriginalExtension();
-
-			echo $ext;
-
 			Input::file('upload'.$id_lahan)->move(storage_path().'\pembayaran','3273060611940005_'.Carbon::now()->month.'.'.$ext);
-
-			$user_lahan->status = 'pembayaran bulanan';
-			$user_lahan->save();
 			
+			DB::table('ppl_aparter_pembayaran')
+				->where('id_tempat_lahan', $id_lahan)
+				->update(['pembayaran_terakhir' => Carbon::now()->month]);
+
 			// buat notifikasi
+
+			$subject = "Pembayaran Bulanan Lahan ID ".$id_lahan;
+			$id_ktp = Input::get('id_pemilik');
+			$body = "Pendaftaran sewa lahan dengan ID ".$id_lahan." sudah diterima.";
+			Notification::addNotif($body,$id_ktp,$subject);
 
 		} else{
 
-			$user_lahan->status = 'request perluasan';
+			$user_lahan->status = 'request perluasan menjadi '.$luas;
 			$user_lahan->save();
 
 			// buat notifikasi
+			$subject = "Permintaan Perluasan Lahan ID ".$id_lahan;
+			$id_ktp = Input::get('id_pemilik');
+			$body = "Permintaan perluasan lahan dengan ID ".$id_lahan." sudah diterima.";
+			Notification::addNotif($body,$id_ktp,$subject);
 		}
 
 		
-		$lahan = DB::table('lahan')
+		$lahan = DB::table('ppl_aparter_lahan')
 				->join('terminal', 'lahan.id_terminal', '=', 'terminal.id_terminal')
 				->where('id_pemilik', '=', '3273060611940005') // dari cookies
 				->get();

@@ -52,7 +52,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				    <!-- Collect the nav links, forms, and other content for toggling -->
 				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				      <ul class="menu nav navbar-nav">
-				        <li><a href="{{ url('/parkir') }}">Parkir</a></li>
+				        <li><a href="{{ url('/parkir') }}"> Parkir</a></li>
 				        <li><a href="{{ url('/terminal') }}">Terminal</a></li>
 				        <li><a href="tentang">Tentang</a></li>
 				        <li class="dropdown"> 
@@ -77,7 +77,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="row slider text-center">
 					<div class="col-md-5">
 						<div class="col-md-10 slider_text">
-							<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
+							<h3>Cari Lahan Parkirmu di sini</h3>
 							<form class="navbar-form navbar-right" role="search" action="{{ url('/parkir/cari') }}">
 						        <div class="form-group my_search">
 						        	<input type="text" class="form-control" id="searchbox" name="searchbox" placeholder="Parkiran di Kecamatan">

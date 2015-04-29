@@ -7,16 +7,16 @@ use Carbon\Carbon;
 use Input;
 use Redirect;
 
-class NotifikasiviewController extends Controller {
-    public function home()
+class AdminviewController extends Controller {
+    public function notif()
     {
         return View::make('notifikasi');
 	}
 
-	public function test(){
+	public function addLahan(){
 		Notification::cekTenggat();
-		$allNotif = Notification::all();
-		return view('notifikasi',  ["allNotif" => $allNotif]);
+		$alllahan = lahan::all();
+		return view('notifikasi',  ["allNotif" => $alllahan]);
 	}
 	
 
