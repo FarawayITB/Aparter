@@ -12,7 +12,9 @@ class NotifikasiviewController extends Controller {
     {
         return View::make('notifikasi');
 	}
+
 	public function test(){
+		Notification::cekTenggat();
 		$allNotif = Notification::all();
 		return view('notifikasi',  ["allNotif" => $allNotif]);
 	}

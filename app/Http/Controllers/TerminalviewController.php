@@ -29,7 +29,7 @@ class TerminalviewController extends Controller {
 
 	public function lahan_saya()
 	{
-		$lahan = DB::table('lahan')
+		$lahan = DB::table('ppl_aparter_lahan')
 				->join('terminal', 'lahan.id_terminal', '=', 'terminal.id_terminal')
 				->where('id_pemilik', '=', '3273060611940005') // dari cookies
 				->get();
@@ -51,7 +51,7 @@ class TerminalviewController extends Controller {
 			$ext = Input::file('upload'.$id_lahan)->getClientOriginalExtension();
 			Input::file('upload'.$id_lahan)->move(storage_path().'\pembayaran','3273060611940005_'.Carbon::now()->month.'.'.$ext);
 			
-			DB::table('pembayaran')
+			DB::table('ppl_aparter_pembayaran')
 				->where('id_tempat_lahan', $id_lahan)
 				->update(['pembayaran_terakhir' => Carbon::now()->month]);
 
@@ -75,7 +75,7 @@ class TerminalviewController extends Controller {
 		}
 
 		
-		$lahan = DB::table('lahan')
+		$lahan = DB::table('ppl_aparter_lahan')
 				->join('terminal', 'lahan.id_terminal', '=', 'terminal.id_terminal')
 				->where('id_pemilik', '=', '3273060611940005') // dari cookies
 				->get();
