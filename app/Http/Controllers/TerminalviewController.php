@@ -42,20 +42,19 @@ class TerminalviewController extends Controller {
 		$id_lahan = Input::get('idlahan');
 		$panjang = Input::get('panjang'.$id_lahan);
 		$lebar = Input::get('lebar'.$id_lahan);
+		$luas = $panjang*$lebar;
 
 		$user_lahan = Lahan::find($id_lahan);	// get id info from database
 
 		if (Input::hasFile('upload'.$id_lahan))
 		{
 			$ext = Input::file('upload'.$id_lahan)->getClientOriginalExtension();
-
-			echo $ext;
-
 			Input::file('upload'.$id_lahan)->move(storage_path().'\pembayaran','3273060611940005_'.Carbon::now()->month.'.'.$ext);
-
-			$user_lahan->status = 'pembayaran bulanan';
-			$user_lahan->save();
 			
+			DB::table('pembayaran')
+				->where('id_tempat_lahan', $id_lahan)
+				->update(['pembayaran_terakhir' => Carbon::now()->month]);
+
 			// buat notifikasi
 
 			$subject = "Pembayaran Bulanan Lahan ID ".$id_lahan;
@@ -65,7 +64,7 @@ class TerminalviewController extends Controller {
 
 		} else{
 
-			$user_lahan->status = 'request perluasan';
+			$user_lahan->status = 'request perluasan menjadi '.$luas;
 			$user_lahan->save();
 
 			// buat notifikasi
