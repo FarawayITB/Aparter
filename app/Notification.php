@@ -2,6 +2,8 @@
 
 use DB;
 use Illuminate\Database\Eloquent\Model;
+use Datetime;
+
 
 class Notification extends Model
 {
@@ -15,5 +17,19 @@ class Notification extends Model
 			'id_ktp' => $id_ktp,
 			'subject' => $subject
 			]);
+	}
+
+	public static function cekTenggat() {
+		$datetime = new Datetime('today');
+		$datetime->modify('-7 day');
+		$adatenggat = DB::table('ppl_aparter_lahan')
+			->where('tenggat','>=',$datetime)
+			->get();
+		if ($adatenggat != null) {
+			$subject = "Masa tenggat";
+			$id_ktp = $id_ktp;
+			$body = "Waktu pembayaran Anda akan memasuki masa tenggat dalam 1 minggu.";
+			addNotif($body,$id_ktp,$subject);
+		}
 	}
 }

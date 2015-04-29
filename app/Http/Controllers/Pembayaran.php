@@ -26,7 +26,7 @@ class Pembayaran extends Controller {
 			$idtempat_lahan = NULL;
 		}
 
-		DB::table('pembayaran')->insert([
+		DB::table('ppl_aparter_pembayaran')->insert([
 			'id_tempat_parkir' => $idtempat_parkir,
 			'id_tempat_lahan' => $idtempat_lahan,
 			'pembayaran_terakhir' => Carbon::now()->month." ".Carbon::now()->year,

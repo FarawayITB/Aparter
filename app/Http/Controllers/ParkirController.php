@@ -37,11 +37,11 @@ class ParkirController extends Controller {
 	 */
 	public function create()
 	{
-		$kecamatan = DB::table('kecamatan')
+		$kecamatan = DB::table('ppl_aparter_kecamatan')
 						->select('nama_kecamatan')
 						->get();
 
-		$jenis = DB::table('jenis_kendaraan')
+		$jenis = DB::table('ppl_aparter_jenis_kendaraan')
 						->select('jenis_kendaraan_parkir')
 						->get();
 
@@ -67,8 +67,8 @@ class ParkirController extends Controller {
 			$parkir->status      		= "Registrasi";
 			$parkir->luas       		= Input::get('luas');
 			$parkir->tarif       		= Input::get('tarif');
-			$parkir->id_kecamatan 		= DB::table('kecamatan')->where('nama_kecamatan','=', Input::get('kecamatan'))->select('id_kecamatan')->first()->id_kecamatan;
-			$parkir->id_jenis_kendaraan = DB::table('jenis_kendaraan')->where('jenis_kendaraan_parkir','=', Input::get('jenis'))->select('id_jenis_kendaraan')->first()->id_jenis_kendaraan;
+			$parkir->id_kecamatan 		= DB::table('ppl_aparter_kecamatan')->where('nama_kecamatan','=', Input::get('kecamatan'))->select('id_kecamatan')->first()->id_kecamatan;
+			$parkir->id_jenis_kendaraan = DB::table('ppl_aparter_jenis_kendaraan')->where('jenis_kendaraan_parkir','=', Input::get('jenis'))->select('id_jenis_kendaraan')->first()->id_jenis_kendaraan;
 			$parkir->save();
 
 
