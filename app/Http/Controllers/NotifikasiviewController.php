@@ -14,7 +14,6 @@ class NotifikasiviewController extends Controller {
 	}
 
 	public function test(){
-		Notification::cekTenggat();
 		$allNotif = Notification::all();
 		return view('notifikasi',  ["allNotif" => $allNotif]);
 	}
