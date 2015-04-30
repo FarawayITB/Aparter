@@ -1,19 +1,22 @@
 <?php namespace App\Http\Controllers;
 
+
+use DB;
+use Input;
+use Cookie;
+use Redirect;
+use Carbon\Carbon;
+use App\Notification;
 use App\Http\Requests;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use Illuminate\Http\Request;
-
-use Carbon\Carbon;
-use Input;
-use Redirect;
-use DB;
 
 class Pembayaran extends Controller {
 
 	public function add()
 	{
+		$nik = Cookie::get("NIK");
 		if (Input::get('idtempat_parkir')!="Tidak ada"){
 			$idtempat_parkir = substr(Input::get('idtempat_parkir'), 13,1);
 		} else{
@@ -42,9 +45,13 @@ class Pembayaran extends Controller {
 		if (Input::hasFile('unggah'))
 		{
 			$ext = Input::file('unggah')->getClientOriginalExtension();
-			Input::file('unggah')->move(storage_path().'\pembayaran','3273060611940005_'.Carbon::now()->month.'_'.$var.'.'.$ext); // dari cookies
+			Input::file('unggah')->move(storage_path().'\pembayaran',$nik.'_'.Carbon::now()->month.'_'.$var.'.'.$ext); // dari cookies
 		}
 
+		$subject = "Pembayaran";
+		$id_ktp = $nik;
+		$body = "Proses pembayaran berhasil. Terima kasih sudah membayar";
+		Notification::addNotif($body,$id_ktp,$subject);
 		return Redirect::action('SiteController@home');
 	}
 

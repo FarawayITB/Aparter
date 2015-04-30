@@ -54,6 +54,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				      <ul class="menu nav navbar-nav">
 				        <li><a href="{{ url('/parkir') }}"> Parkir</a></li>
 				        <li><a href="{{ url('/terminal') }}">Terminal</a></li>
+				        <li><a href="{{ url('/tentang') }}">Tentang</a></li>
 				        <li class="dropdown"> 
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Akun <b class="caret"></b> 
 							</a> 
@@ -61,7 +62,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<li><a href="{{ url('/user/pembayaran') }}">Pembayaran</a></li> 
 								<li><a href="{{ url('/notifikasi') }}">Pemberitahuan</a></li> 
 								<li><a href="{{ url('/parkir/daftar') }}">Pendaftaran</a></li> 
-								<li><a href="#">Edit Data</a></li> 
 								<li><a href="{{ url('/user/lahan') }}">Lahan</a></li> 
 								<li id="logoutLink"> <a href="{{url('logout')}}")>Logout</a></li>
 						<script type="text/javascript">
@@ -80,8 +80,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							</ul> 
 						</li> 
 				      </ul>
-				      <h4 class="text-right">Selamat datang, {{"Nama"}}</h4>
-				      <h4 class="text-right">{{"NIK"}}</h4>
 				    </div><!-- /.navbar-collapse -->
 				  </div><!-- /.container-fluid -->
 				</nav>

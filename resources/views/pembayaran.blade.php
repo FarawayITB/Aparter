@@ -7,7 +7,7 @@
 			</div>
 			<div class="col-xs-3">
 				<div class="page-header"> 
-					<h1>kirim notif</h1> 
+					<h1>Pembayaran</h1> 
 				</div>
 			</div>
 			<div class="col-xs-4">
