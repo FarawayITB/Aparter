@@ -31,13 +31,13 @@
 			<div class="col-sm-6 col-md-3"> 
 			</div> 
 			<div class="col-sm-6 col-md-3"> 
-				<button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal1">Sewa</button>
+				<button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal{{$lahan->id_lahan}}">Sewa</button>
 			</div>
 		</div>
 	</div>
 	
 			
-			<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-hidden="true"> 
+			<div class="modal fade" id="modal{{$lahan->id_lahan}}" tabindex="-1" role="dialog" aria-hidden="true"> 
 				<div class="modal-dialog"> 
 					<div class="modal-content"> 
 						<div class="modal-header"> 
@@ -47,6 +47,8 @@
 						<div class="modal-body">
 							<h4>Untuk melakukan penyewaan, transfer ke 12345678 a/n Penyewaan Lahan, dan upload bukti pembayarannya.</h4>
 							<br><br>
+							<form id="form{{$lahan->id_lahan}}" class="form-horizontal" role="form" method="POST" enctype="multipart/form-data" action="{{ url('/user/store_lahan') }}"> 
+							<input type="hidden" name="_token" value="{{ csrf_token() }}">
 							<div class="form-group"> 
 								<label for="upload" class="col-md-4 control-label"><h4>Bukti Pembayaran</h4></label> 
 								<div class="col-md-6">
@@ -57,8 +59,8 @@
 							</div> 
 						</div> 
 						<div class="modal-footer"> 
-							<button type="button" class="btn btn-default" data-dismiss="modal"> Close </button> 
 							<button type="button" class="btn btn-primary"> Submit changes </button> 
+							<button type="button" class="btn btn-default" data-dismiss="modal"> Close </button> 
 						</div>
 					</div><!-- /.modal-content --> 
 				</div><!-- /.modal -->

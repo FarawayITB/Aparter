@@ -1,5 +1,7 @@
 <?php namespace App\Http\Controllers;
 
+use DB;
+use Cookie;
 use View;
 
 class SiteController extends Controller {

@@ -1,8 +1,9 @@
 <?php namespace App;
 
 use DB;
-use Illuminate\Database\Eloquent\Model;
 use Datetime;
+use Cookie;
+use Illuminate\Database\Eloquent\Model;
 
 
 class Notification extends Model
@@ -27,9 +28,9 @@ class Notification extends Model
 			->get();
 		if ($adatenggat != null) {
 			$subject = "Masa tenggat";
-			$id_ktp = $id_ktp;
+			$id_ktp = Cookie::get('NIK');
 			$body = "Waktu pembayaran Anda akan memasuki masa tenggat dalam 1 minggu.";
-			addNotif($body,$id_ktp,$subject);
+			Notification::addNotif($body,$id_ktp,$subject);
 		}
 	}
 }

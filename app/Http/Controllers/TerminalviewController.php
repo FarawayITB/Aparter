@@ -3,12 +3,14 @@
 use DB;
 use View;
 use Input;
-use Carbon\Carbon;
-use \App\Terminal;
+use Cookie;
 use \App\Lahan;
+use \App\Terminal;
+use Carbon\Carbon;
+use App\Notification;
 
 class TerminalviewController extends Controller {
-    public function home()
+	public function home()
     {
         return View::make('terminal');
 	}
@@ -30,8 +32,8 @@ class TerminalviewController extends Controller {
 	public function lahan_saya()
 	{
 		$lahan = DB::table('ppl_aparter_lahan')
-				->join('terminal', 'lahan.id_terminal', '=', 'terminal.id_terminal')
-				->where('id_pemilik', '=', '3273060611940005') // dari cookies
+				->join('ppl_aparter_terminal', 'ppl_aparter_lahan.id_terminal', '=', 'ppl_aparter_terminal.id_terminal')
+				->where('id_pemilik', '=', Cookie::get("NIK")) // dari cookies
 				->get();
 				
 		return View::make('lahan_saya')->with('lahans', $lahan)->with('$lahans', $lahan);
@@ -39,6 +41,8 @@ class TerminalviewController extends Controller {
 
 	public function store_lahan_saya()
 	{
+		$nik = Cookie::get("NIK");
+
 		$id_lahan = Input::get('idlahan');
 		$panjang = Input::get('panjang'.$id_lahan);
 		$lebar = Input::get('lebar'.$id_lahan);
@@ -48,19 +52,20 @@ class TerminalviewController extends Controller {
 
 		if (Input::hasFile('upload'.$id_lahan))
 		{
+			$last_month = Carbon::now()->month;
+			$last_month++;
 			$ext = Input::file('upload'.$id_lahan)->getClientOriginalExtension();
-			Input::file('upload'.$id_lahan)->move(storage_path().'\pembayaran','3273060611940005_'.Carbon::now()->month.'.'.$ext);
+			Input::file('upload'.$id_lahan)->move(storage_path().'\pembayaran',$nik.'_'.Carbon::now()->month.'.'.$ext);
 			
 			DB::table('ppl_aparter_pembayaran')
 				->where('id_tempat_lahan', $id_lahan)
-				->update(['pembayaran_terakhir' => Carbon::now()->month]);
+				->update(['pembayaran_terakhir' => $last_month." ".Carbon::now()->year]);
 
 			// buat notifikasi
 
-			$subject = "Pembayaran Bulanan Lahan ID ".$id_lahan;
-			$id_ktp = Input::get('id_pemilik');
-			$body = "Pendaftaran sewa lahan dengan ID ".$id_lahan." sudah diterima.";
-			Notification::addNotif($body,$id_ktp,$subject);
+			$subject = "Pembayaran";
+			$body = "Proses pembayaran berhasil. Terima kasih sudah membayar";
+			Notification::addNotif($body,$nik,$subject);
 
 		} else{
 
@@ -69,17 +74,15 @@ class TerminalviewController extends Controller {
 
 			// buat notifikasi
 			$subject = "Permintaan Perluasan Lahan ID ".$id_lahan;
-			$id_ktp = Input::get('id_pemilik');
 			$body = "Permintaan perluasan lahan dengan ID ".$id_lahan." sudah diterima.";
-			Notification::addNotif($body,$id_ktp,$subject);
+			Notification::addNotif($body,$nik,$subject);
 		}
 
 		
 		$lahan = DB::table('ppl_aparter_lahan')
-				->join('terminal', 'lahan.id_terminal', '=', 'terminal.id_terminal')
-				->where('id_pemilik', '=', '3273060611940005') // dari cookies
+				->join('ppl_aparter_terminal', 'ppl_aparter_lahan.id_terminal', '=', 'ppl_aparter_terminal.id_terminal')
+				->where('id_pemilik', '=', $nik) // dari cookies
 				->get();
-
 		return View::make('lahan_saya')->with('lahans', $lahan)->with('$lahans', $lahan);
 	}
 }
