@@ -21,7 +21,7 @@
 				</div>
 			</div>
 			<div class="col-sm-6 col-md-3"> 
-				<h3>{{$lahan->status}}</h3>
+				<h3>Kosong</h3>
 				<br><br>
 				<h4>Lahan {{$lahan->id_lahan}}</h4>
 				<h4>Luas: {{$lahan->luas}}</h4>

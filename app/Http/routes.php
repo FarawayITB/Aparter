@@ -29,9 +29,9 @@ Route::post('user/status', 'Pembayaran@add');
 
 Route::get('/admin', 'SiteController@admin');
 
-Route::get('/admin/notif', 'AdminController@notif');
+Route::get('/admin/notif', 'AdminviewController@notif');
 
-Route::get('/admin/addlahan', 'AdminController@addLahan');
+Route::get('/admin/addlahan', 'AdminviewController@addLahan');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
@@ -49,3 +49,7 @@ Route::post('parkir/save', 'ParkirController@store');
 Route::get('/user/lahan','TerminalviewController@lahan_saya');
 
 Route::post('/user/save_lahan', 'TerminalviewController@store_lahan_saya');
+
+Route::get('parkir/{id}/edit', 'ParkirController@edit');
+
+Route::post('parkir/{id}/update', 'ParkirController@update');

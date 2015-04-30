@@ -26,7 +26,7 @@ class ParkirController extends Controller {
 	 */
 	public function index()
 	{
-		$listParkir = Parkir::paginate(10);
+		$listParkir = Parkir::all();
 		return View::make('parkir.view_all_data')
 					->with('parkir', $listParkir);
 	}
@@ -135,7 +135,17 @@ class ParkirController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$kecamatan = DB::table('kecamatan')
+						->select('nama_kecamatan')
+						->get();
+
+		$jenis = DB::table('jenis_kendaraan')
+						->select('jenis_kendaraan_parkir')
+						->get();
+		//find customer
+		$editParkir = Parkir::find($id);
+		//show the edit form
+		return View::make('parkir.form_edit')->with('parkir', $editParkir)->with('kecamatans', $kecamatan)->with('jeniss', $jenis);;
 	}
 
 	/**

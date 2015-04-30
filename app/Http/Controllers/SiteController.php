@@ -31,6 +31,6 @@ class SiteController extends Controller {
 	}
 	public function admin()
 	{
-		return View::make('admin');
+		return View::make('notif');
 	}
 }

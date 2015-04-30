@@ -23,7 +23,10 @@ class TerminalviewController extends Controller {
 
 	public function lahan($id_terminal)
 	{
-		$lahan_terminal = Lahan::where('id_terminal', '=', $id_terminal)->get();//fetch dari DB semua lahan, tampilin sesuai contoh
+		$lahan_terminal = DB::table('ppl_aparter_lahan')
+							->where('id_terminal', '=', $id_terminal)
+							->where('id_pemilik','=',null)
+							->get();//fetch dari DB semua lahan, tampilin sesuai contoh
 		$nama_terminal = terminal::where('id_terminal', '=', $id_terminal)->get();
 
 		return View::make('lahan',compact('lahan_terminal', 'nama_terminal'));
