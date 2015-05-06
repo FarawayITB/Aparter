@@ -29,6 +29,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<script src="{{ asset('/js/hoverakun.js') }}"></script>
 		<script src="{{ asset('/js/dropdownselect.js') }}"></script>
 		<script src="{{ asset('/js/maps.js') }}"></script>
+		<script src="{{ asset('/js/logout.js') }}"></script>
 		{{-- // <script src="{{ asset('/js/getLatLng.js') }}"></script> --}}
 		<script src="https://maps.googleapis.com/maps/api/js?&libraries=places"></script>
 	</head>
@@ -63,20 +64,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<li><a href="{{ url('/notifikasi') }}">Pemberitahuan</a></li> 
 								<li><a href="{{ url('/parkir/daftar') }}">Pendaftaran</a></li> 
 								<li><a href="{{ url('/user/lahan') }}">Lahan</a></li> 
-								<li id="logoutLink"> <a href="{{url('logout')}}")>Logout</a></li>
-						<script type="text/javascript">
-							$('#logoutLink').click(function(e) {
-								$.ajax({
-									type: 'get',
-									url: 'http://e-gov-bandung.tk/dukcapil/api/public/auth/logout',
-									success: function(data) {
-									},
-									error: function(data) {
-										// alert(data);
-									}
-								});
-							})
-						</script> 
+								<li id="logoutLink"><a href="#">Logout</a></li>
 							</ul> 
 						</li> 
 				      </ul>
@@ -156,6 +144,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+	@yield('script')
+</script>
 <div class="footer_btm"><!-- start footer_btm -->
 	<div class="container">
 		<div class="row  footer1">

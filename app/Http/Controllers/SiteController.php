@@ -33,4 +33,9 @@ class SiteController extends Controller {
 	{
 		return View::make('notif');
 	}
+
+	public function login()
+	{
+		return View::make('login');
+	}
 }

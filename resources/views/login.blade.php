@@ -1,45 +1,49 @@
 @extends('header_footer')
+
 @section('content')
-	<script>
-  		var d=document.getElementById("loginLink");
-  		d.className = d.className + " active";
-	</script>
-	
 	<link href="css/loginStyle.css" rel='stylesheet' type='text/css' />
 	<link href="css/custom.css" rel="stylesheet" type="text/css" media="all" />
 	<div class="container">
-		<div class="login-form">
-			<form id="loginForm" action="{{url('login')}}" method="POST">
+		<div class="row">
+			<div class="col-xs-5">
+			</div>
+			<div class="col-xs-3">
+				<div class="page-header"> 
+					<h1>Login</h1> 
+				</div>
+			</div>
+			<div class="col-xs-4">
+			</div>
+		</div>
+		<div class="row">
+			<form class="form-horizontal" id="loginForm" role="form" method="POST" action="/">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
-				<li>
-					<input id = "nik" class="formlogin" name="nik" type="text" class="text" placeholder="NIK" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'nik';}"> </input>
-				</li>
-				<li>
-					<input id="password" name="password" type="password" placeholder="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}"> </input>
-				</li>
-				<div class="p-container">
-						<input type="submit" value="SIGN IN" >
-						<div class="clear"> </div>
+				
+				<div class="form-group">
+					<label class="col-md-4 control-label"><h4>NIK</h4></label>
+					<div class="col-md-6">
+						<input type="text" class="form-control" id="nik" name="nik" placeholder="NIK">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-md-4 control-label"><h4>Password</h4></label>
+					<div class="col-md-6">
+						<input type="text" class="form-control" id="password" name="password" placeholder="Password">	
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<div class="col-md-6 col-md-offset-4">
+						<button type="submit" class="btn btn-primary">Sign In</button>
+					</div>
 				</div>
 			</form>
 		</div>
 	</div>
+@endsection
 
-	<!--<script>
-		function validateForm() {
-			var usr = document.getElementById("username.value");
-			var pwd = document.getElementById("password.value");
-			if (usr==="" || pwd=="") {
-				alert('username and password must be filled!');
-				return false;
-			}
-			return true;
-		}
-	</script>-->
-
-@stop
-
-@section('javascript')
+@section('script')
 	$('#loginForm').submit(function(e) {
 		var nik = $('#nik').val();
 			var password = $('#password').val()
@@ -61,4 +65,4 @@
 			    });
 		for (var i = 0; i < 2000000000; ++i);
 	})
-@stop
+@endsection
