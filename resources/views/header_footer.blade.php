@@ -29,6 +29,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<script src="{{ asset('/js/hoverakun.js') }}"></script>
 		<script src="{{ asset('/js/dropdownselect.js') }}"></script>
 		<script src="{{ asset('/js/maps.js') }}"></script>
+		<script src="{{ asset('/js/login.js') }}"></script>
 		<script src="{{ asset('/js/logout.js') }}"></script>
 		{{-- // <script src="{{ asset('/js/getLatLng.js') }}"></script> --}}
 		<script src="https://maps.googleapis.com/maps/api/js?&libraries=places"></script>
@@ -144,9 +145,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 	</div>
 </div>
-<script type="text/javascript">
-	@yield('script')
-</script>
 <div class="footer_btm"><!-- start footer_btm -->
 	<div class="container">
 		<div class="row  footer1">
