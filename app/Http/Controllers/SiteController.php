@@ -7,6 +7,11 @@ use View;
 class SiteController extends Controller {
     public function home()
     {
+    	$id = Cookie::get("NIK");
+		$nik = $DB::table("ppl_dukcapil_ktp")
+				->where("id","=", $id)
+				->get();
+		Cookie::make("NIK", $nik->nik);
         return View::make('index');
 	}
 
@@ -29,7 +34,7 @@ class SiteController extends Controller {
 	{
 		return View::make('notifikasi');
 	}
-	
+
 	public function admin()
 	{
 		return View::make('notif');
