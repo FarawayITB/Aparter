@@ -9,17 +9,10 @@ class SiteController extends Controller {
     public function home()
     {
     	$id = Cookie::get("NIK");
-
-    	// $cookie = Cookie::make("NIK", 0, 0);
-        // $response = Response::json($cookie_values);
-        // $response->headers->setCookie($cookie);
-    	// Cookie::unqueue("NIK");
-    	// echo "id: " + $id;
-    	// $id = 1;
 		$nik = DB::table("ppl_dukcapil_ktp")
 				->where("id","=", $id)
 				->first();
-		Cookie::queue("NIK", $nik->nik);
+		Cookie::queue(Cookie::make("NIK", $nik->nik, '999999',null, null, false, false));
         return View::make('index');
 	}
 

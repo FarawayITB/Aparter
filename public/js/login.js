@@ -9,15 +9,8 @@ $(document).ready(function () {
 			        success: function (response) {
 			        	document.cookie="NIK=" + response.id + "; path=/";
 			        	window.location.href = "http://e-gov-bandung.tk/aparter/public/home";
-			            // console.log(response.id)
-			            //for (var i = 0; i < 2000000000; ++i);
-			            //return false;
-			            // return true;
 			        },
 			        error: function (err) {
-			        	//alert(err);
-			        	// console.log(err)
-			        	// return false;
 			        }
 			    });
 		for (var i = 0; i < 2000000000; ++i);
