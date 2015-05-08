@@ -1,9 +1,7 @@
 @extends('header_footer')
 
 @section('content')
-	<link href="css/loginStyle.css" rel='stylesheet' type='text/css' />
-	<link href="css/custom.css" rel="stylesheet" type="text/css" media="all" />
-	<div class="container">
+	<div class="container" onload="check()">
 		<div class="row">
 			<div class="col-xs-5">
 			</div>

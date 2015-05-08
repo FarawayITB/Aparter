@@ -17,7 +17,7 @@ Route::post('/', function(){
 	echo "ok";
 });
 
-Route::get('/index', 'SiteController@home');
+Route::get('/home', 'SiteController@home');
 
 Route::get('/parkir', 'ParkirController@show');
 

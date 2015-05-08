@@ -21,6 +21,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
 		<!-- // webfonts  -->
 		<link href="{{ asset('/css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
+		{{-- <link href="css/loginStyle.css" rel='stylesheet' type='text/css' /> --}}
+		{{-- <link href="css/custom.css" rel="stylesheet" type="text/css" media="all" /> --}}
 		<!-- start plugins -->
 		<script src="{{ asset('/js/jquery.min.js') }}"></script>
 		{{-- // <script src="{{ asset('/js/bootstrap.js') }}"></script> --}}
@@ -31,6 +33,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<script src="{{ asset('/js/maps.js') }}"></script>
 		<script src="{{ asset('/js/login.js') }}"></script>
 		<script src="{{ asset('/js/logout.js') }}"></script>
+		<script src="{{ asset('/js/checklogin.js') }}"></script>
 		{{-- // <script src="{{ asset('/js/getLatLng.js') }}"></script> --}}
 		<script src="https://maps.googleapis.com/maps/api/js?&libraries=places"></script>
 	</head>
