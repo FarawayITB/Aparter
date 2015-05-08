@@ -8,10 +8,13 @@ class SiteController extends Controller {
     public function home()
     {
     	$id = Cookie::get("NIK");
+    	Cookie::unqueue("NIK");
+    	echo "id: " + $id;
+    	$id = 1;
 		$nik = DB::table("ppl_dukcapil_ktp")
 				->where("id","=", $id)
 				->first();
-		Cookie::queue("NIK", $nik->nik);
+		//Cookie::queue("NIK", $nik->nik);
         return View::make('index');
 	}
 

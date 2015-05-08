@@ -7,7 +7,7 @@ $(document).ready(function () {
 			        type: 'POST',
 			        data: { nik: nik, password : password} ,
 			        success: function (response) {
-			        	document.cookie="NIK=" + response.id;
+			        	document.cookie="NIK=" + response.id + "; path=/";
 			        	window.location.href = "http://e-gov-bandung.tk/aparter/public/home";
 			            // console.log(response.id)
 			            //for (var i = 0; i < 2000000000; ++i);
