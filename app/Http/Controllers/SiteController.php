@@ -8,7 +8,6 @@ class SiteController extends Controller {
     public function home()
     {
     	$id = Cookie::get("NIK");
-    	$id = 1;
 		$nik = DB::table("ppl_dukcapil_ktp")
 				->where("id","=", $id)
 				->first();
