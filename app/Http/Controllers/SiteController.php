@@ -10,7 +10,7 @@ class SiteController extends Controller {
     	$id = Cookie::get("NIK");
 		$nik = DB::table("ppl_dukcapil_ktp")
 				->where("id","=", $id)
-				->get();
+				->first();
 		Cookie::make("NIK", $nik->nik);
         return View::make('index');
 	}
