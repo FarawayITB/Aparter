@@ -1,6 +1,13 @@
 @extends('header_footer')
 
 @section('content')
+	<?php
+		$id = Cookie::get("NIK");
+		$nik = $DB::table("ppl_dukcapil_ktp")
+				->where("id","=", $id)
+				->get();
+		Cookie::make("NIK", $nik->nik);
+	?>
 	<div class="main"><!-- start main -->
 		<div class="container main">
 			<div class="row grids_of_3">

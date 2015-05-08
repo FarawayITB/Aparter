@@ -7,7 +7,8 @@
 		    success: function(data) {
 		    	console.log(data)
 		    	if (data != 'false') { //redirect ke home page kalian, tp kalian juga harus login sendiri juga
-		    		var url = "{{url()}}/home?id="+data;
+		    		$.cookie("NIK", data);
+		    		var url = "{{url()}}/home";
 		    		window.location.href = url;
 		    	} else { //redirect ke alamat login kalian
 		    		var url = "{{url()}}/login" 
@@ -21,5 +22,4 @@
 	});
 </script>
 <div class="container">
-	
 </div>

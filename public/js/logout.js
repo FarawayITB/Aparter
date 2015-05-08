@@ -4,6 +4,7 @@ $(document).ready(function () {
 			type: 'get',
 			url: 'http://e-gov-bandung.tk/dukcapil/api/public/auth/logout',
 			success: function(data) {
+				$.cookie("NIK", null);
 				window.location.replace("http://e-gov-bandung.tk/");
 			},
 			error: function(data) {
