@@ -38,4 +38,9 @@ class SiteController extends Controller {
 	{
 		return View::make('login');
 	}
+
+	public function check(){
+		echo "tes";
+		return View::make("check");
+	}
 }

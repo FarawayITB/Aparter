@@ -1,7 +1,7 @@
 @extends('header_footer')
 
 @section('content')
-	<div class="container" onload="check()">
+	<div class="container" onload="checklogin/check()">
 		<div class="row">
 			<div class="col-xs-5">
 			</div>

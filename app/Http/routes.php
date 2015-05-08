@@ -11,11 +11,9 @@
 |
 */
 
-Route::get('/', 'SiteController@login');
+Route::get('/', 'SiteController@check');
 
-Route::post('/', function(){
-	echo "ok";
-});
+Route::get('/login', 'SiteController@login');
 
 Route::get('/home', 'SiteController@home');
 
