@@ -10,8 +10,8 @@
 		    		var url = "{{url()}}/home?id="+data;
 		    		window.location.href = url;
 		    	} else { //redirect ke alamat login kalian
-		    		var url = "{{url()}}/home" 
-		    		window.location.href = url
+		    		var url = "{{url()}}/login" 
+		    		window.location.href = url;
 		    	}
 		    },
 		    error: function(data) {
@@ -20,3 +20,6 @@
 		});
 	});
 </script>
+<div class="container">
+	
+</div>

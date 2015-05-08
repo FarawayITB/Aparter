@@ -29,6 +29,7 @@ class SiteController extends Controller {
 	{
 		return View::make('notifikasi');
 	}
+	
 	public function admin()
 	{
 		return View::make('notif');
@@ -40,7 +41,6 @@ class SiteController extends Controller {
 	}
 
 	public function check(){
-		echo "tes";
 		return View::make("check");
 	}
 }
