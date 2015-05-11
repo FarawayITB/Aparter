@@ -12,8 +12,10 @@ use App\Notification;
 
 use DB;
 use View;
+use Cookie;
 use Session;
 use Redirect;
+use Carbon\Carbon;
 
 class ParkirController extends Controller {
 
@@ -45,7 +47,13 @@ class ParkirController extends Controller {
 						->select('jenis_kendaraan_parkir')
 						->get();
 
-		return View::make('parkir.form_daftar')->with('kecamatans', $kecamatan)->with('jeniss', $jenis);
+
+		$nik = Cookie::get('NIK');
+		$body = "Selamat, registrasi tempat parkir berhasil. Silahkan tunggu informasi berikutnya dari administrator kami";
+		$id_ktp = $nik;
+		$subject = "Registrasi";
+		Notification::addNotif($body,$id_ktp,$subject);
+		return View::make('parkir.form_daftar')->with('kecamatans', $kecamatan)->with('jeniss', $jenis)->with('nik',$nik);
 	}
 
 	/**
@@ -61,6 +69,8 @@ class ParkirController extends Controller {
 
 		if(Input::get('jenis_daftar') == 1)	// lahan pribadi
 		{
+			$month = Carbon::now()->month;
+			$month++;
 			$parkir->id_pemilik  		= Input::get('id_pemilik');
 			$parkir->alamat      		= Input::get('alamat');
 			$parkir->lokasi     		= Input::get('lokasi_lat').",".Input::get('lokasi_lng');
@@ -69,6 +79,7 @@ class ParkirController extends Controller {
 			$parkir->tarif       		= Input::get('tarif');
 			$parkir->id_kecamatan 		= DB::table('ppl_aparter_kecamatan')->where('nama_kecamatan','=', Input::get('kecamatan'))->select('id_kecamatan')->first()->id_kecamatan;
 			$parkir->id_jenis_kendaraan = DB::table('ppl_aparter_jenis_kendaraan')->where('jenis_kendaraan_parkir','=', Input::get('jenis'))->select('id_jenis_kendaraan')->first()->id_jenis_kendaraan;
+			$parkir->tenggat			= Carbon::now()->year."-".$month."-".Carbon::now()->day;
 			$parkir->save();
 
 

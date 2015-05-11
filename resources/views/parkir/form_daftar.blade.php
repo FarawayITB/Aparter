@@ -3,7 +3,7 @@
 @section('content')
 	<div class="main"><!-- start main -->
 		<div class="container">
-			<div class="row">
+		<div class="row">
 			<div class="col-xs-5">
 			</div>
 			<div class="col-xs-3">
@@ -12,13 +12,13 @@
 				</div>
 			</div>
 			<div class="col-xs-4">
-			</div>
+		</div>
 		</div>
 		<div class="row">
 			<form class="form-horizontal" role="form" method="POST" action="{{ url('/parkir/save') }}">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-				<!--<div class="form-group">
+				<div class="form-group">
 					<label class="col-md-4 control-label">&nbsp; </label>
 					<div class="col-md-6">
 						<input id="op-1" type="radio" name="jenis_daftar" value=1 checked="checked">
@@ -30,10 +30,10 @@
 				</div>
 				<div class="form-group">
 					<label class="col-md-4 control-label"><h4>No. KTP</h4></label>
-					<div class="col-md-6">-->
-						<input type="hidden" class="form-control" name="id_pemilik" placeholder="Masukan No KTP Anda" value="{{'3273060611940005'}}">	<!-- dari cookies -->
-					<!--</div>
-				</div>-->
+					<div class="col-md-6">
+						<input type="text" class="form-control" name="id_pemilik" placeholder="Masukan No KTP Anda" value="{{$nik}}">	<!-- dari cookies -->
+					</div>
+				</div>
 
 				<div class="form-group">
 					<label class="col-md-4 control-label"><h4>Alamat</h4></label>

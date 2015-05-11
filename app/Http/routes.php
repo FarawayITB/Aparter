@@ -11,9 +11,11 @@
 |
 */
 
-Route::get('/', 'SiteController@home');
+Route::get('/', 'SiteController@check');
 
-Route::get('/index', 'SiteController@home');
+Route::get('/login', 'SiteController@login');
+
+Route::get('/home', 'SiteController@home');
 
 Route::get('/parkir', 'ParkirController@show');
 

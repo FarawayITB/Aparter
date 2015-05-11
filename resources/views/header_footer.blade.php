@@ -21,6 +21,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
 		<!-- // webfonts  -->
 		<link href="{{ asset('/css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
+		{{-- <link href="css/loginStyle.css" rel='stylesheet' type='text/css' /> --}}
+		{{-- <link href="css/custom.css" rel="stylesheet" type="text/css" media="all" /> --}}
 		<!-- start plugins -->
 		<script src="{{ asset('/js/jquery.min.js') }}"></script>
 		{{-- // <script src="{{ asset('/js/bootstrap.js') }}"></script> --}}
@@ -29,6 +31,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<script src="{{ asset('/js/hoverakun.js') }}"></script>
 		<script src="{{ asset('/js/dropdownselect.js') }}"></script>
 		<script src="{{ asset('/js/maps.js') }}"></script>
+		<script src="{{ asset('/js/login.js') }}"></script>
+		<script src="{{ asset('/js/logout.js') }}"></script>
+		<script src="{{ asset('/js/checklogin.js') }}"></script>
 		{{-- // <script src="{{ asset('/js/getLatLng.js') }}"></script> --}}
 		<script src="https://maps.googleapis.com/maps/api/js?&libraries=places"></script>
 	</head>
@@ -54,6 +59,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				      <ul class="menu nav navbar-nav">
 				        <li><a href="{{ url('/parkir') }}"> Parkir</a></li>
 				        <li><a href="{{ url('/terminal') }}">Terminal</a></li>
+				        <li><a href="{{ url('/tentang') }}">Tentang</a></li>
 				        <li class="dropdown"> 
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Akun <b class="caret"></b> 
 							</a> 
@@ -61,27 +67,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<li><a href="{{ url('/user/pembayaran') }}">Pembayaran</a></li> 
 								<li><a href="{{ url('/notifikasi') }}">Pemberitahuan</a></li> 
 								<li><a href="{{ url('/parkir/daftar') }}">Pendaftaran</a></li> 
-								<li><a href="#">Edit Data</a></li> 
 								<li><a href="{{ url('/user/lahan') }}">Lahan</a></li> 
-								<li id="logoutLink"> <a href="{{url('logout')}}")>Logout</a></li>
-						<script type="text/javascript">
-							$('#logoutLink').click(function(e) {
-								$.ajax({
-									type: 'get',
-									url: 'http://e-gov-bandung.tk/dukcapil/api/public/auth/logout',
-									success: function(data) {
-									},
-									error: function(data) {
-										// alert(data);
-									}
-								});
-							})
-						</script> 
+								<li id="logoutLink"><a href="javascript:;">Logout</a></li>
 							</ul> 
 						</li> 
 				      </ul>
-				      <h4 class="text-right">Selamat datang, {{"Nama"}}</h4>
-				      <h4 class="text-right">{{"NIK"}}</h4>
 				    </div><!-- /.navbar-collapse -->
 				  </div><!-- /.container-fluid -->
 				</nav>
@@ -180,6 +170,5 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	</div>
 </div>
 	</body>
-
 
 </html>
