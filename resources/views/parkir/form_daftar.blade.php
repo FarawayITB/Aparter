@@ -3,7 +3,7 @@
 @section('content')
 	<div class="main"><!-- start main -->
 		<div class="container">
-			<div class="row">
+		<div class="row">
 			<div class="col-xs-5">
 			</div>
 			<div class="col-xs-3">
@@ -12,7 +12,7 @@
 				</div>
 			</div>
 			<div class="col-xs-4">
-			</div>
+		</div>
 		</div>
 		<div class="row">
 			<form class="form-horizontal" role="form" method="POST" action="{{ url('/parkir/save') }}">
