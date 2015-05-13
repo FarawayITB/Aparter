@@ -43,7 +43,7 @@ $(document).ready(function () {
 	        var sParameterName = sURLVariables[i].split('=');
 	        if (sParameterName[0] == sParam) 
 	        {
-	            return sParameterName[1];
+	            return 'kecamatan+'.concat(sParameterName[1].concat('+bandung'));
 	        }
 	    }
 	}
