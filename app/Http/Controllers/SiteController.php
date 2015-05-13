@@ -8,11 +8,12 @@ use Response;
 class SiteController extends Controller {
     public function home()
     {
-    	$id = Cookie::get("NIK");
+    	$id = Cookie::get("activeID");
 		$nik = DB::table("ppl_dukcapil_ktp")
 				->where("id","=", $id)
 				->first();
 		Cookie::queue(Cookie::make("NIK", $nik->nik, '999999',null, null, false, false));
+		Cookie::queue(Cookie::make("activeID", $id, '999999',null, null, false, false));
         return View::make('index');
 	}
 
