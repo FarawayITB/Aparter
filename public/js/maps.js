@@ -100,3 +100,7 @@ $(document).getElementById("parkir_item").onclick=function() {
 
 	google.maps.event.addDomListener(window, 'load', initialize);
 };
+
+function setMarker(location) {
+	
+}

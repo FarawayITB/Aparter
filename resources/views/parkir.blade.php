@@ -23,9 +23,9 @@
 				<div class="col-md-6" id="parkir_item">
 					<h3><a href="javascript:;">Parkir <?php echo $par->alamat ?></a></h3>
 					<dl>
-						<p>Rp <?php echo $par->tarif ?> per hari | <?php echo $par->status ?></p>
+						<p>Rp <?php echo $par->tarif ?> per hari | <?php echo $par->status ?> | lokasi: <?php echo $par->lokasi?></p>
 					</dl>
-					<div id="LatLng" type="hidden" value="<?php $par->lokasi?>"></div>
+					<div id="LatLng" type="hidden" value="<?php echo $par->lokasi?>"></div>
 				</div>
 			<?php endforeach ?>
 		</div>
