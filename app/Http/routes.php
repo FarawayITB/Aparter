@@ -65,3 +65,10 @@ Route::get('user/progress', 'UserController@progress');
 Route::post('/api/progress/parkir', 'APIController@parkir');
 
 Route::post('/api/progress/lahan', 'APIController@lahan');
+
+/** hendro punya */
+Route::get('admin/dishub/notif', 'AdminDishubController@notif');
+
+Route::get('admin/dishub/showParkir/{status}', 'AdminDishubController@showParkir');
+
+Route::get('admin/dishub/showLahan/{status}', 'AdminDishubController@showLahan');

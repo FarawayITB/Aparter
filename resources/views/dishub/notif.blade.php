@@ -46,10 +46,10 @@
 				    <!-- Collect the nav links, forms, and other content for toggling -->
 				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				      <ul class="menu nav navbar-nav">
-				        <li><a href="{{ url('/admin/parkir') }}">Lihat Notif</a></li>
-				        <li><a href="{{ url('/admin/addlahan') }}">List Pembayaran</a></li>
+				        <li><a href="{{ url('/admin/dishub/notif') }}">Lihat Notif</a></li>
+				        <li><a href="{{ url('/admin/dishub') }}">Add Lahan</a></li>
 				      </ul>
-				      <h4 class="text-right">Selamat datang, {{"Admin"}}</h4>
+				      <h4 class="text-right">Selamat datang, {{"Admin Dishub"}}</h4>
 				    </div><!-- /.navbar-collapse -->
 				  </div><!-- /.container-fluid -->
 				</nav>
@@ -76,7 +76,7 @@
 	@foreach ($allNotif as $notif)	
 		<h3><a href="javascript:;" data-toggle="modal" data-target="#myModal{{$notif->id}}"> {{$notif->subject}} </a></h3>
 		<p> {{$notif->body}} </p>
-		<img src="{{url('../storage/pembayaran/coba.png')}}" alt="Generic placeholder thumbnail"> 	
+		<img src="{{storage_path().'/pembayaran/3273060611940005_4_parkir_1.jpg'}}" alt="Generic placeholder thumbnail"> 	
 		<!-- Modal --> 
 		<div class="modal fade" id="myModal{{$notif->id}}" tabindex="-1" role="dialog" aria-labelledby="notifLabel" aria-hidden="true"> 
 			<div class="modal-dialog"> 
@@ -95,6 +95,28 @@
 			</div><!-- /.modal -->
 		</div>
 	@endforeach
+	
+	<div class="footer_btm"><!-- start footer_btm -->
+	<div class="container">
+		<div class="row  footer1">
+			<div class="col-md-5">
+				<div class="soc_icons">
+					<ul class="list-unstyled">
+						<li><a class="icon1" href="#"></a></li>
+						<li><a class="icon2" href="#"></a></li>
+						<li><a class="icon3" href="#"></a></li>
+						<li><a class="icon4" href="#"></a></li>
+						<li><a class="icon5" href="#"></a></li>
+						<div class="clearfix"></div>
+					</ul>	
+				</div>
+			</div>
+			<div class="col-md-7 copy">
+				<p class="link text-right"><span>&#169; All rights reserved | Design by&nbsp;<a href="http://w3layouts.com/"> W3Layouts </a></span></p>
+			</div>
+		</div>
+	</div>
+</div>
 </body>
 </html>
 

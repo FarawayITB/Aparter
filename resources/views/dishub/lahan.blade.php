@@ -46,10 +46,10 @@
 				    <!-- Collect the nav links, forms, and other content for toggling -->
 				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				      <ul class="menu nav navbar-nav">
-				        <li><a href="{{ url('/admin/parkir') }}">Lihat Notif</a></li>
-				        <li><a href="{{ url('/admin/addlahan') }}">List Pembayaran</a></li>
+				        <li><a href="{{ url('/admin/dishub/notif') }}">Lihat Notif</a></li>
+				        <li><a href="{{ url('/admin/dishub') }}">Add Lahan</a></li>
 				      </ul>
-				      <h4 class="text-right">Selamat datang, {{"Admin"}}</h4>
+				      <h4 class="text-right">Selamat datang, {{"Admin Dishub"}}</h4>
 				    </div><!-- /.navbar-collapse -->
 				  </div><!-- /.container-fluid -->
 				</nav>
@@ -62,39 +62,75 @@
 </div>
 <div class="container">
 	<div class="row">
-		<div class="col-xs-5">
-		</div>
 		<div class="col-xs-3">
-			<div class="page-header"> 
-				<h1>Pemberitahuan</h1> 
+		</div>
+		<div class="col-xs-6">
+			<div class="page-header" style="text-align:center"> 
+				<h1>List Pendaftaran Lahan</h1> 
 			</div>
 		</div>
-		<div class="col-xs-4">
+		<div class="col-xs-2">
 		</div>
 	</div>
+	
+	<ul class="nav nav-tabs">
+	  <li><a href="{{ url('admin/dishub/showLahan/1') }}">Daftar</a></li>
+	  <li><a href="{{ url('admin/dishub/showLahan/2') }}">Disetujui</a></li>
+	  <li><a href="{{ url('admin/dishub/showLahan/3') }}">Proses</a></li>
+	  <li><a href="{{ url('admin/dishub/showLahan/4') }}">Selesai</a></li>
+	</ul>
 		
-	@foreach ($allNotif as $notif)	
-		<h3><a href="javascript:;" data-toggle="modal" data-target="#myModal{{$notif->id}}"> {{$notif->subject}} </a></h3>
-		<p> {{$notif->body}} </p>
-		<img src="{{url('../storage/pembayaran/coba.png')}}" alt="Generic placeholder thumbnail"> 	
-		<!-- Modal --> 
-		<div class="modal fade" id="myModal{{$notif->id}}" tabindex="-1" role="dialog" aria-labelledby="notifLabel" aria-hidden="true"> 
-			<div class="modal-dialog"> 
-				<div class="modal-content"> 
-					<div class="modal-header"> 
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times; </button> 
-						<h4 class="modal-title" id="notifLabel"> {{$notif->subject}} </h4> 
-					</div> 
-					<div class="modal-body">
-						<h5> {{$notif->body}} </h5>
-					</div> 
-					<div class="modal-footer"> 
-						<button type="button" class="btn btn-default" data-dismiss="modal"> Close </button> 
-					</div>
-				</div><!-- /.modal-content --> 
-			</div><!-- /.modal -->
+	<div class="col-xs-16">
+		<table class="table table-condensed">
+			<thead>
+				<tr style="font-size:16px">
+					<th>No. KTP</th>
+					<th>Luas</th>
+					<th>Harga</th>
+					<th>Nama Terminal</th>
+					<th>Alamat</th>
+					<th>Status</th>
+					<th>Tenggat</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php foreach ($lahan as $lah): ?>
+					<tr style="font-size:14px">
+						<td><?php echo $lah->id_pemilik ?></td>
+						<td><?php echo $lah->luas ?></td>
+						<td><?php echo $lah->harga ?></td>
+						<td><?php echo $lah->nama ?></td>
+						<td><?php echo $lah->alamat ?></td>
+						<td><?php echo $lah->status ?></td>
+						<td><?php echo $lah->tenggat ?></td>
+					</tr>
+				<?php endforeach ?>
+			</tbody>
+		</table>
+		<?php //echo $parkir->render() ?>
+	</div>
+	
+	<div class="footer_btm"><!-- start footer_btm -->
+	<div class="container">
+		<div class="row  footer1">
+			<div class="col-md-5">
+				<div class="soc_icons">
+					<ul class="list-unstyled">
+						<li><a class="icon1" href="#"></a></li>
+						<li><a class="icon2" href="#"></a></li>
+						<li><a class="icon3" href="#"></a></li>
+						<li><a class="icon4" href="#"></a></li>
+						<li><a class="icon5" href="#"></a></li>
+						<div class="clearfix"></div>
+					</ul>	
+				</div>
+			</div>
+			<div class="col-md-7 copy">
+				<p class="link text-right"><span>&#169; All rights reserved | Design by&nbsp;<a href="http://w3layouts.com/"> W3Layouts </a></span></p>
+			</div>
 		</div>
-	@endforeach
+	</div>
+</div>
 </body>
 </html>
 
