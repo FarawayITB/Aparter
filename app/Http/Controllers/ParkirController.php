@@ -49,10 +49,6 @@ class ParkirController extends Controller {
 
 
 		$nik = Cookie::get('NIK');
-		$body = "Selamat, registrasi tempat parkir berhasil. Silahkan tunggu informasi berikutnya dari administrator kami";
-		$id_ktp = $nik;
-		$subject = "Registrasi";
-		Notification::addNotif($body,$id_ktp,$subject);
 		return View::make('parkir.form_daftar')->with('kecamatans', $kecamatan)->with('jeniss', $jenis)->with('nik',$nik);
 	}
 
