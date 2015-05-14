@@ -4,7 +4,7 @@ use DB;
 use View;
 use Input;
 use Cookie;
-use Illuminate\Pagination\Paginator;
+use Redirect;
 use \App\Lahan;
 use \App\Terminal;
 use Carbon\Carbon;
@@ -106,7 +106,26 @@ class TerminalviewController extends Controller {
 
 	public function buy_lahan()
 	{
-		echo 'buy Lahan';
+		$nik = Cookie::get("NIK");
+		$id = Input::get('selected');
+		$month = Carbon::now()->month;
+		$month += 1;
+
+		echo $id;
+		if (Input::hasFile('upload'))
+		{
+			$varlahan = "lahan"."_".$id;
+			$ext = Input::file('upload')->getClientOriginalExtension();
+			Input::file('upload')->move(storage_path().'\pembayaran',$nik.'_'.Carbon::now()->month.'_'.$varlahan.'.'.$ext); // dari cookies	
+
+			$lahan = Lahan::find($id);
+			$lahan->id_pemilik = $nik;
+			$lahan->status = '1';
+			$lahan->tenggat = Carbon::createFromFormat('Y-m-d', Carbon::now()->year.'-'.$month.'-'.Carbon::now()->day);
+			$lahan->save();
+		}
+
+		return Redirect::action('SiteController@home');
 	}
 
 	public function cariterminal()

@@ -46,18 +46,20 @@
 							<h4>Untuk melakukan penyewaan, transfer ke 12345678 a/n Penyewaan Lahan, dan upload bukti pembayarannya.</h4>
 							<br><br>
 							<form id="form{{$lahan->id_lahan}}" class="form-horizontal" role="form" method="POST" enctype="multipart/form-data" action="{{ url('/user/store_lahan') }}"> 
-							<input type="hidden" name="_token" value="{{ csrf_token() }}">
-							<div class="form-group"> 
-								<label for="upload" class="col-md-4 control-label"><h4>Bukti Pembayaran</h4></label> 
-								<div class="col-md-6">
-									<input type="file" id="upload" name="upload" class="form-control">
-								</div>
-								<div class="col-md-2">
-								</div>
-							</div> 
+								<input type="hidden" name="_token" value="{{ csrf_token() }}">
+								<input type="hidden" name="selected" value="{{$lahan->id_lahan}}">
+								<div class="form-group"> 
+									<label for="upload{{$lahan->id_lahan}}" class="col-md-4 control-label"><h4>Bukti Pembayaran</h4></label> 
+									<div class="col-md-6">
+										<input type="file" name="upload" class="form-control">
+									</div>
+									<div class="col-md-2">
+									</div>
+								</div> 
+							</form>
 						</div> 
 						<div class="modal-footer"> 
-							<button type="button" form="{{$lahan->id_lahan}}" class="btn btn-primary"> Submit changes </button> 
+							<button type="submit" form="form{{$lahan->id_lahan}}" class="btn btn-primary"> Submit changes </button> 
 							<button type="button" class="btn btn-default" data-dismiss="modal"> Close </button> 
 						</div>
 					</div><!-- /.modal-content --> 

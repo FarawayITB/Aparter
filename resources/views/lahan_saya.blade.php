@@ -19,6 +19,7 @@
 				<h3>Lahan {{$lahan->id_lahan}}</h3>
 				<br><br>
 				<h4>Luas: {{$lahan->luas}} m<sup>2</sup></h4>
+				<h4>Tenggat: {{$lahan->tenggat}} </h4>
 			</div> 
 			<div class="col-sm-6 col-md-3"> 
 			</div> 
