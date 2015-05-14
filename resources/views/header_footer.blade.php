@@ -30,6 +30,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<script src="{{ asset('/js/jenis_pendaftaran.js') }}"></script>
 		<script src="{{ asset('/js/hoverakun.js') }}"></script>
 		<script src="{{ asset('/js/dropdownselect.js') }}"></script>
+		<script src="{{ asset('/js/progress.js') }}"></script>
 		<script src="{{ asset('/js/maps.js') }}"></script>
 		<script src="{{ asset('/js/login.js') }}"></script>
 		<script src="{{ asset('/js/logout.js') }}"></script>
@@ -61,13 +62,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				        <li><a href="{{ url('/terminal') }}">Terminal</a></li>
 				        <li><a href="{{ url('/tentang') }}">Tentang</a></li>
 				        <li class="dropdown"> 
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Akun <b class="caret"></b> 
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Aksi <b class="caret"></b> 
 							</a> 
 							<ul class="dropdown-menu"> 
 								<li><a href="{{ url('/user/pembayaran') }}">Pembayaran</a></li> 
 								<li><a href="{{ url('/notifikasi') }}">Pemberitahuan</a></li> 
 								<li><a href="{{ url('/parkir/daftar') }}">Pendaftaran</a></li> 
 								<li><a href="{{ url('/user/lahan') }}">Lahan</a></li> 
+								<li><a href="{{ url('/user/progress') }}">Progress</a></li>
 								<li id="logoutLink"><a href="javascript:;">Logout</a></li>
 							</ul> 
 						</li> 
@@ -106,42 +108,44 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="container">
 		<div class="row  footer">
 			<div class="col-md-3 span1_of_4">
-				<h4>about us</h4>
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry .....</p>
+				<h4>Tentang Kami</h4>
+				<p>PT. FarAway Indonesia</p>
 				<h5>Address</h5>
-				<p class="top">500 Lorem Ipsum Dolor Sit,</p>
-				<p>22-56-2-9 Sit Amet,</p>
-				<p>USA</p>
-				<p>Phone:(00) 222 666 444</p>
-				<p>Fax: (000) 000 00 00 0</p>
+				<p class="top">Jl. Paskal 123</p>
+				<p>40172 Bandung,</p>
+				<p>Jawa Barat, Indonesia</p>
+				<p>Phone:(+022) 726-5-912</p>
+				<p>Fax: (022) 726-4-912</p>
 			</div>
 			<div class="col-md-3 span1_of_4">
-				<h4>latest posts</h4>
-				<span><a href="#"> Fusce scelerisque massa vitae </a></span>
-				<p>25 april 2013</p>
-				<span><a href="#">Pellentesque bibendum ante </a></span>
-				<p>15 march 2013</p>
-				<span><a href="#">Maecenas quis ipsum sed magna </a></span>
-				<p>25 april 2013</p>
+				<h4>Update Fitur</h4>
+				<span><a href="javascript:;">Progress Bar Status Pendaftaran</a></span>
+				<p>25 april 2014</p>
+				<span><a href="javascript:;">Update Menu Pendaftaran</a></span>
+				<p>15 march 2014</p>
+				<span><a href="javascript:;">Single Sign In</a></span>
+				<p>25 april 2014</p>
 			</div>
 			<div class="col-md-3 span1_of_4">
-				<h4>latest comments</h4>
-				<span><a href="#">It is a long established fact that a reader will looking layout.</a></span>
-				<span><a href="#">There are many variations of passages of Lorem Ipsum available words.</a></span>
-				<span><a href="#">It is a long established fact that a reader will looking layout.</a></span>
+				<h4>Kata Masyarakat</h4>
+				<p>Donny Subagja say: </p>
+				<span><a href="javascript:;">Membantu Sekali! Good App!</a></span>
+				<p>Susanto Lie say: </p>
+				<span><a href="javascript:;">Keren banget!</a></span>
+				<p>Suryani say: </p>
+				<span><a href="javascript:;">Maju terus pantang Mundur</a></span>
 			</div>
 			<div class="col-md-3 span1_of_4">
 				<h4>photostream</h4>
 				<ul class="f_nav list-unstyled">
-					<li><a href="#"><img src="images/f_pic1.jpg" alt="" class="img-responsive"/></a></li>
-					<li><a href="#"><img src="images/f_pic3.jpg" alt="" class="img-responsive"/> </a></li>
-					<li><a href="#"><img src="images/f_pic4.jpg" alt="" class="img-responsive"/> </a></li>
-					<li><a href="#"><img src="images/f_pic5.jpg" alt="" class="img-responsive"/> </a></li>
-					<li><a href="#"><img src="images/f_pic7.jpg" alt="" class="img-responsive"/> </a></li>
-					<li><a href="#"><img src="images/f_pic1.jpg" alt="" class="img-responsive"/> </a></li>
-					<li><a href="#"><img src="images/f_pic6.jpg" alt="" class="img-responsive"/> </a></li>
-					<li><a href="#"><img src="images/f_pic8.jpg" alt="" class="img-responsive"/> </a></li>
-					<li><a href="#"><img src="images/f_pic2.jpg" alt="" class="img-responsive"/> </a></li>
+					<li><a href="#"><img src="{{ asset('/images/f_pic1.jpg') }}" alt="" class="img-responsive"/></a></li>
+					<li><a href="#"><img src="{{ asset('/images/f_pic3.jpg') }}" alt="" class="img-responsive"/> </a></li>
+					<li><a href="#"><img src="{{ asset('/images/f_pic4.jpg') }}" alt="" class="img-responsive"/> </a></li>
+					<li><a href="#"><img src="{{ asset('/images/f_pic7.jpg') }}" alt="" class="img-responsive"/> </a></li>
+					<li><a href="#"><img src="{{ asset('/images/f_pic1.jpg') }}" alt="" class="img-responsive"/> </a></li>
+					<li><a href="#"><img src="{{ asset('/images/f_pic6.jpg') }}" alt="" class="img-responsive"/> </a></li>
+					<li><a href="#"><img src="{{ asset('/images/f_pic8.jpg') }}" alt="" class="img-responsive"/> </a></li>
+					<li><a href="#"><img src="{{ asset('/images/f_pic2.jpg') }}" alt="" class="img-responsive"/> </a></li>
 				</ul>
 			</div>
 			<div class="clearfix"></div>
@@ -164,7 +168,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</div>
 			</div>
 			<div class="col-md-7 copy">
-				<p class="link text-right"><span>&#169; All rights reserved | Design by&nbsp;<a href="http://w3layouts.com/"> W3Layouts</a></span></p>
+				<p class="link text-right"><span>&#169; All rights reserved | Design by&nbsp;<a href="http://w3layouts.com/"> W3Layouts </a></span></p>
 			</div>
 		</div>
 	</div>

@@ -64,45 +64,43 @@ class ParkirController extends Controller {
 	public function store()
 	{
 		// store
-		$parkir				= new Parkir;
-		$rekomendasiParkir	= new RekomendasiParkir;
+		$parkir	= new Parkir;
 
+		$parkir->id_pemilik  		= Input::get('id_pemilik');
+		$parkir->alamat      		= Input::get('alamat');
+		$parkir->lokasi     		= Input::get('lokasi_lat').",".Input::get('lokasi_lng');
+		$parkir->status      		= "1";
+		$parkir->id_kecamatan 		= DB::table('ppl_aparter_kecamatan')->where('nama_kecamatan','=', Input::get('kecamatan'))->select('id_kecamatan')->first()->id_kecamatan;
+		$parkir->id_jenis_kendaraan = DB::table('ppl_aparter_jenis_kendaraan')->where('jenis_kendaraan_parkir','=', Input::get('jenis'))->select('id_jenis_kendaraan')->first()->id_jenis_kendaraan;
+		
 		if(Input::get('jenis_daftar') == 1)	// lahan pribadi
 		{
 			$month = Carbon::now()->month;
 			$month++;
-			$parkir->id_pemilik  		= Input::get('id_pemilik');
-			$parkir->alamat      		= Input::get('alamat');
-			$parkir->lokasi     		= Input::get('lokasi_lat').",".Input::get('lokasi_lng');
-			$parkir->status      		= "Registrasi";
+			
 			$parkir->luas       		= Input::get('luas');
 			$parkir->tarif       		= Input::get('tarif');
-			$parkir->id_kecamatan 		= DB::table('ppl_aparter_kecamatan')->where('nama_kecamatan','=', Input::get('kecamatan'))->select('id_kecamatan')->first()->id_kecamatan;
-			$parkir->id_jenis_kendaraan = DB::table('ppl_aparter_jenis_kendaraan')->where('jenis_kendaraan_parkir','=', Input::get('jenis'))->select('id_jenis_kendaraan')->first()->id_jenis_kendaraan;
 			$parkir->tenggat			= Carbon::now()->year."-".$month."-".Carbon::now()->day;
 			$parkir->save();
 
-
-			$alamat = Input::get('alamat');
-			$subject = "Pendaftaran Lahan Parkir Pribadi ".$alamat;
-			$id_ktp = Input::get('id_pemilik');
-			$body = "Pendaftaran lahan parkir pribadi di ".$alamat." sudah diterima.";
-			Notification::addNotif($body,$id_ktp,$subject);
+			/* Create Notification */
+			// $alamat = Input::get('alamat');
+			// $subject = "Pendaftaran Lahan Parkir Pribadi ".$alamat;
+			// $id_ktp = Input::get('id_pemilik');
+			// $body = "Pendaftaran lahan parkir pribadi di ".$alamat." sudah diterima.";
+			// Notification::addNotif($body,$id_ktp,$subject);
 
 		}
 		else	// rekomendasi
 		{
-			$rekomendasiParkir->id_pemilik  = Input::get('id_pemilik');
-			$rekomendasiParkir->alamat      = Input::get('alamat');
-			$rekomendasiParkir->lokasi      = Input::get('lokasi');
-			$rekomendasiParkir->status      = Input::get('status');
-			$rekomendasiParkir->save();
+			$parkir->save();
 
-			$alamat = Input::get('alamat');
-			$subject = "Pendaftaran Rekomendasi Parkir ".$alamat;
-			$id_ktp = Input::get('id_pemilik');
-			$body = "Pendaftaran rekomendasi parkir di ".$alamat." sudah diterima.";
-			Notification::addNotif($body,$id_ktp,$subject);
+			/* Create Notification */
+			// $alamat = Input::get('alamat');
+			// $subject = "Pendaftaran Rekomendasi Parkir ".$alamat;
+			// $id_ktp = Input::get('id_pemilik');
+			// $body = "Pendaftaran rekomendasi parkir di ".$alamat." sudah diterima.";
+			// Notification::addNotif($body,$id_ktp,$subject);
 
 		}
 

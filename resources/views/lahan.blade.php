@@ -15,22 +15,20 @@
 		@foreach ($lahan_terminal as $lahan)
 	<div class="container"> 
 		<div class="row">
-			<div class="col-sm-6 col-md-3"> 
+			<div class="col-sm-3 col-md-3"> 
 				<div class="thumbnail"> 
-					<img src="{{asset('images/lahan'.$lahan->id_lahan.'.jpg')}}" alt="Generic placeholder thumbnail"> 
+					<img src="{{asset('images/lahan/lahan'.$lahan->id_lahan.'.jpg')}}" alt="Generic placeholder thumbnail"> 
 				</div>
 			</div>
-			<div class="col-sm-6 col-md-3"> 
+			<div class="col-sm-3 col-md-3"> 
 				<h3>Kosong</h3>
-				<br><br>
 				<h4>Lahan {{$lahan->id_lahan}}</h4>
 				<h4>Luas: {{$lahan->luas}}</h4>
 				<h4>Harga: Rp{{$lahan->harga}}</h4>
-				<h4>Pemilik: {{$lahan->id_pemilik}}</h4>
 			</div> 
-			<div class="col-sm-6 col-md-3"> 
+			<div class="col-sm-3 col-md-3"> 
 			</div> 
-			<div class="col-sm-6 col-md-3"> 
+			<div class="col-sm-3 col-md-3"> 
 				<button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal{{$lahan->id_lahan}}">Sewa</button>
 			</div>
 		</div>
@@ -59,13 +57,13 @@
 							</div> 
 						</div> 
 						<div class="modal-footer"> 
-							<button type="button" class="btn btn-primary"> Submit changes </button> 
+							<button type="button" form="{{$lahan->id_lahan}}" class="btn btn-primary"> Submit changes </button> 
 							<button type="button" class="btn btn-default" data-dismiss="modal"> Close </button> 
 						</div>
 					</div><!-- /.modal-content --> 
 				</div><!-- /.modal -->
+			</div>
+			<br>
 		@endforeach
 		<hr/>
-	
-	</div>
 @endsection
