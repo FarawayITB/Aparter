@@ -122,7 +122,9 @@ class ParkirController extends Controller {
 	 */
 	public function show()
 	{
-		$listParkir = Parkir::all();
+		$kecamatan = strtolower(Input::get('searchbox'));
+		$id_kecamatan = DB::table('ppl_aparter_kecamatan')->where('nama_kecamatan','=', $kecamatan)->pluck('id_kecamatan');
+		$listParkir = Parkir::where('id_kecamatan', '=', $id_kecamatan)->get();
 		return View::make('parkir')
 					->with('parkir', $listParkir);
 	}

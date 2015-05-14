@@ -1,11 +1,11 @@
 $(document).ready(function () {
 	var lat; var lng; var geocoder;
 
-	var myCenter=new google.maps.LatLng(-6.9012795,107.5804139);
+	var myCenter=new google.maps.LatLng(-6.9142795,107.608639);
 	function initialize() {
 		var mapProp = {
 			center: myCenter,
-			zoom:15,
+			zoom:12,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		};
 
@@ -43,7 +43,7 @@ $(document).ready(function () {
 	        var sParameterName = sURLVariables[i].split('=');
 	        if (sParameterName[0] == sParam) 
 	        {
-	            return sParameterName[1];
+	            return 'kecamatan+'.concat(sParameterName[1].concat('+bandung'));
 	        }
 	    }
 	}
