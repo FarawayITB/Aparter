@@ -12,11 +12,13 @@ class Notification extends Model
 	protected $primaryKey = 'id';
 	public $timestamps = false;
 
-	public static function addNotif($body,$id_ktp,$subject) {
+	public static function addNotif($id_ktp,$subject,$body,$from,$kategori) {
 		DB::table('ppl_aparter_notifications')->insert([
 			'body' => $body,
 			'id_ktp' => $id_ktp,
-			'subject' => $subject
+			'subject' => $subject,
+			'from' => $from,
+			'kategori' => $kategori
 			]);
 	}
 

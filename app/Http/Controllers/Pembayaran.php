@@ -49,7 +49,7 @@ class Pembayaran extends Controller {
 		}
 
 		$from = "Dispenda";
-		$kategori = "Pembayaran"
+		$kategori = "Pembayaran";
 		$subject = "Pembayaran";
 		$id_ktp = $nik;
 		$body = "Proses pembayaran berhasil. Terima kasih sudah membayar";

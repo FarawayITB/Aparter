@@ -3,9 +3,10 @@
 use View;
 use \App\Notification;
 
-use Carbon\Carbon;
 use Input;
+use Cookie;
 use Redirect;
+use Carbon\Carbon;
 
 class NotifikasiviewController extends Controller {
     public function home()
@@ -14,8 +15,9 @@ class NotifikasiviewController extends Controller {
 	}
 
 	public function test(){
+		$nik = Cookie::get("NIK");
 		Notification::cekTenggat();
-		$allNotif = Notification::get()->where('id_ktp', '=', 'budi');
+		$allNotif = Notification::where('id_ktp', '=', $nik)->get();
 		
 		return view('notifikasi',  ["allNotif" => $allNotif]);
 	}
