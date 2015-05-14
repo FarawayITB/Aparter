@@ -26,11 +26,12 @@ $(document).ready(function () {
 
 	// on Click event
 	$(".infoparkir").on('click','div',function(){
-		if (this.id!=""){
+		/*if (this.id!=""){
 			lat = $('#lat'+this.id).val();
 			lng = $('#long'+this.id).val();
-		}
-		myCenter=new google.maps.LatLng(lat,lng);
+		}*/
+		var lokasi = document.getElementById("LatLng").value.split(",");
+		myCenter=new google.maps.LatLng(lokasi[0],lokasi[1]);
 		initialize();
 	});
 
