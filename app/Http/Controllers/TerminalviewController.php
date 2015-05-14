@@ -17,8 +17,20 @@ class TerminalviewController extends Controller {
 	
 	public function cek()
 	{
-		$allTerminal = terminal::all();
-		return view('terminal',  ["allTerminal" => $allTerminal]);
+		$allTerminal = Terminal::all();
+
+		$Terminals = json_decode(json_encode($allTerminal), true);
+
+		foreach ($Terminals as &$terminal) {
+			$terminal['jumlah_lahan'] = DB::table('ppl_aparter_lahan')
+											->where('id_terminal','=',$terminal['id_terminal'])
+											->where('id_pemilik','=',null)
+											->count();
+		}
+
+		$allTerminal = $Terminals;
+
+		return View::make('terminal')->with("allTerminal", $allTerminal);
 	}
 
 	public function lahan($id_terminal)
@@ -65,7 +77,6 @@ class TerminalviewController extends Controller {
 				->update(['pembayaran_terakhir' => $last_month." ".Carbon::now()->year]);
 
 			// buat notifikasi
-
 			$kategori = "Pembayaran";
 			$from = "Dispenda";
 			$id_ktp = $nik;
@@ -93,5 +104,28 @@ class TerminalviewController extends Controller {
 				->where('id_pemilik', '=', $nik) // dari cookies
 				->get();
 		return View::make('lahan_saya')->with('lahans', $lahan)->with('$lahans', $lahan);
+	}
+
+	public function buy_lahan()
+	{
+		echo 'buy Lahan';
+	}
+
+	public function cariterminal()
+	{
+		$terminal = Input::get('terminal');
+		$allTerminal = Terminal::where('nama', 'LIKE', '%'.$terminal.'%')->get();
+
+		$Terminals = json_decode(json_encode($allTerminal), true);
+
+		foreach ($Terminals as &$terminal) {
+			$terminal['jumlah_lahan'] = DB::table('ppl_aparter_lahan')
+											->where('id_terminal','=',$terminal['id_terminal'])
+											->where('id_pemilik','=',null)
+											->count();
+		}
+
+		$allTerminal = $Terminals;
+		return View::make('terminal')->with('cariterminal', $allTerminal);
 	}
 }

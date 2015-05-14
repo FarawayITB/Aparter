@@ -20,4 +20,19 @@ class UserController extends Controller {
 
         return View::make('pembayaran')->with('parkirs', $parkir)->with('lahans', $lahan)->with('id_ktp', $nik);
 	}
+
+    public function progress()
+    {
+        $nik = Cookie::get("NIK");
+        $parkir = DB::table('ppl_aparter_parkir')
+                    ->where('id_pemilik', '=', $nik) // where id_pemilik = id_ktp
+                    ->get();
+
+        $lahan = DB::table('ppl_aparter_lahan')
+                    ->where('id_pemilik', '=', $nik) // where id_pemilik = id_ktp
+                    ->join('ppl_aparter_terminal','ppl_aparter_lahan.id_terminal','=','ppl_aparter_terminal.id_terminal')
+                    ->select('ppl_aparter_lahan.id_lahan','ppl_aparter_terminal.nama')
+                    ->get();
+        return View::make('progress')->with('parkirs', $parkir)->with('lahans', $lahan)->with('id_ktp', $nik);
+    }
 }

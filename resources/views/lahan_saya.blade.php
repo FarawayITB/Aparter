@@ -12,7 +12,7 @@
 		<div class="row">
 			<div class="col-sm-6 col-md-3"> 
 				<div class="thumbnail"> 
-					<img src="{{asset('images/lahan1.jpg')}}" alt="Generic placeholder thumbnail"> 
+					<img src="{{asset('images/lahan/lahan'.$lahan->id_lahan.'.jpg')}}" alt="Generic placeholder thumbnail"> 
 				</div>
 			</div> 
 			<div class="col-sm-6 col-md-3"> 

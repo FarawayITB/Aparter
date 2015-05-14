@@ -44,7 +44,9 @@ Route::get('/notifikasi', 'NotifikasiviewController@test');
 
 Route::get('parkir/daftar', 'ParkirController@create');
 
-Route::get('terminal/{id_terminal?}', 'TerminalviewController@lahan');
+Route::get('terminal/{id_terminal}', 'TerminalviewController@lahan');
+
+Route::post('terminal/cari', 'TerminalviewController@cariterminal');
 
 Route::post('parkir/save', 'ParkirController@store');
 
@@ -52,6 +54,14 @@ Route::get('/user/lahan','TerminalviewController@lahan_saya');
 
 Route::post('/user/save_lahan', 'TerminalviewController@store_lahan_saya');
 
+Route::post('/user/store_lahan', 'TerminalviewController@buy_lahan');
+
 Route::get('parkir/{id}/edit', 'ParkirController@edit');
 
 Route::post('parkir/{id}/update', 'ParkirController@update');
+
+Route::get('user/progress', 'UserController@progress');
+
+Route::post('/api/progress/parkir', 'APIController@parkir');
+
+Route::post('/api/progress/lahan', 'APIController@lahan');
