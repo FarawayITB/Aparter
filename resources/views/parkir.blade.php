@@ -20,13 +20,13 @@
 	<div class="container infoparkir">
 		<div class="row">
 			<?php foreach ($parkir as $par): ?>
-				<div class="col-md-6" id="$par->id_parkir">
+				<div class="col-md-6" id="parkir_item">
 					<h3><a href="javascript:;">Parkir <?php echo $par->alamat ?></a></h3>
 					<dl>
 						<p>Rp <?php echo $par->tarif ?> per hari | <?php echo $par->status ?></p>
 					</dl>
+					<div id="LatLng" type="hidden" value="<?php $par->lokasi?>"></div>
 				</div>
-				<div id="LatLng" type="hidden" value="<?php $par->lokasi?>"></div>
 			<?php endforeach ?>
 		</div>
 	</div>
