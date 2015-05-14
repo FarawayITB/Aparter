@@ -14,7 +14,7 @@ class NotifikasiviewController extends Controller {
 	}
 
 	public function test(){
-		Notification::cekTenggat();
+		//Notification::cekTenggat();
 		$allNotif = Notification::get()->where('is_admin', '=', 1);
 		
 		return view('notifikasi',  ["allNotif" => $allNotif]);
