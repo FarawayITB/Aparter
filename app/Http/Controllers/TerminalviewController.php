@@ -70,7 +70,7 @@ class TerminalviewController extends Controller {
 			$last_month = Carbon::now()->month;
 			$last_month++;
 			$ext = Input::file('upload'.$id_lahan)->getClientOriginalExtension();
-			Input::file('upload'.$id_lahan)->move(storage_path().'\pembayaran',$nik.'_'.Carbon::now()->month.'.'.$ext);
+			Input::file('upload'.$id_lahan)->move(storage_path().'\pembayaran',$nik.'_'.Carbon::now()->month.'_lahan_'.$id_lahan.'.'.$ext);
 			
 			DB::table('ppl_aparter_pembayaran')
 				->where('id_tempat_lahan', $id_lahan)
@@ -86,15 +86,12 @@ class TerminalviewController extends Controller {
 
 		} else{
 
-			$user_lahan->status = 'request perluasan menjadi '.$luas;
-			$user_lahan->save();
-
 			// buat notifikasi
 			$kategori = "Perluasan Lahan";
 			$from = "Dishub";
 			$id_ktp = $nik;
 			$subject = "Permintaan Perluasan Lahan ID ".$id_lahan;
-			$body = "Permintaan perluasan lahan dengan ID ".$id_lahan." sudah diterima.";
+			$body = "Permintaan perluasan lahan dengan ID ".$id_lahan." sudah diterima dengan panjang:".$panjang." m dan lebar:".$lebar." m.";
 			Notification::addNotif($id_ktp,$subject,$body,$from,$kategori);
 		}
 
