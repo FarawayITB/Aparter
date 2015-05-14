@@ -2,6 +2,7 @@
 
 
 use DB;
+use File;
 use Input;
 use Cookie;
 use Redirect;
@@ -19,12 +20,14 @@ class Pembayaran extends Controller {
 		$nik = Cookie::get("NIK");
 		if (Input::get('idtempat_parkir')!="Tidak ada"){
 			$idtempat_parkir = substr(Input::get('idtempat_parkir'), 13,1);
+			$varparkir = "parkir"."_".$idtempat_parkir;
 		} else{
 			$idtempat_parkir = NULL;
 		}
 
 		if (Input::get('idtempat_lahan')!="Tidak ada"){
 			$idtempat_lahan = substr(Input::get('idtempat_lahan'), 10,1);
+			$varlahan = "lahan"."_".$idtempat_lahan;
 		} else{
 			$idtempat_lahan = NULL;
 		}
@@ -34,22 +37,25 @@ class Pembayaran extends Controller {
 			'id_tempat_lahan' => $idtempat_lahan,
 			'pembayaran_terakhir' => Carbon::now()->month." ".Carbon::now()->year,
 		]);
-		
-
-		if ($idtempat_parkir!=NULL){
-			$var = "parkir"."_".$idtempat_parkir;
-		} else{
-			$var = "lahan"."_".$idtempat_lahan;
-		}
 
 		if (Input::hasFile('unggah'))
 		{
+			$file = Input::file('unggah');
 			$ext = Input::file('unggah')->getClientOriginalExtension();
-			Input::file('unggah')->move(storage_path().'\pembayaran',$nik.'_'.Carbon::now()->month.'_'.$var.'.'.$ext); // dari cookies
+			if (isset($varlahan) && !isset($varparkir)){
+				Input::file('unggah')->move(storage_path().'\pembayaran',$nik.'_'.Carbon::now()->month.'_'.$varlahan.'.'.$ext); // dari cookies	
+			} else{
+				if (!isset($varlahan) && isset($varparkir)){
+					Input::file('unggah')->move(storage_path().'\pembayaran',$nik.'_'.Carbon::now()->month.'_'.$varparkir.'.'.$ext); // dari cookies	
+				} else{
+					Input::file('unggah')->move(storage_path().'\pembayaran',$nik.'_'.Carbon::now()->month.'_'.$varlahan.'.'.$ext); // dari cookies	
+					File::copy(storage_path().'\pembayaran\\' . $nik.'_'.Carbon::now()->month.'_'.$varlahan.'.'.$ext, storage_path().'\pembayaran' . '\\'.$nik.'_'.Carbon::now()->month.'_'.$varparkir.'.'.$ext);
+				}
+			}
 		}
 
 		$from = "Dispenda";
-		$kategori = "Pembayaran"
+		$kategori = "Pembayaran";
 		$subject = "Pembayaran";
 		$id_ktp = $nik;
 		$body = "Proses pembayaran berhasil. Terima kasih sudah membayar";

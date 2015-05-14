@@ -17,8 +17,20 @@ class TerminalviewController extends Controller {
 	
 	public function cek()
 	{
-		$allTerminal = terminal::all();
-		return view('terminal',  ["allTerminal" => $allTerminal]);
+		$allTerminal = Terminal::all();
+
+		$Terminals = json_decode(json_encode($allTerminal), true);
+
+		foreach ($Terminals as &$terminal) {
+			$terminal['jumlah_lahan'] = DB::table('ppl_aparter_lahan')
+											->where('id_terminal','=',$terminal['id_terminal'])
+											->where('id_pemilik','=',null)
+											->count();
+		}
+
+		$allTerminal = $Terminals;
+
+		return View::make('terminal')->with("allTerminal", $allTerminal);
 	}
 
 	public function lahan($id_terminal)
@@ -58,14 +70,13 @@ class TerminalviewController extends Controller {
 			$last_month = Carbon::now()->month;
 			$last_month++;
 			$ext = Input::file('upload'.$id_lahan)->getClientOriginalExtension();
-			Input::file('upload'.$id_lahan)->move(storage_path().'\pembayaran',$nik.'_'.Carbon::now()->month.'.'.$ext);
+			Input::file('upload'.$id_lahan)->move(storage_path().'\pembayaran',$nik.'_'.Carbon::now()->month.'_lahan_'.$id_lahan.'.'.$ext);
 			
 			DB::table('ppl_aparter_pembayaran')
 				->where('id_tempat_lahan', $id_lahan)
 				->update(['pembayaran_terakhir' => $last_month." ".Carbon::now()->year]);
 
 			// buat notifikasi
-
 			$kategori = "Pembayaran";
 			$from = "Dispenda";
 			$id_ktp = $nik;
@@ -75,15 +86,12 @@ class TerminalviewController extends Controller {
 
 		} else{
 
-			$user_lahan->status = 'request perluasan menjadi '.$luas;
-			$user_lahan->save();
-
 			// buat notifikasi
 			$kategori = "Perluasan Lahan";
 			$from = "Dishub";
 			$id_ktp = $nik;
 			$subject = "Permintaan Perluasan Lahan ID ".$id_lahan;
-			$body = "Permintaan perluasan lahan dengan ID ".$id_lahan." sudah diterima.";
+			$body = "Permintaan perluasan lahan dengan ID ".$id_lahan." sudah diterima dengan panjang:".$panjang." m dan lebar:".$lebar." m.";
 			Notification::addNotif($id_ktp,$subject,$body,$from,$kategori);
 		}
 
@@ -93,5 +101,28 @@ class TerminalviewController extends Controller {
 				->where('id_pemilik', '=', $nik) // dari cookies
 				->get();
 		return View::make('lahan_saya')->with('lahans', $lahan)->with('$lahans', $lahan);
+	}
+
+	public function buy_lahan()
+	{
+		echo 'buy Lahan';
+	}
+
+	public function cariterminal()
+	{
+		$terminal = Input::get('terminal');
+		$allTerminal = Terminal::where('nama', 'LIKE', '%'.$terminal.'%')->get();
+
+		$Terminals = json_decode(json_encode($allTerminal), true);
+
+		foreach ($Terminals as &$terminal) {
+			$terminal['jumlah_lahan'] = DB::table('ppl_aparter_lahan')
+											->where('id_terminal','=',$terminal['id_terminal'])
+											->where('id_pemilik','=',null)
+											->count();
+		}
+
+		$allTerminal = $Terminals;
+		return View::make('terminal')->with('cariterminal', $allTerminal);
 	}
 }
