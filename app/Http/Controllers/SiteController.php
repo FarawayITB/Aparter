@@ -4,6 +4,7 @@ use DB;
 use Cookie;
 use View;
 use Response;
+use App\Notification;
 
 class SiteController extends Controller {
     public function home()
