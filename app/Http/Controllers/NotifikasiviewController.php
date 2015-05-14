@@ -14,6 +14,7 @@ class NotifikasiviewController extends Controller {
 	}
 
 	public function test(){
+		Notification::deleeteReminder();
 		Notification::cekTenggat();
 		$allNotif = Notification::get()->where('id_ktp', '=', 'budi');
 		

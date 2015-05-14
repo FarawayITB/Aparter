@@ -27,10 +27,18 @@ class Notification extends Model
 			->where('tenggat','>=',$datetime)
 			->get();
 		if ($adatenggat != null) {
+			$kategori = "Reminder";
+			$from = "Dispenda";
 			$subject = "Masa tenggat";
 			$id_ktp = Cookie::get('NIK');
 			$body = "Waktu pembayaran Anda akan memasuki masa tenggat dalam 1 minggu.";
-			Notification::addNotif($body,$id_ktp,$subject);
+			Notification::addNotif($id_ktp,$subject,$body,$from,$kategori);
 		}
+	}
+
+	public static function deleteReminder() {
+		DB::table('ppl_aparter_notifications')
+			->where('kategori','=','Reminder')
+			->delete();
 	}
 }
