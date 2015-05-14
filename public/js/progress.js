@@ -1,5 +1,6 @@
 $(document).ready(function () {
-	var base = "http://localhost:8000";
+	// var base = "http://localhost:8000";
+	var base = "http://e-gov-bandung.tk/aparter/public";
 
 	// AJAX Request parkir
 	$('.idtempat_parkir').change(function(e) {
