@@ -15,7 +15,10 @@ class NotifikasiviewController extends Controller {
 	}
 
 	public function test(){
+
 		$nik = Cookie::get("NIK");
+
+		Notification::deleteReminder();
 		Notification::cekTenggat();
 		$allNotif = Notification::where('id_ktp', '=', $nik)->get();
 		
