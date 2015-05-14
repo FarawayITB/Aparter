@@ -76,7 +76,7 @@
 	@foreach ($allNotif as $notif)	
 		<h3><a href="javascript:;" data-toggle="modal" data-target="#myModal{{$notif->id}}"> {{$notif->subject}} </a></h3>
 		<p> {{$notif->body}} </p>
-		<img src="{{storage_path().'/pembayaran/3273060611940005_4_parkir_1.jpg'}}" alt="Generic placeholder thumbnail"> 	
+		<img src="{{url('../storage/pembayaran/coba.png')}}" alt="Generic placeholder thumbnail"> 	
 		<!-- Modal --> 
 		<div class="modal fade" id="myModal{{$notif->id}}" tabindex="-1" role="dialog" aria-labelledby="notifLabel" aria-hidden="true"> 
 			<div class="modal-dialog"> 

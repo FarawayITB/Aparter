@@ -15,7 +15,7 @@ class NotifikasiviewController extends Controller {
 
 	public function test(){
 		Notification::cekTenggat();
-		$allNotif = Notification::get()->where('id_ktp', '=', 'budi');
+		$allNotif = DB::table('ppl_aparter_notifikasi')->where('id_ktp', '=', 'budi')->get();
 		
 		return view('notifikasi',  ["allNotif" => $allNotif]);
 	}
