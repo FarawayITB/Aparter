@@ -4,6 +4,7 @@ use DB;
 use View;
 use Input;
 use Cookie;
+use Illuminate\Pagination\Paginator;
 use \App\Lahan;
 use \App\Terminal;
 use Carbon\Carbon;

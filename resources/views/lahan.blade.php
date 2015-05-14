@@ -23,8 +23,8 @@
 			<div class="col-sm-3 col-md-3"> 
 				<h3>Kosong</h3>
 				<h4>Lahan {{$lahan->id_lahan}}</h4>
-				<h4>Luas: {{$lahan->luas}}</h4>
-				<h4>Harga: Rp{{$lahan->harga}}</h4>
+				<h4>Luas: {{$lahan->luas}} m<sup>2</sup></h4>
+				<h4>Harga: Rp. {{$lahan->harga}},00</h4>
 			</div> 
 			<div class="col-sm-3 col-md-3"> 
 			</div> 
