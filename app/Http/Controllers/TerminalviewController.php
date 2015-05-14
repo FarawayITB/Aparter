@@ -77,10 +77,12 @@ class TerminalviewController extends Controller {
 				->update(['pembayaran_terakhir' => $last_month." ".Carbon::now()->year]);
 
 			// buat notifikasi
-
-			// $subject = "Pembayaran";
-			// $body = "Proses pembayaran berhasil. Terima kasih sudah membayar";
-			// Notification::addNotif($body,$nik,$subject);
+			$kategori = "Pembayaran";
+			$from = "Dispenda";
+			$id_ktp = $nik;
+			$subject = "Pembayaran";
+			$body = "Proses pembayaran berhasil. Terima kasih sudah membayar";
+			Notification::addNotif($id_ktp,$subject,$body,$from,$kategori);
 
 		} else{
 
@@ -88,9 +90,12 @@ class TerminalviewController extends Controller {
 			$user_lahan->save();
 
 			// buat notifikasi
-			// $subject = "Permintaan Perluasan Lahan ID ".$id_lahan;
-			// $body = "Permintaan perluasan lahan dengan ID ".$id_lahan." sudah diterima.";
-			// Notification::addNotif($body,$nik,$subject);
+			$kategori = "Perluasan Lahan";
+			$from = "Dishub";
+			$id_ktp = $nik;
+			$subject = "Permintaan Perluasan Lahan ID ".$id_lahan;
+			$body = "Permintaan perluasan lahan dengan ID ".$id_lahan." sudah diterima.";
+			Notification::addNotif($id_ktp,$subject,$body,$from,$kategori);
 		}
 
 		

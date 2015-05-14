@@ -102,8 +102,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 
 	@yield('content')
-
-
+	
 	<div class="footer_bg"><!-- start footre -->
 	<div class="container">
 		<div class="row  footer">

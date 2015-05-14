@@ -84,11 +84,13 @@ class ParkirController extends Controller {
 			$parkir->save();
 
 			/* Create Notification */
-			// $alamat = Input::get('alamat');
-			// $subject = "Pendaftaran Lahan Parkir Pribadi ".$alamat;
-			// $id_ktp = Input::get('id_pemilik');
-			// $body = "Pendaftaran lahan parkir pribadi di ".$alamat." sudah diterima.";
-			// Notification::addNotif($body,$id_ktp,$subject);
+			$from = "Dishub";
+			$kategori = "Pendaftaran Parkir";
+			$alamat = Input::get('alamat');
+			$subject = "Pendaftaran Lahan Parkir Pribadi ".$alamat;
+			$id_ktp = Input::get('id_pemilik');
+			$body = "Pendaftaran lahan parkir pribadi di ".$alamat." sudah diterima dengan status : daftar.";
+			Notification::addNotif($id_ktp,$subject,$body,$from,$kategori);
 
 		}
 		else	// rekomendasi
@@ -120,7 +122,9 @@ class ParkirController extends Controller {
 	 */
 	public function show()
 	{
-		$listParkir = Parkir::all();
+		$kecamatan = strtolower(Input::get('searchbox'));
+		$id_kecamatan = DB::table('ppl_aparter_kecamatan')->where('nama_kecamatan','=', $kecamatan)->pluck('id_kecamatan');
+		$listParkir = Parkir::where('id_kecamatan', '=', $id_kecamatan)->get();
 		return View::make('parkir')
 					->with('parkir', $listParkir);
 	}
