@@ -94,11 +94,13 @@ class ParkirController extends Controller {
 			$parkir->save();
 
 			/* Create Notification */
-			// $alamat = Input::get('alamat');
-			// $subject = "Pendaftaran Rekomendasi Parkir ".$alamat;
-			// $id_ktp = Input::get('id_pemilik');
-			// $body = "Pendaftaran rekomendasi parkir di ".$alamat." sudah diterima.";
-			// Notification::addNotif($body,$id_ktp,$subject);
+			$from = "Dishub";
+			$kategori = "Pendaftaran Rekomendasi Parkir";
+			$alamat = Input::get('alamat');
+			$subject = "Pendaftaran Lahan Parkir Pribadi ".$alamat;
+			$id_ktp = Input::get('id_pemilik');
+			$body = "Perekomendasian lahan parkir di ".$alamat." sudah diterima.";
+			Notification::addNotif($id_ktp,$subject,$body,$from,$kategori);
 
 		}
 
