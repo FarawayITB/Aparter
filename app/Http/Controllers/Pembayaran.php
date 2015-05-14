@@ -48,10 +48,12 @@ class Pembayaran extends Controller {
 			Input::file('unggah')->move(storage_path().'\pembayaran',$nik.'_'.Carbon::now()->month.'_'.$var.'.'.$ext); // dari cookies
 		}
 
+		$from = "Dispenda";
+		$kategori = "Pembayaran"
 		$subject = "Pembayaran";
 		$id_ktp = $nik;
 		$body = "Proses pembayaran berhasil. Terima kasih sudah membayar";
-		Notification::addNotif($body,$id_ktp,$subject);
+		Notification::addNotif($id_ktp,$subject,$body,$from,$kategori);
 		return Redirect::action('SiteController@home');
 	}
 

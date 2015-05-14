@@ -82,12 +82,13 @@ class ParkirController extends Controller {
 			$parkir->tenggat			= Carbon::now()->year."-".$month."-".Carbon::now()->day;
 			$parkir->save();
 
-
+			$from = "Dishub";
+			$kategori = "Pendaftaran Parkir";
 			$alamat = Input::get('alamat');
 			$subject = "Pendaftaran Lahan Parkir Pribadi ".$alamat;
 			$id_ktp = Input::get('id_pemilik');
-			$body = "Pendaftaran lahan parkir pribadi di ".$alamat." sudah diterima.";
-			Notification::addNotif($body,$id_ktp,$subject);
+			$body = "Pendaftaran lahan parkir pribadi di ".$alamat." sudah diterima dengan status : daftar.";
+			Notification::addNotif($id_ktp,$subject,$body,$from,$kategori);
 
 		}
 		else	// rekomendasi
