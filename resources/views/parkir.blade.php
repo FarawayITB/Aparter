@@ -26,6 +26,7 @@
 						<p>Rp <?php echo $par->tarif ?> per hari | <?php echo $par->status ?></p>
 					</dl>
 				</div>
+				<div id="LatLng" type="hidden" value="<?php $par->lokasi?>"></div>
 			<?php endforeach ?>
 		</div>
 	</div>
