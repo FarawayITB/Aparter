@@ -14,8 +14,10 @@
 		</div>
 	</div>
 
+	<div class="body">
 	<p>Aparter adalah aplikasi yang ditujukan khusus untuk menangani pelayanan publik di Kota Bandung dalam perparkiran dan lahan di terminal. Warga Bandung bisa mendaftarkan
 		lahan parkir pribadi mereka, merekomendasikan lahan di pinggiran jalan untuk parkir, dan juga menyewa lahan di terminal. Aplikasi ini juga mengurus
 		masalah pembayaran retribusi dan perpanjangan sewa. </p>
+	</div>
 
 @endsection
