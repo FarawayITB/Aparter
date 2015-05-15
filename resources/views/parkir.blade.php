@@ -24,9 +24,8 @@
 				<div class="col-md-6" id="parkir_item" onclick="setMarker(<?php echo $location[0]?>,<?php echo $location[1]?>)">
 					<h3><a href="javascript:;">Parkir <?php echo $par->alamat ?></a></h3>
 					<dl>
-						<p>Rp <?php echo $par->tarif ?> per hari | <?php echo $par->status ?> | Lat: <?php echo $location[0]?> | Long: <?php echo $location[1]?></p>
+						<p>Rp <?php echo $par->tarif ?> per hari | <?php echo $par->status ?></p>
 					</dl>
-					<div id="LatLng" type="hidden" value="<?php echo $par->lokasi?>"></div>
 				</div>
 			<?php endforeach ?>
 		</div>
