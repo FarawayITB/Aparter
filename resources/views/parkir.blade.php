@@ -20,10 +20,11 @@
 	<div class="container infoparkir">
 		<div class="row">
 			<?php foreach ($parkir as $par): ?>
-				<div class="col-md-6" id="parkir_item">
+				<?php $location = explode(",", $par->lokasi)?>
+				<div class="col-md-6" id="parkir_item" onclick="setMarker(<?php echo $par->lokasi?>)">
 					<h3><a href="javascript:;">Parkir <?php echo $par->alamat ?></a></h3>
 					<dl>
-						<p>Rp <?php echo $par->tarif ?> per hari | <?php echo $par->status ?> | lokasi: <?php echo $par->lokasi?></p>
+						<p>Rp <?php echo $par->tarif ?> per hari | <?php echo $par->status ?> | Lat: <?php echo $location[0]?> | Long: <?php echo $location[1]?></p>
 					</dl>
 					<div id="LatLng" type="hidden" value="<?php echo $par->lokasi?>"></div>
 				</div>
