@@ -14,10 +14,12 @@
 		</div>
 	</div>
 
+	@foreach ($allReminder as $reminder)
 	 <div class="alert alert-success alert-dismissable"> 
 			<button type="button" class="close" data-dismiss="alert" aria-hidden="true"> &times; 
-			</button> Success! Well done its submitted. Bisa diclose(liat kanan)
+			</button> {{$reminder->body}}
 	</div>
+	@endforeach
 		
 	@foreach ($allNotif as $notif)	
 		<h3><a href="javascript:;" data-toggle="modal" data-target="#myModal{{$notif->id}}"> {{$notif->subject}} </a></h3>
