@@ -13,6 +13,11 @@
 		<div class="col-xs-4">
 		</div>
 	</div>
+
+	 <div class="alert alert-success alert-dismissable"> 
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true"> &times; 
+			</button> Success! Well done its submitted. Bisa diclose(liat kanan)
+	</div>
 		
 	@foreach ($allNotif as $notif)	
 		<h3><a href="javascript:;" data-toggle="modal" data-target="#myModal{{$notif->id}}"> {{$notif->subject}} </a></h3>
