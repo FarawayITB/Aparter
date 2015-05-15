@@ -91,5 +91,4 @@ function setMarker(lat,lng) {
 	google.maps.event.addListener(marker,'click',function() {
 		map.setCenter(marker.getPosition());
 	});
-	alert("berhasil! :D");
 }
