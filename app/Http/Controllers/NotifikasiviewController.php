@@ -20,8 +20,8 @@ class NotifikasiviewController extends Controller {
 
 		Notification::deleteReminder();
 		Notification::cekTenggat();
-		$allNotif = Notification::where('id_ktp', '=', $nik)->where('kategori'.'!=','Reminder')->orderBy('id','desc')->get();
-		$allReminder = Notification::where('kategori'.'=','Reminder')->get();
+		$allNotif = Notification::where('id_ktp', '=', $nik)->where('kategori','!=','Reminder')->orderBy('id','desc')->get();
+		$allReminder = Notification::where('kategori','=','Reminder')->get();
 		$data = array(
 		    'allNotif'  => $allNotif,
 		    'allReminder' => $allReminder
