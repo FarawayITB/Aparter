@@ -19,7 +19,7 @@
 
 	<div class="container infoparkir">
 		<div class="row">
-			<?php if ($parkir->count()) { ?>
+			<?php if ($parkir->count()==0) { ?>
 				<h3>Tidak tersedia parkir pada kecamatan yang Anda masukkan</h3>
 			<?php }
 			else {
