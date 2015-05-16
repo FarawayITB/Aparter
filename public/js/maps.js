@@ -11,6 +11,10 @@ $(document).ready(function () {
 
 		var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
 
+		var marker = new google.maps.Marker({
+			position: myCenter
+		});
+
 		marker.setMap(map);
 
 		google.maps.event.addListener(marker,'click',function() {
@@ -54,10 +58,6 @@ $(document).ready(function () {
 			zoom:15,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		};
-		var marker = new google.maps.MarkerWithLabel({
-			position: myCenter,
-			labelContent: "kecamatan ".getUrlParameter("searchbox")
-		});
 		map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
 		codeAddress(getUrlParameter("searchbox"));
 	}
@@ -82,9 +82,8 @@ function setMarker(lat,lng) {
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
 	var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-	var marker = new google.maps.MarkerWithLabel({
-		position: myCenter,
-		labelContent: "Lokasi parkir"
+	var marker = new google.maps.Marker({
+		position: myCenter
 	});
 
 	marker.setMap(map);
