@@ -120,10 +120,6 @@ class ParkirController extends Controller {
 	 */
 	public function show()
 	{
-		$kecamatan = strtolower(Input::get('searchbox'));
-		$id_kecamatan = DB::table('ppl_aparter_kecamatan')->where('nama_kecamatan','=', $kecamatan)->pluck('id_kecamatan');
-		$listParkir = Parkir::where('id_kecamatan', '=', $id_kecamatan)->get();
-		$countParkir = Parkir::where('id_kecamatan', '=', $id_kecamatan)->count();
 		return View::make('parkir');
 	}
 
@@ -137,8 +133,7 @@ class ParkirController extends Controller {
 	{
 		$kecamatan = strtolower(Input::get('searchbox'));
 		$id_kecamatan = DB::table('ppl_aparter_kecamatan')->where('nama_kecamatan','=', $kecamatan)->pluck('id_kecamatan');
-		$listParkir = Parkir::where('id_kecamatan', '=', $id_kecamatan)->get();
-		$countParkir = Parkir::where('id_kecamatan', '=', $id_kecamatan)->count();
+		$listParkir = Parkir::where('id_kecamatan', '=', $id_kecamatan)->where('status', '=', 4)->get();
 		return View::make('searchparkir')
 					->with('parkir', $listParkir);
 	}
