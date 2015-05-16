@@ -73,9 +73,10 @@ class TerminalviewController extends Controller {
 			$ext = Input::file('upload'.$id_lahan)->getClientOriginalExtension();
 			Input::file('upload'.$id_lahan)->move(storage_path().'\pembayaran',$nik.'_'.Carbon::now()->month.'_lahan_'.$id_lahan.'.'.$ext);
 			
-			DB::table('ppl_aparter_pembayaran')
-				->where('id_tempat_lahan', $id_lahan)
-				->update(['pembayaran_terakhir' => $last_month]);
+			DB::table('ppl_aparter_pembayaran')->insert([
+				'id_tempat_lahan' => $id_lahan,
+				'pembayaran_terakhir' => Carbon::now()->month,
+			]);
 
 			// buat notifikasi
 			$kategori = "Pembayaran";

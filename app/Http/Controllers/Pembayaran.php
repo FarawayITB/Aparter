@@ -19,14 +19,22 @@ class Pembayaran extends Controller {
 	{
 		$nik = Cookie::get("NIK");
 		if (Input::get('idtempat_parkir')!="Tidak ada"){
-			$idtempat_parkir = substr(Input::get('idtempat_parkir'), 13,1);
+			if (Input::get('idtempat_parkir')[14] == " "){
+				$idtempat_parkir = substr(Input::get('idtempat_parkir'), 13, 1);
+			} else{
+				$idtempat_parkir = substr(Input::get('idtempat_parkir'), 13, 2);
+			}
 			$varparkir = "parkir"."_".$idtempat_parkir;
 		} else{
 			$idtempat_parkir = NULL;
 		}
 
 		if (Input::get('idtempat_lahan')!="Tidak ada"){
-			$idtempat_lahan = substr(Input::get('idtempat_lahan'), 10,1);
+			if (Input::get('idtempat_lahan')[11] == " "){
+				$idtempat_lahan = substr(Input::get('idtempat_lahan'), 10, 1);
+			} else{
+				$idtempat_lahan = substr(Input::get('idtempat_lahan'), 10, 2);
+			}
 			$varlahan = "lahan"."_".$idtempat_lahan;
 		} else{
 			$idtempat_lahan = NULL;
