@@ -17,7 +17,7 @@ class AdminviewController extends Controller {
 		return View::make('add_lahan');
 	}
 
-	public function showLahan(){
+	public function showLahan($status){
 		$lahan = DB::table('ppl_aparter_pembayaran')
 					->join('ppl_aparter_terminal', 'ppl_aparter_lahan.id_terminal', '=', 'ppl_aparter_terminal.id_terminal')
 					->join('ppl_aparter_lahan', 'ppl_aparter_pembayaran.id_tempat_lahan', '=', 'ppl_aparter_lahan.id_lahan')
