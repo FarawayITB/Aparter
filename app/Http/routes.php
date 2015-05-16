@@ -73,6 +73,12 @@ Route::get('admin/dishub/showParkir/{status}', 'AdminDishubController@showParkir
 
 Route::get('admin/dishub/showLahan/{status}', 'AdminDishubController@showLahan');
 
-Route::get('admin/dispenda/showsewa', 'AdminviewController@showsewa');
+Route::get('admin/dispenda/showParkir/{status}', 'AdminviewController@showParkir');
+
+Route::get('admin/dispenda/showLahan/{status}', 'AdminviewController@showLahan');
 
 Route::get('admin/dispenda/notif', 'AdminDishubController@notif');
+
+Route::post('admin/dishub/confirmParkir', 'AdminDishubController@confirmParkir');
+
+Route::post('admin/dishub/confirmLahan', 'AdminDishubController@confirmLahan');
