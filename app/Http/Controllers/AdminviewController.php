@@ -2,7 +2,7 @@
 
 use View;
 use \App\Notification;
-
+use DB;
 use Carbon\Carbon;
 use Input;
 use Redirect;
