@@ -19,16 +19,20 @@
 
 	<div class="container infoparkir">
 		<div class="row">
-			<?php echo $parkir->count(); ?>
-			<?php foreach ($parkir as $par): ?>
-				<?php $location = explode(",", $par->lokasi)?>
-				<div class="col-md-6" id="parkir_item" onclick="setMarker(<?php echo $location[0]?>,<?php echo $location[1]?>)">
-					<h3><a href="javascript:;">Parkir <?php echo $par->alamat ?></a></h3>
-					<dl>
-						<p>Rp <?php echo $par->tarif ?> per hari | <?php echo $par->status ?></p>
-					</dl>
-				</div>
-			<?php endforeach ?>
+			<?php if ($parkir->count()) { ?>
+				<h3>Tidak tersedia parkir pada kecamatan yang Anda masukkan</h3>
+			<?php }
+			else {
+				foreach ($parkir as $par):
+					$location = explode(",", $par->lokasi)?>
+					<div class="col-md-6" id="parkir_item" onclick="setMarker(<?php echo $location[0]?>,<?php echo $location[1]?>)">
+						<h3><a href="javascript:;">Parkir <?php echo $par->alamat ?></a></h3>
+						<dl>
+							<p>Rp <?php echo $par->tarif ?> per hari | <?php echo $par->status ?></p>
+						</dl>
+					</div>
+				<?php endforeach
+			} ?>
 		</div>
 	</div>
 @endsection
