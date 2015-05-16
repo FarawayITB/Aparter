@@ -47,7 +47,9 @@
 				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				      <ul class="menu nav navbar-nav">
 				        <li><a href="{{ url('/admin/dishub/notif') }}">Lihat Notif</a></li>
-				        <li><a href="{{ url('/admin/dishub') }}">Add Lahan</a></li>
+						<li><a href="{{ url('/admin/dishub/showParkir/1') }}">Lihat Parkir</a></li>
+				        <li><a href="{{ url('/admin/dishub/showLahan/1') }}">Lihat Lahan</a></li>
+				        <li><a href="{{ url('/admin/dishub/addLahan') }}">Add Lahan</a></li>
 				      </ul>
 				      <h4 class="text-right">Selamat datang, {{"Admin Dishub"}}</h4>
 				    </div><!-- /.navbar-collapse -->

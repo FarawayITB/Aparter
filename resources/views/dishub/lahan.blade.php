@@ -47,7 +47,9 @@
 				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				      <ul class="menu nav navbar-nav">
 				        <li><a href="{{ url('/admin/dishub/notif') }}">Lihat Notif</a></li>
-				        <li><a href="{{ url('/admin/dishub') }}">Add Lahan</a></li>
+				        <li><a href="{{ url('/admin/dishub/showParkir/1') }}">Lihat Parkir</a></li>
+				        <li><a href="{{ url('/admin/dishub/showLahan/1') }}">Lihat Lahan</a></li>
+				        <li><a href="{{ url('/admin/dishub/addLahan') }}">Add Lahan</a></li>
 				      </ul>
 				      <h4 class="text-right">Selamat datang, {{"Admin Dishub"}}</h4>
 				    </div><!-- /.navbar-collapse -->
@@ -81,10 +83,12 @@
 	@endif
 	
 	<ul class="nav nav-tabs">
+	  <li><h5>Sort by:</h5></li>
 	  <li><a href="{{ url('admin/dishub/showLahan/1') }}">Daftar</a></li>
 	  <li><a href="{{ url('admin/dishub/showLahan/2') }}">Disetujui</a></li>
 	  <li><a href="{{ url('admin/dishub/showLahan/3') }}">Proses</a></li>
 	  <li><a href="{{ url('admin/dishub/showLahan/4') }}">Selesai</a></li>
+	  <li><a href="{{ url('admin/dishub/showLahan/5') }}">Lahan Kosong</a></li>
 	</ul>
 		
 	<div class="col-xs-16">
@@ -104,36 +108,53 @@
 			<tbody>
 				<?php foreach ($lahan as $lah): ?>
 					<tr style="font-size:14px">
-						<td><?php echo $lah->id_pemilik ?></td>
-						<td><?php echo $lah->luas ?></td>
-						<td><?php echo $lah->harga ?></td>
-						<td><?php echo $lah->nama ?></td>
-						<td><?php echo $lah->alamat ?></td>
-						<td><?php echo $lah->status ?></td>
-						<td><?php echo $lah->tenggat ?></td>
-						<?php if(($lah->status == 1) || ($lah->status == 3)){?>
-						<td>
-							<form class="form-horizontal" role="form" method="POST" action="{{ url('admin/dishub/confirmLahan') }}" onsubmit="return confirmDelete()">
-								<input type="hidden" name="_token" value="{{ csrf_token() }}">
-								<input type="hidden" name="id" value="<?php echo $lah->id_lahan ?>">
-								<input type="hidden" name="no_ktp" value="<?php echo $lah->id_pemilik ?>">
-								<input type="hidden" name="terminal" value="<?php echo $lah->nama ?>">
-								<div class="form-group">
-									<div>
-										<select name="status">
-										  <option value="0">Ditolak</option>
-										  <option value="1">Disetujui</option>
-										</select>
+					<?php if(Request::segment(4)!=5){
+						if(isset($lah->id_pemilik)){
+						?>
+							<td><?php echo $lah->id_pemilik ?></td>
+							<td><?php echo $lah->luas ?></td>
+							<td><?php echo $lah->harga ?></td>
+							<td><?php echo $lah->nama ?></td>
+							<td><?php echo $lah->alamat ?></td>
+							<td><?php echo $lah->status ?></td>
+							<td><?php echo $lah->tenggat ?></td>
+							<?php if(($lah->status == 1) || ($lah->status == 3)){?>
+							<td>
+								<form class="form-horizontal" role="form" method="POST" action="{{ url('admin/dishub/confirmLahan') }}" onsubmit="return confirmAct()">
+									<input type="hidden" name="_token" value="{{ csrf_token() }}">
+									<input type="hidden" name="id" value="<?php echo $lah->id_lahan ?>">
+									<input type="hidden" name="no_ktp" value="<?php echo $lah->id_pemilik ?>">
+									<input type="hidden" name="terminal" value="<?php echo $lah->nama ?>">
+									<div class="form-group">
+										<div>
+											<select name="status">
+											  <option value="0">Ditolak</option>
+											  <option value="1">Disetujui</option>
+											</select>
+										</div>
+										<div>
+											<button type="submit" class="btn">Update</button>
+										</div>
 									</div>
-									<div>
-										<button type="submit" class="btn">Update</button>
-									</div>
-								</div>
-							</form>
-						</td>
-						<?php } else { ?>
-						<td>-</td>
+								</form>
+							</td>
+							<?php } else { ?>
+							<td>-</td>
+							<?php }?>
 						<?php }?>
+					<?php } else {
+						if(empty($lah->id_pemilik)){
+						?>
+							<td><?php echo $lah->id_pemilik ?></td>
+							<td><?php echo $lah->luas ?></td>
+							<td><?php echo $lah->harga ?></td>
+							<td><?php echo $lah->nama ?></td>
+							<td><?php echo $lah->alamat ?></td>
+							<td><?php echo $lah->status ?></td>
+							<td><?php echo $lah->tenggat ?></td>
+							<td><a href="{{ url('admin/dishub/delete') }}/<?php echo $lah->id_lahan ?>" class="btn" role="button" onclick="return confirmAct()">Delete</a></td>
+						<?php }?>
+					<?php }?>
 					</tr>
 				<?php endforeach ?>
 			</tbody>
@@ -164,13 +185,19 @@
 </div>
 <script>
 
-	function confirmDelete()
+	function confirmAct()
 	{
 		var x = confirm("Apa Anda yakin?");
 		if (x)
 			return true;
 		else
 			return false;
+	}
+	
+	function confirmDelete(delUrl) {
+	  if (confirm("Apakah Anda yakin menghapus lahan ini?")) {
+		document.location = delUrl;
+	  }
 	}
 
 </script>

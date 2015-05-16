@@ -82,3 +82,9 @@ Route::get('admin/dispenda/notif', 'AdminDishubController@notif');
 Route::post('admin/dishub/confirmParkir', 'AdminDishubController@confirmParkir');
 
 Route::post('admin/dishub/confirmLahan', 'AdminDishubController@confirmLahan');
+
+Route::get('admin/dishub/addLahan', 'AdminDishubController@addLahan');
+
+Route::post('admin/dishub/save', 'AdminDishubController@save');
+
+Route::get('admin/dishub/delete/{id}', 'AdminDishubController@delete');

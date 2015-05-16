@@ -47,7 +47,7 @@
 				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				      <ul class="menu nav navbar-nav">
 				        <li><a href="{{ url('/admin/dishub/notif') }}">Lihat Notif</a></li>
-						<li><a href="{{ url('/admin/dishub/showParkir/1') }}">Lihat Parkir</a></li>
+				        <li><a href="{{ url('/admin/dishub/showParkir/1') }}">Lihat Parkir</a></li>
 				        <li><a href="{{ url('/admin/dishub/showLahan/1') }}">Lihat Lahan</a></li>
 				        <li><a href="{{ url('/admin/dishub/addLahan') }}">Add Lahan</a></li>
 				      </ul>
@@ -68,86 +68,65 @@
 		</div>
 		<div class="col-xs-6">
 			<div class="page-header" style="text-align:center"> 
-				<h1>List Pendaftaran Parkir</h1> 
+				<h1>Data Lahan Kosong</h1> 
 			</div>
 		</div>
 		<div class="col-xs-2">
 		</div>
 	</div>
-	@if(Session::has('success'))
-		<div class="alert alert-success">
+	@if(Session::has('error'))
+		<div class="alert alert-danger">
 			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-		<strong>Success!</strong> {{ Session::get('message', '') }}
+		<strong>Error!</strong> {{ Session::get('message', '') }}
 		</div>
 	@endif
 	
-	<ul class="nav nav-tabs">
-	  <li><h5>Sort by:</h5></li>
-	  <li><a href="{{ url('admin/dishub/showParkir/1') }}">Daftar</a></li>
-	  <li><a href="{{ url('admin/dishub/showParkir/2') }}">Disetujui</a></li>
-	  <li><a href="{{ url('admin/dishub/showParkir/3') }}">Proses</a></li>
-	  <li><a href="{{ url('admin/dishub/showParkir/4') }}">Selesai</a></li>
-	</ul>
-		
-	<div class="col-xs-16">
-		<table class="table table-condensed">
-			<thead>
-				<tr style="font-size:16px">
-					<th>No. KTP</th>
-					<th>Alamat</th>
-					<th>Kecamatan</th>
-					<th>Lokasi</th>
-					<th>Jenis Kendaraan</th>
-					<th>Status</th>
-					<th>Luas</th>
-					<th>Tarif</th>
-					<th>Tenggat</th>
-					<th>Aksi</th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php foreach ($parkir as $par): ?>
-					<tr style="font-size:14px">
-						<td><?php echo $par->id_pemilik ?></td>
-						<td><?php echo $par->alamat ?></td>
-						<td><?php echo $par->nama_kecamatan ?></td>
-						<td><?php echo $par->lokasi ?></td>
-						<td><?php echo $par->jenis_kendaraan_parkir ?></td>
-						<td><?php echo $par->status ?></td>
-						<td><?php echo $par->luas ?></td>
-						<td><?php echo $par->tarif ?></td>
-						<td><?php echo $par->tenggat ?></td>
-						<?php if(($par->status == 1) || ($par->status == 3)){?>
-						<td>
-							<form class="form-horizontal" role="form" method="POST" action="{{ url('admin/dishub/confirmParkir') }}" onsubmit="return confirmAct()">
-								<input type="hidden" name="_token" value="{{ csrf_token() }}">
-								<input type="hidden" name="id" value="<?php echo $par->id_parkir ?>">
-								<input type="hidden" name="no_ktp" value="<?php echo $par->id_pemilik ?>">
-								<input type="hidden" name="alamat" value="<?php echo $par->alamat ?>">
-								<div class="form-group">
-									<div>
-										<select name="status">
-										  <option value="0">Ditolak</option>
-										  <option value="1">Disetujui</option>
-										</select>
-									</div>
-									<div>
-										<button type="submit" class="btn">Update</button>
-									</div>
-								</div>
-							</form>
-						</td>
-						<?php } else { ?>
-						<td>-</td>
-						<?php }?>
-					</tr>
-				<?php endforeach ?>
-			</tbody>
-		</table>
-		<?php //echo $parkir->render() ?>
+	<div class="row">
+		<form class="form-horizontal" role="form" method="POST" action="{{ url('/admin/dishub/save') }}">
+			<input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+			<div class="form-group">
+				<label class="col-md-4 control-label"><h4>Terminal</h4></label>
+				<div class="col-md-6">
+					<select name="terminal" class="form-control">
+					<?php foreach($terminal as $term): ?>
+						<option value="<?php echo $term->id_terminal ?>"><?php echo $term->nama ?></option>
+					<?php endforeach; ?>
+					</select>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="col-md-4 control-label"><h4>Luas</h4></label>
+				<div class="col-md-6">
+					<input type="text" class="form-control" name="luas" placeholder="Luas lahan (dalam m2)">
+				</div>
+				<div>
+					<h4><span class="label label-danger">{{ $errors->first('luas') }}</span></h4>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="col-md-4 control-label"><h4>Harga</h4></label>
+				<div class="col-md-6">
+					<input type="text" class="form-control" name="harga" placeholder="Harga sewa lahan (dalam Rp)">
+				</div>
+				<div>
+					<h4><span class="label label-danger">{{ $errors->first('harga') }}</span></h4>
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<div class="col-md-6 col-md-offset-4">
+					<button type="submit" class="btn btn-primary">Save</button>
+				</div>
+			</div>
+		</form>
 	</div>
+</div>
 	
-	<div class="footer_btm"><!-- start footer_btm -->
+<div class="footer_btm"><!-- start footer_btm -->
 	<div class="container">
 		<div class="row  footer1">
 			<div class="col-md-5">
@@ -168,18 +147,6 @@
 		</div>
 	</div>
 </div>
-<script>
-
-	function confirmAct()
-	{
-		var x = confirm("Apa Anda yakin?");
-		if (x)
-			return true;
-		else
-			return false;
-	}
-
-</script>
 </body>
 </html>
 

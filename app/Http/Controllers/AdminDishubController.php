@@ -5,9 +5,11 @@ use App\Http\Controllers\Controller;
 use App\Notification;
 use App\Parkir;
 use App\Lahan;
+use App\Terminal;
 
 use DB;
 use Redirect;
+use Validator;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -34,11 +36,21 @@ class AdminDishubController extends Controller {
 	
 	public function showLahan($status)
 	{
-		$lahan = DB::table('ppl_aparter_lahan')
-					->join('ppl_aparter_terminal', 'ppl_aparter_lahan.id_terminal', '=', 'ppl_aparter_terminal.id_terminal')
-					->select('id_lahan', 'id_pemilik', 'luas', 'status', 'harga', 'tenggat', 'nama', 'alamat')
-					->where('status', '=', $status)
-					->get();
+		if($status == 5)
+		{
+			$lahan = DB::table('ppl_aparter_lahan')
+						->join('ppl_aparter_terminal', 'ppl_aparter_lahan.id_terminal', '=', 'ppl_aparter_terminal.id_terminal')
+						->select('id_lahan', 'id_pemilik', 'luas', 'status', 'harga', 'tenggat', 'nama', 'alamat')
+						->get();
+		}
+		else	// $status != 5
+		{
+			$lahan = DB::table('ppl_aparter_lahan')
+						->join('ppl_aparter_terminal', 'ppl_aparter_lahan.id_terminal', '=', 'ppl_aparter_terminal.id_terminal')
+						->select('id_lahan', 'id_pemilik', 'luas', 'status', 'harga', 'tenggat', 'nama', 'alamat')
+						->where('status', '=', $status)
+						->get();
+		}
 		
 		return view('dishub.lahan')->with('lahan', $lahan);
 	}
@@ -69,7 +81,7 @@ class AdminDishubController extends Controller {
 		
 		$notif->save();
 		
-		return Redirect::to('admin/dishub/showParkir/1')->with('success', true)->with('message','Konfirmasi berhasil !');;
+		return Redirect::to('admin/dishub/showParkir/1')->with('success', true)->with('message','Konfirmasi berhasil !');
 		
 	}
 	
@@ -98,8 +110,49 @@ class AdminDishubController extends Controller {
 		
 		$notif->save();
 		
-		return Redirect::to('admin/dishub/showLahan/1')->with('success', true)->with('message','Konfirmasi berhasil !');;
+		return Redirect::to('admin/dishub/showLahan/1')->with('success', true)->with('message','Konfirmasi berhasil !');
 		
+	}
+	
+	public function addLahan()
+	{
+		$terminal = Terminal::all();
+		
+		return view('dishub.addLahan')->with('terminal', $terminal);
+	}
+	
+	public function save()
+	{
+		$rules = array(
+			'luas' => 'required',
+			'harga' => 'required',
+		);
+
+		$validator = Validator::make(Input::all(), $rules);
+
+		if ($validator->fails()) {    
+			return Redirect::to('admin/dishub/addLahan')->with('error', true)->with('message','Data tidak valid atau ada yang kosong!')->withErrors($validator)->withInput();
+		} else {                
+			$lahan = new Lahan;
+			
+			$lahan->id_terminal = Input::get('terminal');
+			$lahan->luas = Input::get('luas');
+			$lahan->harga = Input::get('harga');
+			$lahan->status = "1";
+			$lahan->tenggat = "0000-00-00";
+			
+			$lahan->save();
+			
+			return Redirect::to('admin/dishub/showLahan/5')->with('success', true)->with('message','Data berhasil masuk !');
+		}
+	}
+	
+	public function delete($id)
+	{
+		$user = Lahan::find($id);
+		$user->delete();
+		
+		return Redirect::to('admin/dishub/showLahan/5')->with('success', true)->with('message','Data berhasil dihapus !');
 	}
 
 }
