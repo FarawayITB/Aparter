@@ -17,6 +17,11 @@ class AdminviewController extends Controller {
 	public function addLahan(){
 		return View::make('add_lahan');
 	}
+
+	public function showsewa(){
+		$allNotif = Notification::all();
+		return view('dispenda_pembayaran')->with('allNotif', $allNotif);
+	}
 	
 
 }
