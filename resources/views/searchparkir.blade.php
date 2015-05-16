@@ -20,7 +20,7 @@
 	<div class="container infoparkir">
 		<div class="row">
 			<?php if ($parkir->count()==0) { ?>
-				<h3>Tidak tersedia parkir pada kecamatan yang Anda masukkan</h3>
+				<h3>Tidak tersedia lahan parkir pada kecamatan yang Anda masukkan</h3>
 			<?php }
 			foreach ($parkir as $par): ?>
 				<?php $location = explode(",", $par->lokasi)?>
