@@ -24,17 +24,6 @@ $(document).ready(function () {
 
 	google.maps.event.addDomListener(window, 'load', initialize);
 
-	// on Click event
-	$(".infoparkir").on('click','div',function(){
-		/*if (this.id!=""){
-			lat = $('#lat'+this.id).val();
-			lng = $('#long'+this.id).val();
-		}*/
-		var lokasi = document.getElementById("LatLng").value.split(",");
-		myCenter=new google.maps.LatLng(lokasi[0],lokasi[1]);
-		initialize();
-	});
-
 	function getUrlParameter(sParam)
 	{
 	    var sPageURL = window.location.search.substring(1);
@@ -49,6 +38,7 @@ $(document).ready(function () {
 	    }
 	}
 
+	// mencari lokasi + marker berdasarkan keyword google
 	function codeAddress(address) {
 		geocoder.geocode( { 'address': address}, function(results, status) {
 			if (status == google.maps.GeocoderStatus.OK) {
@@ -71,4 +61,34 @@ $(document).ready(function () {
 		map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
 		codeAddress(getUrlParameter("searchbox"));
 	}
+	// on Click event
+	$(".infoparkir").on('click','div',function(){
+		if (this.id!=""){
+			lat = $('#lat'+this.id).val();
+			lng = $('#long'+this.id).val();
+		}
+		var lokasi = document.getElementById("LatLng").value.split(",");
+		myCenter=new google.maps.LatLng(lokasi[0],lokasi[1]);
+		initialize();
+	});
 });
+
+function setMarker(lat,lng) {
+	var geocoder = new google.maps.Geocoder();
+	var myCenter = new google.maps.LatLng(lat,lng);
+	var mapProp = {
+		center: myCenter,
+		zoom:15,
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+	};
+	var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+	var marker = new google.maps.Marker({
+		position: myCenter
+	});
+
+	marker.setMap(map);
+
+	google.maps.event.addListener(marker,'click',function() {
+		map.setCenter(marker.getPosition());
+	});
+}

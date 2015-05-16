@@ -21,7 +21,7 @@ Route::get('/parkir', 'ParkirController@show');
 
 Route::get('/terminal', 'TerminalviewController@cek');
 
-Route::get('/parkir/cari', 'ParkirController@show');
+Route::get('/parkir/cari', 'ParkirController@search');
 
 Route::get('/tentang', 'SiteController@tentang');
 
@@ -72,3 +72,7 @@ Route::get('admin/dishub/notif', 'AdminDishubController@notif');
 Route::get('admin/dishub/showParkir/{status}', 'AdminDishubController@showParkir');
 
 Route::get('admin/dishub/showLahan/{status}', 'AdminDishubController@showLahan');
+
+Route::get('admin/dispenda/showsewa', 'AdminviewController@showsewa');
+
+Route::get('admin/dispenda/notif', 'AdminDishubController@notif');

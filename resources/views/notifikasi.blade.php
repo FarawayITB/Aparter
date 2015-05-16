@@ -13,6 +13,13 @@
 		<div class="col-xs-4">
 		</div>
 	</div>
+
+	@foreach ($allReminder as $reminder)
+	 <div class="alert alert-success alert-dismissable"> 
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true"> &times; 
+			</button> {{$reminder->body}}
+	</div>
+	@endforeach
 		
 	@foreach ($allNotif as $notif)	
 		<h3><a href="javascript:;" data-toggle="modal" data-target="#myModal{{$notif->id}}"> {{$notif->subject}} </a></h3>

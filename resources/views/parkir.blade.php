@@ -18,16 +18,5 @@
 	</form>
 
 	<div class="container infoparkir">
-		<div class="row">
-			<?php foreach ($parkir as $par): ?>
-				<div class="col-md-6" id="$par->id_parkir">
-					<h3><a href="javascript:;">Parkir <?php echo $par->alamat ?></a></h3>
-					<dl>
-						<p>Rp <?php echo $par->tarif ?> per hari | <?php echo $par->status ?></p>
-					</dl>
-				</div>
-				<div id="LatLng" type="hidden" value="<?php $par->lokasi?>"></div>
-			<?php endforeach ?>
-		</div>
 	</div>
 @endsection
