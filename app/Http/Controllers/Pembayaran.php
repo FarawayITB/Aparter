@@ -44,6 +44,7 @@ class Pembayaran extends Controller {
 			'id_tempat_parkir' => $idtempat_parkir,
 			'id_tempat_lahan' => $idtempat_lahan,
 			'pembayaran_terakhir' => Carbon::now()->month,
+			'id_pemilik' => $nik,
 		]);
 
 		if (Input::hasFile('unggah'))

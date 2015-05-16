@@ -76,6 +76,7 @@ class TerminalviewController extends Controller {
 			DB::table('ppl_aparter_pembayaran')->insert([
 				'id_tempat_lahan' => $id_lahan,
 				'pembayaran_terakhir' => Carbon::now()->month,
+				'id_pemilik' => $nik,
 			]);
 
 			// buat notifikasi
@@ -127,6 +128,7 @@ class TerminalviewController extends Controller {
 			DB::table('ppl_aparter_pembayaran')->insert([
 				'id_tempat_lahan' => $id,
 				'pembayaran_terakhir' => Carbon::now()->month,
+				'id_pemilik' => $nik,
 			]);
 
 			// buat notifikasi
