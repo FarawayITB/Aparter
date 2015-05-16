@@ -10,6 +10,7 @@ class UserController extends Controller {
         $nik = Cookie::get("NIK");
     	$parkir = DB::table('ppl_aparter_parkir')
     				->where('id_pemilik', '=', $nik) // where id_pemilik = id_ktp
+                    ->where ('tenggat','<>','0000-00-00')
     				->get();
 
     	$lahan = DB::table('ppl_aparter_lahan')
