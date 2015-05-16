@@ -73,6 +73,13 @@
 		</div>
 	</div>
 	
+	@if(Session::has('success'))
+		<div class="alert alert-success">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		<strong>Success!</strong> {{ Session::get('message', '') }}
+		</div>
+	@endif
+	
 	<ul class="nav nav-tabs">
 	  <li><a href="{{ url('admin/dishub/showLahan/1') }}">Daftar</a></li>
 	  <li><a href="{{ url('admin/dishub/showLahan/2') }}">Disetujui</a></li>
@@ -91,6 +98,7 @@
 					<th>Alamat</th>
 					<th>Status</th>
 					<th>Tenggat</th>
+					<th>Aksi</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -103,6 +111,29 @@
 						<td><?php echo $lah->alamat ?></td>
 						<td><?php echo $lah->status ?></td>
 						<td><?php echo $lah->tenggat ?></td>
+						<?php if(($lah->status == 1) || ($lah->status == 3)){?>
+						<td>
+							<form class="form-horizontal" role="form" method="POST" action="{{ url('admin/dishub/confirmLahan') }}" onsubmit="return confirmDelete()">
+								<input type="hidden" name="_token" value="{{ csrf_token() }}">
+								<input type="hidden" name="id" value="<?php echo $lah->id_lahan ?>">
+								<input type="hidden" name="no_ktp" value="<?php echo $lah->id_pemilik ?>">
+								<input type="hidden" name="terminal" value="<?php echo $lah->nama ?>">
+								<div class="form-group">
+									<div>
+										<select name="status">
+										  <option value="0">Ditolak</option>
+										  <option value="1">Disetujui</option>
+										</select>
+									</div>
+									<div>
+										<button type="submit" class="btn">Update</button>
+									</div>
+								</div>
+							</form>
+						</td>
+						<?php } else { ?>
+						<td>-</td>
+						<?php }?>
 					</tr>
 				<?php endforeach ?>
 			</tbody>
@@ -131,6 +162,18 @@
 		</div>
 	</div>
 </div>
+<script>
+
+	function confirmDelete()
+	{
+		var x = confirm("Apa Anda yakin?");
+		if (x)
+			return true;
+		else
+			return false;
+	}
+
+</script>
 </body>
 </html>
 
