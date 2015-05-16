@@ -19,6 +19,7 @@
 
 	<div class="container infoparkir">
 		<div class="row">
+			<?php echo $parkir->count(); ?>
 			<?php foreach ($parkir as $par): ?>
 				<?php $location = explode(",", $par->lokasi)?>
 				<div class="col-md-6" id="parkir_item" onclick="setMarker(<?php echo $location[0]?>,<?php echo $location[1]?>)">
