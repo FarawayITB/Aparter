@@ -19,7 +19,7 @@ class AdminviewController extends Controller {
 	}
 
 	public function showsewa(){
-		$parkir = DB::table('ppl_aparter_pembayaran')->get();
+		$pembayaran = DB::table('ppl_aparter_pembayaran')->get();
 		return view('dispenda_pembayaran')->with('pembayaran', $pembayaran);
 	}
 	
