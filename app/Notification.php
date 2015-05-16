@@ -33,7 +33,7 @@ class Notification extends Model
 			$from = "Dispenda";
 			$subject = "Masa tenggat";
 			$id_ktp = Cookie::get('NIK');
-			$body = "Waktu pembayaran Anda akan memasuki masa tenggat dalam 1 minggu.";
+			$body = "Waktu pembayaran Anda akan memasuki masa tenggat dalam 1 minggu. Silahkan segera melakukan pembayaran. Peringatan: bila melewati batas waktu tenggat, maka lahan parkir/terminal akan dicabut";
 			Notification::addNotif($id_ktp,$subject,$body,$from,$kategori);
 		}
 	}

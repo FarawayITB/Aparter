@@ -73,9 +73,10 @@ class TerminalviewController extends Controller {
 			$ext = Input::file('upload'.$id_lahan)->getClientOriginalExtension();
 			Input::file('upload'.$id_lahan)->move(storage_path().'\pembayaran',$nik.'_'.Carbon::now()->month.'_lahan_'.$id_lahan.'.'.$ext);
 			
-			DB::table('ppl_aparter_pembayaran')
-				->where('id_tempat_lahan', $id_lahan)
-				->update(['pembayaran_terakhir' => $last_month." ".Carbon::now()->year]);
+			DB::table('ppl_aparter_pembayaran')->insert([
+				'id_tempat_lahan' => $id_lahan,
+				'pembayaran_terakhir' => Carbon::now()->month,
+			]);
 
 			// buat notifikasi
 			$kategori = "Pembayaran";
@@ -111,7 +112,6 @@ class TerminalviewController extends Controller {
 		$month = Carbon::now()->month;
 		$month += 1;
 
-		echo $id;
 		if (Input::hasFile('upload'))
 		{
 			$varlahan = "lahan"."_".$id;
@@ -123,6 +123,19 @@ class TerminalviewController extends Controller {
 			$lahan->status = '1';
 			$lahan->tenggat = Carbon::createFromFormat('Y-m-d', Carbon::now()->year.'-'.$month.'-'.Carbon::now()->day);
 			$lahan->save();
+
+			DB::table('ppl_aparter_pembayaran')->insert([
+				'id_tempat_lahan' => $id,
+				'pembayaran_terakhir' => Carbon::now()->month,
+			]);
+
+			// buat notifikasi
+			$kategori = "Pembelian Lahan";
+			$from = "Dishub";
+			$id_ktp = $nik;
+			$subject = "Pembelian lahan dengan Lahan ID ".$id;
+			$body = "Permintaan pembelian lahan dengan Lahan ID ".$id." sudah diterima. Terima kasih sudah melakukan pembelian";
+			Notification::addNotif($id_ktp,$subject,$body,$from,$kategori);
 		}
 
 		return Redirect::action('SiteController@home');

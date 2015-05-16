@@ -72,29 +72,61 @@
 		<div class="col-xs-4">
 		</div>
 	</div>
+	
+	<ul class="nav nav-tabs">
+	
+	</ul>
 		
-	@foreach ($allNotif as $notif)	
-		<h3><a href="javascript:;" data-toggle="modal" data-target="#myModal{{$notif->id}}"> {{$notif->subject}} </a></h3>
-		<p> {{$notif->body}} </p>
-		<img src="{{url('../storage/pembayaran/coba.png')}}" alt="Generic placeholder thumbnail"> 	
-		<!-- Modal --> 
-		<div class="modal fade" id="myModal{{$notif->id}}" tabindex="-1" role="dialog" aria-labelledby="notifLabel" aria-hidden="true"> 
-			<div class="modal-dialog"> 
-				<div class="modal-content"> 
-					<div class="modal-header"> 
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times; </button> 
-						<h4 class="modal-title" id="notifLabel"> {{$notif->subject}} </h4> 
-					</div> 
-					<div class="modal-body">
-						<h5> {{$notif->body}} </h5>
-					</div> 
-					<div class="modal-footer"> 
-						<button type="button" class="btn btn-default" data-dismiss="modal"> Close </button> 
-					</div>
-				</div><!-- /.modal-content --> 
-			</div><!-- /.modal -->
-		</div>
-	@endforeach
+	<div class="col-xs-16">
+		<table class="table table-condensed">
+			<thead>
+				<tr style="font-size:16px">
+					<th>No. Pembayaran</th>
+					<th>No. KTP</th>
+					<th>Alamat</th>
+					<th>Status</th>
+					<th>Tarif</th>
+					<th>Jenis Kendaraan</th>
+					<th>Pembayaran Terakhir</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+			@foreach ($parkir as $p)
+					<tr style="font-size:14px">
+						<td><a href="javascript:;" data-toggle="modal" data-target="#myModal{{$p->id_pembayaran}}">{{$p->id_pembayaran}}</a></td>
+						<td>{{$p->id_pemilik}}</td>
+						<td>{{$p->alamat}}</td>
+						<td>{{$p->status}}</td>
+						<td>{{$p->tarif}}</td>
+						<td>{{$p->jenis kendaraan}}</td>
+						<td>{{$p->pembayaran_terakhir}}</td>
+						<!-- Modal --> 
+						<div class="modal fade" id="myModal{{$p->id_pembayaran}}" tabindex="-1" role="dialog" aria-labelledby="notifLabel" aria-hidden="true"> 
+							<div class="modal-dialog"> 
+								<div class="modal-content"> 
+									<div class="modal-header"> 
+										<button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times; </button> 
+										<h4 class="modal-title" id="notifLabel"> bukti pembayaran </h4> 
+									</div> 
+									<div class="modal-body">
+										<img src="{{url('../storage/pembayaran/coba.png')}}" alt="Generic placeholder thumbnail">
+									</div> 
+									<div class="modal-footer"> 
+										<button type="button" class="btn btn-default" data-dismiss="modal"> Konfirmasi </button>
+										<button type="button" class="btn btn-default" data-dismiss="modal"> Tolak </button> 
+									</div>
+								</div><!-- /.modal-content --> 
+							</div><!-- /.modal -->
+						</div>
+					</tr>
+			@endforeach
+			</tbody>
+			
+		</table>
+	</div>	
+</div>
+	
 </body>
 </html>
 
