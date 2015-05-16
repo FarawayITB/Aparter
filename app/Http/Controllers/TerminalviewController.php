@@ -75,7 +75,7 @@ class TerminalviewController extends Controller {
 			
 			DB::table('ppl_aparter_pembayaran')
 				->where('id_tempat_lahan', $id_lahan)
-				->update(['pembayaran_terakhir' => $last_month." ".Carbon::now()->year]);
+				->update(['pembayaran_terakhir' => $last_month]);
 
 			// buat notifikasi
 			$kategori = "Pembayaran";
