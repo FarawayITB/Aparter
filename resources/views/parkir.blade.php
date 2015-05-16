@@ -24,7 +24,7 @@
 			<?php }
 			else {
 				foreach ($parkir as $par):
-					$location = explode(",", $par->lokasi)?>
+					$location = explode(",", $par->lokasi);?>
 					<div class="col-md-6" id="parkir_item" onclick="setMarker(<?php echo $location[0]?>,<?php echo $location[1]?>)">
 						<h3><a href="javascript:;">Parkir <?php echo $par->alamat ?></a></h3>
 						<dl>
