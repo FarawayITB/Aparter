@@ -149,8 +149,8 @@ class AdminDishubController extends Controller {
 	
 	public function delete($id)
 	{
-		$user = Lahan::find($id);
-		$user->delete();
+		$lahan = Lahan::find($id);
+		$lahan->delete();
 		
 		return Redirect::to('admin/dishub/showLahan/5')->with('success', true)->with('message','Data berhasil dihapus !');
 	}
