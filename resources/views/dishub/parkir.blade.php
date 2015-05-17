@@ -113,11 +113,41 @@
 						<td><?php echo $par->nama_kecamatan ?></td>
 						<td><?php echo $par->lokasi ?></td>
 						<td><?php echo $par->jenis_kendaraan_parkir ?></td>
-						<td><?php echo $par->status ?></td>
+						<td>
+								<?php
+									if($par->status==1)
+									{
+										echo "Daftar";
+									}
+									else if($par->status==2)
+									{
+										echo "Disetujui";
+									}
+									else if($par->status==3)
+									{
+										echo "Proses";
+									}
+									else
+									{
+										echo "Selesai";
+									}
+								?>
+							</td>
 						<td><?php echo $par->luas ?></td>
 						<td><?php echo $par->tarif ?></td>
-						<td><?php echo $par->tenggat ?></td>
-						<?php if(($par->status == 1) || ($par->status == 3)){?>
+						<td>
+							<?php
+								if($par->tenggat == "0000-00-00")
+								{
+									echo '<span class="label label-danger">REKOMENDASI</span>';
+								}
+								else
+								{
+									echo $par->tenggat;
+								}
+							?>
+						</td>
+						<?php if(($par->status == 1) || ($par->status == 2) || ($par->status == 3)){?>
 						<td>
 							<form class="form-horizontal" role="form" method="POST" action="{{ url('admin/dishub/confirmParkir') }}" onsubmit="return confirmAct()">
 								<input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -127,10 +157,29 @@
 								<div class="form-group">
 									<div>
 										<select name="status">
-										  <option value="0">Ditolak</option>
-										  <option value="1">Disetujui</option>
+									<?php
+										echo '<option value="1">Dihapus</option>';
+										if(Request::segment(4)==1){
+											echo '<option value="2">Disetujui</option>';
+											echo '<option value="3">Diproses</option>';
+											echo '<option value="4">Selesai</option>';
+										}
+										else if(Request::segment(4)==2)
+										{
+											echo '<option value="3">Diproses</option>';
+											echo '<option value="4">Selesai</option>';
+										}
+										else if(Request::segment(4)==3)
+										{
+											echo '<option value="4">Selesai</option>';
+										}
+									?>
 										</select>
 									</div>
+								</div>
+						</td>
+						<td>
+								<div class="form-group">
 									<div>
 										<button type="submit" class="btn">Update</button>
 									</div>

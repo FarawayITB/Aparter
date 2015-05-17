@@ -116,9 +116,28 @@
 							<td><?php echo $lah->harga ?></td>
 							<td><?php echo $lah->nama ?></td>
 							<td><?php echo $lah->alamat ?></td>
-							<td><?php echo $lah->status ?></td>
+							<td>
+								<?php
+									if($lah->status==1)
+									{
+										echo "Daftar";
+									}
+									else if($lah->status==2)
+									{
+										echo "Disetujui";
+									}
+									else if($lah->status==3)
+									{
+										echo "Proses";
+									}
+									else
+									{
+										echo "Selesai";
+									}
+								?>
+							</td>
 							<td><?php echo $lah->tenggat ?></td>
-							<?php if(($lah->status == 1) || ($lah->status == 3)){?>
+							<?php if(($lah->status == 1) || ($lah->status == 2) || ($lah->status == 3)){?>
 							<td>
 								<form class="form-horizontal" role="form" method="POST" action="{{ url('admin/dishub/confirmLahan') }}" onsubmit="return confirmAct()">
 									<input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -128,10 +147,29 @@
 									<div class="form-group">
 										<div>
 											<select name="status">
-											  <option value="0">Ditolak</option>
-											  <option value="1">Disetujui</option>
+										<?php
+											echo '<option value="1">Dihapus</option>';
+											if(Request::segment(4)==1){
+												echo '<option value="2">Disetujui</option>';
+												echo '<option value="3">Diproses</option>';
+												echo '<option value="4">Selesai</option>';
+											}
+											else if(Request::segment(4)==2)
+											{
+												echo '<option value="3">Diproses</option>';
+												echo '<option value="4">Selesai</option>';
+											}
+											else if(Request::segment(4)==3)
+											{
+												echo '<option value="4">Selesai</option>';
+											}
+										?>
 											</select>
 										</div>
+									</div>
+							</td>
+							<td>
+									<div class="form-group">
 										<div>
 											<button type="submit" class="btn">Update</button>
 										</div>
@@ -150,7 +188,7 @@
 							<td><?php echo $lah->harga ?></td>
 							<td><?php echo $lah->nama ?></td>
 							<td><?php echo $lah->alamat ?></td>
-							<td><?php echo $lah->status ?></td>
+							<td>Lahan Kosong</td>
 							<td><?php echo $lah->tenggat ?></td>
 							<td><a href="{{ url('admin/dishub/delete') }}/<?php echo $lah->id_lahan ?>" class="btn" role="button" onclick="return confirmAct()">Delete</a></td>
 						<?php }?>
