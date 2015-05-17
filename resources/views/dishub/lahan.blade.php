@@ -116,7 +116,26 @@
 							<td><?php echo $lah->harga ?></td>
 							<td><?php echo $lah->nama ?></td>
 							<td><?php echo $lah->alamat ?></td>
-							<td><?php echo $lah->status ?></td>
+							<td>
+								<?php
+									if($lah->status==1)
+									{
+										echo "Daftar";
+									}
+									else if($lah->status==2)
+									{
+										echo "Disetujui";
+									}
+									else if($lah->status==3)
+									{
+										echo "Proses";
+									}
+									else
+									{
+										echo "Selesai";
+									}
+								?>
+							</td>
 							<td><?php echo $lah->tenggat ?></td>
 							<?php if(($lah->status == 1) || ($lah->status == 3)){?>
 							<td>
@@ -150,7 +169,7 @@
 							<td><?php echo $lah->harga ?></td>
 							<td><?php echo $lah->nama ?></td>
 							<td><?php echo $lah->alamat ?></td>
-							<td><?php echo $lah->status ?></td>
+							<td>Lahan Kosong</td>
 							<td><?php echo $lah->tenggat ?></td>
 							<td><a href="{{ url('admin/dishub/delete') }}/<?php echo $lah->id_lahan ?>" class="btn" role="button" onclick="return confirmAct()">Delete</a></td>
 						<?php }?>

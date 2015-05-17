@@ -113,7 +113,26 @@
 						<td><?php echo $par->nama_kecamatan ?></td>
 						<td><?php echo $par->lokasi ?></td>
 						<td><?php echo $par->jenis_kendaraan_parkir ?></td>
-						<td><?php echo $par->status ?></td>
+						<td>
+								<?php
+									if($par->status==1)
+									{
+										echo "Daftar";
+									}
+									else if($par->status==2)
+									{
+										echo "Disetujui";
+									}
+									else if($par->status==3)
+									{
+										echo "Proses";
+									}
+									else
+									{
+										echo "Selesai";
+									}
+								?>
+							</td>
 						<td><?php echo $par->luas ?></td>
 						<td><?php echo $par->tarif ?></td>
 						<td><?php echo $par->tenggat ?></td>
