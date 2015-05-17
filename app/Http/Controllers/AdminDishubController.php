@@ -67,15 +67,25 @@ class AdminDishubController extends Controller {
 		$notif->kategori = "Proses pendaftaran dan perpanjangan parkir";
 		$notif->from = "Dishub";
 		
-		if($status == 0)
+		if($status == 1)
 		{
-				$notif->body = "Proses lahan parkir Anda di alamat ".$alamat." DITOLAK. Hubungi Dishub untuk lebih detailnya";
-				$parkir = Parkir::where('id_parkir', '=', Input::get('id'))->delete();
+			$notif->body = "Lahan parkir Anda di alamat ".$alamat." DITOLAK. Hubungi Dishub untuk lebih detailnya";
+			$parkir = Parkir::where('id_parkir', '=', Input::get('id'))->delete();
 		}
-		else	// $status = 1
+		else if($status == 2)
 		{
-				$notif->body = "Proses lahan parkir Anda di alamat ".$alamat." telah DISETUJUI. Hubungi Dishub untuk lebih detailnya";
-				$parkir = Parkir::where('id_parkir', '=', Input::get('id'))->update(['status' => 4]);
+			$notif->body = "Lahan parkir Anda di alamat ".$alamat." telah DISETUJUI. Hubungi Dishub untuk lebih detailnya";
+			$parkir = Parkir::where('id_parkir', '=', Input::get('id'))->update(['status' => 2]);
+		}
+		else if($status == 3)
+		{
+			$notif->body = "Lahan parkir Anda di alamat ".$alamat." sedang DIPROSES. Hubungi Dishub untuk lebih detailnya";
+			$parkir = Parkir::where('id_parkir', '=', Input::get('id'))->update(['status' => 3]);
+		}
+		else if($status == 4)
+		{
+			$notif->body = "Lahan parkir Anda di alamat ".$alamat." telah SELESAI. Hubungi Dishub untuk lebih detailnya";
+			$parkir = Parkir::where('id_parkir', '=', Input::get('id'))->update(['status' => 4]);
 		}
 		
 		
@@ -97,15 +107,25 @@ class AdminDishubController extends Controller {
 		$notif->kategori = "Proses pendaftaran dan perluasan lahan di terminal";
 		$notif->from = "Dishub";
 		
-		if($status == 0)
+		if($status == 1)
 		{
-				$notif->body = "Proses lahan Anda di terminal ".$terminal." DITOLAK. Hubungi Dishub untuk lebih detailnya";
-				$lahan = Lahan::where('id_lahan', '=', Input::get('id'))->delete();
+			$notif->body = "Lahan Anda di terminal ".$terminal." DITOLAK. Hubungi Dishub untuk lebih detailnya";
+			$lahan = Lahan::where('id_lahan', '=', Input::get('id'))->delete();
 		}
-		else	// $status = 1
+		else if($status == 2)
 		{
-				$notif->body = "Proses lahan Anda di terminal ".$terminal." telah DISETUJUI. Hubungi Dishub untuk lebih detailnya";
-				$lahan = Lahan::where('id_lahan', '=', Input::get('id'))->update(['status' => 4]);
+			$notif->body = "Lahan Anda di terminal ".$terminal." telah DISETUJUI. Hubungi Dishub untuk lebih detailnya";
+			$lahan = Lahan::where('id_lahan', '=', Input::get('id'))->update(['status' => 2]);
+		}
+		else if($status == 3)
+		{
+			$notif->body = "Lahan Anda di terminal ".$terminal." sedang DIPROSES. Hubungi Dishub untuk lebih detailnya";
+			$lahan = Lahan::where('id_lahan', '=', Input::get('id'))->update(['status' => 3]);
+		}
+		else if($status == 4)
+		{
+			$notif->body = "Lahan Anda di terminal ".$terminal." telah SELESAI. Hubungi Dishub untuk lebih detailnya";
+			$lahan = Lahan::where('id_lahan', '=', Input::get('id'))->update(['status' => 4]);
 		}
 		
 		$notif->save();

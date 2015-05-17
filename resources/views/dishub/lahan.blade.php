@@ -137,7 +137,7 @@
 								?>
 							</td>
 							<td><?php echo $lah->tenggat ?></td>
-							<?php if(($lah->status == 1) || ($lah->status == 3)){?>
+							<?php if(($lah->status == 1) || ($lah->status == 2) || ($lah->status == 3)){?>
 							<td>
 								<form class="form-horizontal" role="form" method="POST" action="{{ url('admin/dishub/confirmLahan') }}" onsubmit="return confirmAct()">
 									<input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -147,10 +147,29 @@
 									<div class="form-group">
 										<div>
 											<select name="status">
-											  <option value="0">Ditolak</option>
-											  <option value="1">Disetujui</option>
+										<?php
+											echo '<option value="1">Dihapus</option>';
+											if(Request::segment(4)==1){
+												echo '<option value="2">Disetujui</option>';
+												echo '<option value="3">Diproses</option>';
+												echo '<option value="4">Selesai</option>';
+											}
+											else if(Request::segment(4)==2)
+											{
+												echo '<option value="3">Diproses</option>';
+												echo '<option value="4">Selesai</option>';
+											}
+											else if(Request::segment(4)==3)
+											{
+												echo '<option value="4">Selesai</option>';
+											}
+										?>
 											</select>
 										</div>
+									</div>
+							</td>
+							<td>
+									<div class="form-group">
 										<div>
 											<button type="submit" class="btn">Update</button>
 										</div>
