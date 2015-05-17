@@ -114,7 +114,27 @@
 		</table>
 	</div>	
 </div>
-	
+	<div class="footer_btm"><!-- start footer_btm -->
+	<div class="container">
+		<div class="row  footer1">
+			<div class="col-md-5">
+				<div class="soc_icons">
+					<ul class="list-unstyled">
+						<li><a class="icon1" href="#"></a></li>
+						<li><a class="icon2" href="#"></a></li>
+						<li><a class="icon3" href="#"></a></li>
+						<li><a class="icon4" href="#"></a></li>
+						<li><a class="icon5" href="#"></a></li>
+						<div class="clearfix"></div>
+					</ul>	
+				</div>
+			</div>
+			<div class="col-md-7 copy">
+				<p class="link text-right"><span>&#169; All rights reserved | Design by&nbsp;<a href="http://w3layouts.com/"> W3Layouts </a></span></p>
+			</div>
+		</div>
+	</div>
+</div>
 </body>
 </html>
 
