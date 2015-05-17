@@ -86,9 +86,10 @@
 			<tbody>
 			@foreach ($pembayaran as $p)
 					<tr style="font-size:14px">
-						<td><a href="javascript:;" data-toggle="modal" data-target="#myModal{{$p->id_pembayaran}}">{{$p->id_pembayaran}}</a></td>
+						<td>{{$p->id_pembayaran}}</td>
 						<td>{{$p->id_pemilik}}</td>
 						<td>{{$p->pembayaran_terakhir}}</td>
+						<td><button href="javascript:;" data-toggle="modal" data-target="#myModal{{$p->id_pembayaran}}">Acction</button></td>
 						<!-- Modal --> 
 						<div class="modal fade" id="myModal{{$p->id_pembayaran}}" tabindex="-1" role="dialog" aria-labelledby="notifLabel" aria-hidden="true"> 
 							<div class="modal-dialog"> 
@@ -98,11 +99,11 @@
 										<h4 class="modal-title" id="notifLabel"> bukti pembayaran </h4> 
 									</div> 
 									<div class="modal-body">
-										<img src="{{url('../storage/pembayaran/coba.png')}}" alt="Generic placeholder thumbnail">
+										<img class="img-responsive" src="{{url('../storage/pembayaran/'.$p->id_pemilik.'.jpg')}}" alt="Generic placeholder thumbnail">
 									</div> 
 									<div class="modal-footer"> 
-										<button type="button" class="btn btn-default" data-dismiss="modal"> Konfirmasi </button>
-										<button type="button" class="btn btn-default" data-dismiss="modal"> Tolak </button>
+										<a href="{{url('admin/dispenda/setuju/'.$p->id_pembayaran)}}" type="button" class="btn btn-default"> Konfirmasi </a>
+										<a href="{{url('admin/dispenda/tolak/'.$p->id_pembayaran)}}" type="button" class="btn btn-default"> Tolak </a>
 									</div>
 								</div><!-- /.modal-content --> 
 							</div><!-- /.modal -->

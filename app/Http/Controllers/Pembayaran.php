@@ -67,7 +67,7 @@ class Pembayaran extends Controller {
 		$kategori = "Pembayaran";
 		$subject = "Pembayaran";
 		$id_ktp = $nik;
-		$body = "Proses pembayaran berhasil. Terima kasih sudah membayar";
+		$body = "Proses pembayaran berhasil. silahkan tunggu konfirmasi pembayaran";
 		Notification::addNotif($id_ktp,$subject,$body,$from,$kategori);
 		return Redirect::action('SiteController@home');
 	}

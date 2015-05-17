@@ -23,5 +23,33 @@ class AdminviewController extends Controller {
 		return view('dispenda_pembayaran')->with('pembayaran', $pembayaran);
 	}
 	
+	public function setuju($id_pembayaran){
+		$user = DB::table('ppl_aparter_pembayaran')->where('id_pembayaran', '=', $id_pembayaran);
+		
+		$from = "Dispenda";
+		$kategori = "Pembayaran";
+		$subject = "Pembayaran";
+		
+		$id_ktp = $user->select('id_pemilik')->first()->id_pemilik;
+		
+		$body = "Proses pembayaran telah di verifikasi. Terima kasih sudah membayar";
+		$user->delete();
+		Notification::addNotif($id_ktp,$subject,$body,$from,$kategori);
+		return Redirect::action('AdminviewController@showsewa');
+	}
+
+	public function ditolak($id_pembayaran){
+		$user = DB::table('ppl_aparter_pembayaran')->where('id_pembayaran', '=', $id_pembayaran);
+		
+		$from = "Dispenda";
+		$kategori = "Pembayaran";
+		$subject = "Pembayaran";
+		
+		$id_ktp = $user->select('id_pemilik')->first()->id_pemilik;
+		$body = "Proses pembayaran telah ditolak, pastikan anda mengupload bukti yang valid";
+		$user->delete();
+		Notification::addNotif($id_ktp,$subject,$body,$from,$kategori);
+		return Redirect::action('AdminviewController@showsewa');
+	}
 
 }
