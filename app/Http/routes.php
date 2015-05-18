@@ -75,11 +75,15 @@ Route::get('admin/dishub/showLahan/{status}', 'AdminDishubController@showLahan')
 
 Route::get('admin/dispenda/showsewa', 'AdminviewController@showsewa');
 
+Route::get('admin/dispenda/retribusi', 'AdminviewController@retribusi');
+
 Route::get('admin/dispenda/tolak/{id_pembayaran}', 'AdminviewController@ditolak');
 
 Route::get('admin/dispenda/setuju/{id_pembayaran}', 'AdminviewController@setuju');
 
-Route::get('admin/dispenda/notif', 'AdminDishubController@notif');
+Route::get('admin/dispenda/notif', 'AdminviewController@notif');
+
+Route::post('admin/dispenda/ubah', 'AdminviewController@ubah');
 
 Route::post('admin/dishub/confirmParkir', 'AdminDishubController@confirmParkir');
 

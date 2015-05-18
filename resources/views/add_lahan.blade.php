@@ -41,15 +41,16 @@
 				        <span class="icon-bar"></span>
 				        <span class="icon-bar"></span>
 				      </button>
-				      <a class="navbar-brand" href="{{ url('/admin') }}"><img src="{{ asset('/images/logo.png') }}" alt="" class="img-responsive"/> </a>
+				      <a class="navbar-brand" href="{{ url('/admin/dispenda/notif') }}"><img src="{{ asset('/images/logo.png') }}" alt="" class="img-responsive"/> </a>
 				    </div>
 				    <!-- Collect the nav links, forms, and other content for toggling -->
 				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				      <ul class="menu nav navbar-nav">
-				        <li><a href="{{ url('/admin/notif') }}">Lihat Notif</a></li>
-				        <li><a href="{{ url('/admin/addlahan') }}">Add Lahan</a></li>
+				    	<li><a href="{{ url('/admin/dispenda/notif') }}">Lihat Notif</a></li>
+				        <li><a href="{{ url('/admin/dispenda/showsewa') }}">List Pembayaran</a></li>
+				        <li><a href="{{ url('/admin/dispenda/retribusi') }}">Perubahan Retribusi</a></li>
 				      </ul>
-				      <h4 class="text-right">Selamat datang, {{"Admin"}}</h4>
+				      <h4 class="text-right">Selamat datang, {{"Admin Dispenda"}}</h4>
 				    </div><!-- /.navbar-collapse -->
 				  </div><!-- /.container-fluid -->
 				</nav>
@@ -62,54 +63,56 @@
 </div>
 <div class="main"><!-- start main -->
 <div class="container">
-		<div class="row">
-			<div class="col-xs-4">
-			</div>
-			<div class="col-xs-3">
-				<div class="page-header"> 
-					<h1>Add Lahan</h1> 
-				</div>
-			</div>
+	<div class="row">
+		<div class="col-xs-3">
+		</div>
+		<div class="col-xs-6">
+			<div class="page-header" style="text-align:center"> 
+				<h1>Kirim Pemberitahuan Retribusi</h1> 
 			</div>
 		</div>
-		<div class="row">
-			
-			<form class="form-horizontal" role="form" enctype='multipart/form-data' method="post" action="/user/status">
-
-				<div class="form-group"> 
-					<label for="idtempat_lahan" class="col-md-4 control-label"><h4></h4></label> 
-					<div class="col-md-4">
-						<select class="form-control" name="pilihan terminal">
-							<option></option>
-							<option></option>
-							<option></option>
-						</select> 
-					</div>
-				</div> 
-
-
-				<div class="form-group"> 
-					<div class="col-md-6 col-md-offset-3">
-						<textarea class="form-control" name="luas" placeholder="luas"></textarea>				
-					</div>
-				</div> 
-
-				<div class="form-group"> 
-					<div class="col-md-6 col-md-offset-3">
-						<textarea class="form-control" name="status" placeholder="status"></textarea>				
-					</div>
-				</div> 
-
-				<div class="form-group"> 
-					<div class="col-sm-offset-5 col-sm-10"> 
-						<button type="submit" class="btn btn-default">Send</button> 
-					</div> 
-				</div> 
-				<input type="hidden" name="_token" value="{{ csrf_token() }}">
-			</form>
-		
+		<div class="col-xs-2">
 		</div>
 	</div>
+	@if(Session::has('error'))
+		<div class="alert alert-danger">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		<strong>Error!</strong> {{ Session::get('message', '') }}
+		</div>
+	@endif
+	
+	<div class="row">
+		<form class="form-horizontal" role="form" method="POST" action="{{ url('/admin/dispenda/ubah') }}">
+			<input type="hidden" name="_token" value="{{ csrf_token() }}">
+			<div class="form-group">
+				<label class="col-md-4 control-label"><h4>Subjek</h4></label>
+				<div class="col-md-6">
+					<input type="text" class="form-control" name="subjek" value="Retribusi">
+				</div>
+				<div>
+					<h4><span class="label label-danger">{{ $errors->first('luas') }}</span></h4>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="col-md-4 control-label"><h4>Isi</h4></label>
+				<div class="col-md-6">
+					<textarea class="form-control" name="isi"></textarea>
+				</div>
+				<div>
+					<h4><span class="label label-danger">{{ $errors->first('harga') }}</span></h4>
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<div class="col-md-6 col-md-offset-4">
+					<button type="submit" class="btn btn-primary">Save</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
 </div>
 </body>
 </html>

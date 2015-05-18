@@ -41,15 +41,16 @@
 				        <span class="icon-bar"></span>
 				        <span class="icon-bar"></span>
 				      </button>
-				      <a class="navbar-brand" href="{{ url('/admin') }}"><img src="{{ asset('/images/logo.png') }}" alt="" class="img-responsive"/> </a>
+				      <a class="navbar-brand" href="{{ url('/admin/dispenda/notif') }}"><img src="{{ asset('/images/logo.png') }}" alt="" class="img-responsive"/> </a>
 				    </div>
 				    <!-- Collect the nav links, forms, and other content for toggling -->
 				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				      <ul class="menu nav navbar-nav">
-				        <li><a href="{{ url('/admin/parkir') }}">Lihat Notif</a></li>
-				        <li><a href="{{ url('/admin/addlahan') }}">List Pembayaran</a></li>
+				        <li><a href="{{ url('/admin/dispenda/notif') }}">Lihat Notif</a></li>
+				        <li><a href="{{ url('/admin/dispenda/showsewa') }}">List Pembayaran</a></li>
+				        <li><a href="{{ url('/admin/dispenda/retribusi') }}">Perubahan Retribusi</a></li>
 				      </ul>
-				      <h4 class="text-right">Selamat datang, {{"Admin"}}</h4>
+				      <h4 class="text-right">Selamat datang, {{"Admin Dispenda"}}</h4>
 				    </div><!-- /.navbar-collapse -->
 				  </div><!-- /.container-fluid -->
 				</nav>

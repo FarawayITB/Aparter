@@ -14,7 +14,18 @@ class AdminviewController extends Controller {
 		return view('notif_admin',  ["allNotif" => $allNotif]);
 	}
 
-	public function addLahan(){
+	public function retribusi(){
+		return View::make('add_lahan');
+	}
+
+	public function ubah(){
+		$from = "Dispenda";
+		$kategori = "Retribusi";
+		$subject = "Perubahan Retribusi";
+		$body = Input::get('isi');	
+		$id_ktp = "retribusi";
+		Notification::addNotif($id_ktp,$subject,$body,$from,$kategori);
+		
 		return View::make('add_lahan');
 	}
 
